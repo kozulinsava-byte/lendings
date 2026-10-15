@@ -1,0 +1,378 @@
+/* =========================================================
+   ГАРАЖ 7 — автосервис
+   Индустриальная тема: нулевые скругления, сигнальный жёлтый,
+   моно-разметка разделов, техстроки. Плотная сетка вместо карточек.
+   ========================================================= */
+
+:root {
+  --bg: #0B0F14;
+  --bg-alt: #10161E;
+  --surface: rgba(255, 255, 255, .04);
+  --surface-2: rgba(255, 255, 255, .07);
+  --text: #E9EEF4;
+  --muted: #8C9BAC;
+  --brand: #FFC400;
+  --brand-2: #FFD75E;
+  --accent: #4ADE80;
+  --line: rgba(160, 190, 215, .16);
+  --font-display: 'Barlow Condensed', 'Manrope', sans-serif;
+  --font-body: 'Manrope', system-ui, sans-serif;
+  --radius: 0px;
+  --radius-sm: 0px;
+  --header-h: 68px;
+  --glow: 0 24px 56px -28px var(--brand);
+}
+
+body {
+  background:
+    radial-gradient(900px 420px at 80% -6%, rgba(255, 196, 0, .1), transparent 60%),
+    var(--bg);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: .005em;
+  line-height: .97;
+}
+h3 { text-transform: none; line-height: 1.2; letter-spacing: .01em; }
+
+.mono { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--brand); }
+.eyebrow { color: var(--brand); }
+::selection { background: var(--brand); color: #0B0F14; }
+
+.btn { border-radius: 0; text-transform: uppercase; letter-spacing: .05em; font-weight: 700; }
+.logo-num { color: var(--brand); }
+.hdr__logo-mark { border-radius: 0; color: #0B0F14; }
+.btn--ghost { border-color: rgba(160, 190, 215, .3); }
+
+/* ---------- техполоса над шапкой ---------- */
+.topbar {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 81;
+  background: var(--brand);
+  color: #0B0F14;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.hdr { top: 32px; }
+.mnav { z-index: 80; }
+.topbar__in {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 8px 0;
+  font-weight: 700;
+}
+.topbar__in span:nth-child(2) { opacity: .8; }
+
+/* =========================================================
+   ГЕРОЙ: сплит
+   ========================================================= */
+.hero { padding-top: calc(var(--header-h) + 32px); }
+.hero__grid { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; }
+.hero__panel {
+  display: flex;
+  align-items: center;
+  background:
+    linear-gradient(rgba(255, 196, 0, .045) 1px, transparent 1px) 0 0 / 100% 56px,
+    linear-gradient(90deg, rgba(255, 196, 0, .045) 1px, transparent 1px) 0 0 / 56px 100%,
+    var(--bg);
+  border-right: 1px solid var(--line);
+}
+.hero__panelin { width: min(var(--container), 92%); margin-left: auto; margin-right: clamp(30px, 5vw, 80px); padding: 60px 0; }
+.hero__mono { display: block; margin-bottom: 22px; }
+.hero h1 { font-size: clamp(44px, 6.4vw, 88px); margin-bottom: 22px; }
+.mark { color: var(--brand); }
+.hero__lead { color: var(--muted); max-width: 44ch; margin-bottom: 30px; font-size: 16.5px; }
+.hero__cta { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+.hero__tel { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; letter-spacing: .03em; border-bottom: 2px solid var(--brand); padding-bottom: 2px; }
+
+.hero__ph { position: relative; min-height: 560px; }
+.hero__ph img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.85) contrast(1.05); }
+.hero__ph::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--bg) 0%, transparent 24%);
+}
+.hero__badge {
+  position: absolute;
+  left: 28px;
+  bottom: 28px;
+  z-index: 2;
+  padding: 14px 20px;
+  border: 1px solid var(--brand);
+  background: rgba(11, 15, 20, .9);
+  display: grid;
+}
+.hero__badge span { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.hero__badge b { font-family: 'Barlow Condensed', sans-serif; font-size: 30px; color: var(--brand); line-height: 1; }
+
+/* =========================================================
+   ТАБЛО ФАКТОВ
+   ========================================================= */
+.facts { background: var(--brand); color: #0B0F14; }
+.facts__in { display: grid; grid-template-columns: repeat(5, 1fr); }
+.fact {
+  padding: 26px 20px 26px 0;
+  border-right: 1px solid rgba(11, 15, 20, .22);
+}
+.fact:last-child { border-right: 0; }
+.fact b {
+  display: block;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(28px, 3vw, 40px);
+  line-height: 1;
+  text-transform: none;
+}
+.fact span {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  opacity: .75;
+}
+
+/* =========================================================
+   ЗАГОЛОВКИ РАЗДЕЛОВ
+   ========================================================= */
+.svc-head {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 18px 40px;
+  align-items: start;
+  margin-bottom: 40px;
+  padding-bottom: 26px;
+  border-bottom: 1px solid var(--line);
+}
+.svc-head h2 { grid-column: 2; }
+.svc-head p { grid-column: 2; color: var(--muted); max-width: 52ch; font-size: 16px; }
+.svc-head .mono { grid-row: span 3; padding-top: 10px; }
+
+/* =========================================================
+   УСЛУГИ: плотная сетка
+   ========================================================= */
+.svc-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+.svc {
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 26px 22px 24px;
+  display: flex;
+  flex-direction: column;
+  transition: background .25s;
+}
+.svc:hover { background: rgba(255, 196, 0, .05); }
+.svc__code { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--brand); letter-spacing: .1em; }
+.svc h3 { font-size: 20px; margin: 14px 0 10px; }
+.svc p { font-size: 14.5px; color: var(--muted); flex: 1; }
+.svc__price {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--line);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 23px;
+  color: var(--brand);
+  text-transform: uppercase;
+  letter-spacing: .03em;
+}
+
+/* =========================================================
+   КАЛЬКУЛЯТОР
+   ========================================================= */
+.calc-head { display: grid; grid-template-columns: auto 1fr; gap: 18px 40px; align-items: start; margin-bottom: 36px; }
+.calc-head h2 { grid-column: 2; }
+.calc-head p { grid-column: 2; color: var(--muted); }
+.calc-head .mono { grid-row: span 2; padding-top: 12px; }
+
+.calc {
+  display: grid;
+  grid-template-columns: 1.12fr .88fr;
+  border: 1px solid var(--line);
+  background: rgba(255, 196, 0, .03);
+}
+.calc__form { padding: clamp(22px, 3vw, 38px); display: grid; gap: 16px; align-content: start; }
+.calc__form--lead { border-left: 1px solid var(--line); background: rgba(255, 255, 255, .02); }
+.calc__row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.calc__checks { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.ccheck { display: block; cursor: pointer; }
+.ccheck input { position: absolute; opacity: 0; pointer-events: none; }
+.ccheck span {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 11px 14px;
+  border: 1px solid var(--line);
+  font-size: 14px;
+  transition: border-color .2s, background .2s;
+}
+.ccheck span em { font-style: normal; color: var(--muted); font-size: 12.5px; font-family: 'JetBrains Mono', monospace; }
+.ccheck:hover span { border-color: rgba(255, 196, 0, .5); }
+.ccheck input:checked + span { border-color: var(--brand); background: rgba(255, 196, 0, .1); }
+.ccheck input:focus-visible + span { outline: 2px solid var(--brand); outline-offset: 2px; }
+
+.calc__total {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 18px 0 0;
+  border-top: 1px dashed var(--line);
+}
+.calc__total span { font-size: 14px; color: var(--muted); }
+.calc__total b { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(32px, 4vw, 44px); color: var(--brand); line-height: 1; }
+.calc__hint { font-size: 13px; color: var(--muted); }
+
+/* =========================================================
+   ГАЛЕРЕЯ СЕРВИСА
+   ========================================================= */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 180px;
+  gap: 12px;
+  margin-bottom: 48px;
+}
+.gal { margin: 0; position: relative; overflow: hidden; }
+.gal img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s, filter .4s; filter: saturate(.85); }
+.gal:hover img { transform: scale(1.05); filter: saturate(1.05); }
+.gal--wide { grid-column: span 2; }
+.gal--tall { grid-row: span 2; }
+.gal figcaption {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 12px 14px;
+  background: linear-gradient(transparent, rgba(11, 15, 20, .92));
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: #D8E3EE;
+}
+
+.rules { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--line); }
+.rule { padding: 26px 24px 0 0; border-right: 1px solid var(--line); }
+.rule:last-child { border-right: 0; }
+.rule .mono { display: block; color: var(--brand); margin-bottom: 14px; }
+.rule b { display: block; font-family: 'Barlow Condensed', sans-serif; font-size: 22px; text-transform: uppercase; margin-bottom: 7px; }
+.rule p { font-size: 14.5px; color: var(--muted); }
+
+/* =========================================================
+   ГАРАНТИЯ
+   ========================================================= */
+.guar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(28px, 4vw, 60px);
+  align-items: center;
+}
+.guar__ph { margin: 0; position: relative; }
+.guar__ph img { width: 100%; aspect-ratio: 4 / 3.2; object-fit: cover; }
+.guar__ph figcaption {
+  position: absolute;
+  left: 0; bottom: 0;
+  padding: 13px 18px;
+  background: var(--brand);
+  color: #0B0F14;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  max-width: 80%;
+}
+.guar__in h2 { margin: 14px 0 18px; }
+.guar__in p { color: var(--muted); margin-bottom: 28px; max-width: 46ch; }
+.guar__list { list-style: none; padding: 0; display: grid; gap: 14px; }
+.guar__list li {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+.guar__list b {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 30px;
+  color: var(--brand);
+  min-width: 90px;
+  text-transform: none;
+}
+.guar__list span { font-size: 15px; color: var(--muted); }
+
+/* =========================================================
+   ОТЗЫВЫ строками
+   ========================================================= */
+.revrows { border-top: 1px solid var(--line); }
+.revrow {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 26px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--line);
+  transition: background .2s;
+}
+.revrow:hover { background: rgba(255, 196, 0, .035); }
+.revrow__rate {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 38px;
+  color: var(--brand);
+  line-height: 1;
+  align-self: start;
+}
+.revrow__in p { font-size: 16.5px; margin-bottom: 10px; max-width: 72ch; }
+.revrow__who {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* =========================================================
+   FAQ
+   ========================================================= */
+.faq-sec { display: grid; grid-template-columns: .7fr 1.3fr; gap: clamp(30px, 5vw, 70px); align-items: start; }
+.faq-sec .svc-head { display: block; border: 0; }
+.faq-sec .svc-head .mono { display: block; margin-bottom: 16px; }
+.acc__btn::after, .acc__btn::before { border-radius: 0; }
+
+/* ---------- адаптив ---------- */
+@media (max-width: 1100px) {
+  .svc-grid { grid-template-columns: repeat(2, 1fr); }
+  .facts__in { grid-template-columns: repeat(3, 1fr); }
+  .fact:nth-child(3) { border-right: 0; }
+  .rules { grid-template-columns: repeat(2, 1fr); }
+  .rule:nth-child(2) { border-right: 0; }
+  .gallery { grid-template-columns: repeat(3, 1fr); }
+  .calc { grid-template-columns: 1fr; }
+  .calc__form--lead { border-left: 0; border-top: 1px solid var(--line); }
+}
+
+@media (max-width: 900px) {
+  .topbar__in span:nth-child(2) { display: none; }
+  .hero__grid { grid-template-columns: 1fr; }
+  .hero__panel { border-right: 0; }
+  .hero__panelin { margin: 0 auto; }
+  .hero__ph { min-height: 300px; }
+  .guar { grid-template-columns: 1fr; }
+  .faq-sec { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 620px) {
+  .svc-grid, .calc__row, .calc__checks, .rules, .gallery { grid-template-columns: 1fr; }
+  .facts__in { grid-template-columns: repeat(2, 1fr); }
+  .fact { border-right: 0; border-bottom: 1px solid rgba(11, 15, 20, .2); }
+  .rule { border-right: 0; border-bottom: 1px solid var(--line); padding-bottom: 20px; }
+  .gal--wide, .gal--tall { grid-column: auto; grid-row: auto; }
+  .revrow { grid-template-columns: 1fr; gap: 12px; }
+  .svc-head, .calc-head { grid-template-columns: 1fr; gap: 10px; }
+  .svc-head h2, .svc-head p, .calc-head h2, .calc-head p { grid-column: 1; }
+}

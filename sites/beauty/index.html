@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>БАРХАТ — салон красоты в центре города | Стрижки, цвет, уход</title>
+<meta name="description" content="Салон красоты БАРХАТ: стрижки и цвет от мастеров со стажем от 9 лет, уход за лицом, маникюр, вечерние укладки. Онлайн-запись и скидка 20% на первый визит.">
+<meta property="og:title" content="БАРХАТ — салон красоты">
+<meta property="og:description" content="Топ-мастера, авторские техники окрашивания, онлайн-запись за 30 секунд.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='50' fill='%23A25340'/><text y='71' x='50' text-anchor='middle' font-size='54' font-family='serif' fill='white'>Б</text></svg>">
+</head>
+<body>
+
+<!-- ============ ШАПКА ============ -->
+<header class="hdr">
+  <div class="hdr__inner">
+    <a href="#top" class="hdr__logo hdr__logo--serif">БАРХАТ</a>
+    <nav class="hdr__nav">
+      <a href="#services">Услуги</a>
+      <a href="#team">Команда</a>
+      <a href="#works">Работы</a>
+      <a href="#prices">Цены</a>
+    </nav>
+    <div class="hdr__actions">
+      <a class="hdr__phone" href="tel:+79123456789">+7 912 345-67-89</a>
+      <a href="#booking" class="btn btn--sm">Записаться</a>
+    </div>
+    <button class="burger" aria-label="Меню" aria-expanded="false"><span></span></button>
+  </div>
+</header>
+
+<div class="mnav">
+  <a href="#services">Услуги</a>
+  <a href="#team">Команда</a>
+  <a href="#works">Работы</a>
+  <a href="#prices">Цены</a>
+  <a href="#booking" class="btn">Записаться · скидка 20%</a>
+  <div class="mnav__foot">ул. Мира, 23 · ежедневно 09:00 — 21:00</div>
+</div>
+
+<main id="top">
+
+<!-- ============ ГЕРОЙ: асимметрия + перекрывающаяся карточка ============ -->
+<section class="hero">
+  <div class="container hero__in">
+    <div class="hero__left">
+      <span class="kicker reveal">Салон красоты · центр города · с 2014 года</span>
+      <h1 class="reveal" data-delay="1">
+        Красота,<br>
+        которую видно<br>
+        <em>не только в зеркале</em>
+      </h1>
+      <p class="hero__text reveal" data-delay="2">
+        Четыре мастера с опытом от девяти лет. Мы не подгоняем всех под один
+        шаблон: сначала разбираемся с вашей структурой волос, потом стрижём.
+      </p>
+      <a href="#booking" class="btn btn--lg reveal" data-delay="3">Записаться онлайн</a>
+      <div class="hero__note reveal" data-delay="4">
+        <span class="hero__discount">−20%</span>
+        <span>на первый визит при записи с сайта — промокод придёт в подтверждении</span>
+      </div>
+    </div>
+
+    <div class="hero__right reveal" data-delay="2">
+      <figure class="hero__ph">
+        <img src="img/salon.jpg" alt="Зал салона красоты с зеркалами и креслами" fetchpriority="high">
+        <figcaption>Зал на 6 кресел · ул. Мира, 23</figcaption>
+      </figure>
+      <div class="hero__card">
+        <b>12</b>
+        <span>лет салон<br>на одном месте</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ УСЛУГИ: редакционный список + липкое фото ============ -->
+<section class="sec" id="services">
+  <div class="container services">
+    <div class="services__list">
+      <div class="services__head reveal">
+        <span class="kicker">Услуги</span>
+        <h2>Всё, что делаем<br>руками мастера</h2>
+      </div>
+
+      <article class="svc-item reveal">
+        <span class="svc-item__n">01</span>
+        <div class="svc-item__body">
+          <h3>Стрижки и укладки</h3>
+          <p>Диагностика структуры волос, подбор формы под тип лица, укладка на профессиональной косметике.</p>
+        </div>
+        <span class="svc-item__price">от 1 200 ₽</span>
+      </article>
+
+      <article class="svc-item reveal">
+        <span class="svc-item__n">02</span>
+        <div class="svc-item__body">
+          <h3>Окрашивание и осветление</h3>
+          <p>Шатуш, балаяж, gloss-блеск. Всегда с восстановлением структуры в процедуру.</p>
+        </div>
+        <span class="svc-item__price">от 3 200 ₽</span>
+      </article>
+
+      <article class="svc-item reveal">
+        <span class="svc-item__n">03</span>
+        <div class="svc-item__body">
+          <h3>Уход и восстановление</h3>
+          <p>Кератин, ботокс, ламинирование. Помогаем с волосами после осветления и после жары.</p>
+        </div>
+        <span class="svc-item__price">от 4 900 ₽</span>
+      </article>
+
+      <article class="svc-item reveal">
+        <span class="svc-item__n">04</span>
+        <div class="svc-item__body">
+          <h3>Маникюр и педикюр</h3>
+          <p>Гель-лак, покрытие, снятие, дизайн. Материалы стерилизуются по всем требованиям.</p>
+        </div>
+        <span class="svc-item__price">от 2 400 ₽</span>
+      </article>
+
+      <article class="svc-item reveal">
+        <span class="svc-item__n">05</span>
+        <div class="svc-item__body">
+          <h3>Уход за лицом</h3>
+          <p>Чистки, пилинги, карбокситерапия. Косметолог с медицинским образованием и стажем 7 лет.</p>
+        </div>
+        <span class="svc-item__price">от 3 200 ₽</span>
+      </article>
+
+      <article class="svc-item reveal">
+        <span class="svc-item__n">06</span>
+        <div class="svc-item__body">
+          <h3>Массаж и SPA</h3>
+          <p>Спина и воротниковая зона, релакс-программы на 90 минут. По предварительной записи.</p>
+        </div>
+        <span class="svc-item__price">от 1 800 ₽</span>
+      </article>
+    </div>
+
+    <aside class="services__sticky">
+      <figure class="sticky-ph reveal">
+        <img src="img/spa-face.jpg" alt="Клиентка салона с уходовым кремом" loading="lazy">
+        <figcaption>Зона ухода</figcaption>
+      </figure>
+      <figure class="sticky-ph sticky-ph--sm reveal" data-delay="1">
+        <img src="img/spa-oil.jpg" alt="Эфирные масла для ароматерапии" loading="lazy">
+        <figcaption>Ароматерапия в каждом визите</figcaption>
+      </figure>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ КОМАНДА: высокие фотокарточки ============ -->
+<section class="sec team-sec" id="team">
+  <div class="container">
+    <div class="team-sec__head reveal">
+      <span class="kicker">Команда</span>
+      <h2>Мастера, с которыми<br>хочется остаться</h2>
+      <p class="lead">При записи можно выбрать конкретного мастера — или сказать «кто свободен», и подберём сами.</p>
+    </div>
+
+    <div class="team">
+      <article class="master reveal">
+        <figure class="master__ph"><img src="img/cut.jpg" alt="Мастер стрижёт клиентку" loading="lazy"></figure>
+        <h3>Алиса Ветрова</h3>
+        <span class="master__role">Топ-стилист · опыт 12 лет</span>
+        <p>Стрижки и сложные формы. Обрезка по методу Лобба, работа с седыми волосами.</p>
+      </article>
+      <article class="master reveal" data-delay="1">
+        <figure class="master__ph"><img src="img/barber.jpg" alt="Мастер выполняет стрижку" loading="lazy"></figure>
+        <h3>Вера Шмидт</h3>
+        <span class="master__role">Колорист · опыт 10 лет</span>
+        <p>Автор окрашивания «Бархат». Работает с блондом и сложной сединой.</p>
+      </article>
+      <article class="master reveal" data-delay="2">
+        <figure class="master__ph"><img src="img/manicure.jpg" alt="Маникюр: уход за ногтями" loading="lazy"></figure>
+        <h3>Ксения Море</h3>
+        <span class="master__role">Мастер по ногтям · опыт 9 лет</span>
+        <p>Гель-лак, укрепление, дизайн. Сорок с лишним отзывов именно за аккуратность.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ РАБОТЫ: горизонтальная лента ============ -->
+<section class="sec works-sec" id="works">
+  <div class="container works-sec__head reveal">
+    <div>
+      <span class="kicker">Портфолио</span>
+      <h2>Работы, которые<br>выложили с разрешения</h2>
+    </div>
+    <span class="works-sec__hint">← листайте →</span>
+  </div>
+  <div class="filmstrip" data-slider>
+    <div class="filmstrip__track" data-slider-track>
+      <figure class="frame"><img src="img/cut.jpg" alt="Стрижка" loading="lazy"><figcaption>Стрижка · Алиса</figcaption></figure>
+      <figure class="frame frame--tall"><img src="img/manicure.jpg" alt="Маникюр" loading="lazy"><figcaption>Маникюр · Ксения</figcaption></figure>
+      <figure class="frame"><img src="img/makeup.jpg" alt="Макияж и детали" loading="lazy"><figcaption>Макияж · вечерний</figcaption></figure>
+      <figure class="frame frame--tall"><img src="img/spa-smile.jpg" alt="Клиентка после ухода" loading="lazy"><figcaption>Уход · Ксения</figcaption></figure>
+      <figure class="frame"><img src="img/spa-oil.jpg" alt="Ароматерапия" loading="lazy"><figcaption>Ароматерапия</figcaption></figure>
+      <figure class="frame"><img src="img/spa-towels.jpg" alt="Полотенца и халаты" loading="lazy"><figcaption>Зона отдыха</figcaption></figure>
+      <figure class="frame frame--tall"><img src="img/barber.jpg" alt="Мужская стрижка" loading="lazy"><figcaption>Мужская стрижка · с 800 ₽</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ЦЕНЫ: таблица с точечным заполнением ============ -->
+<section class="sec sec--alt" id="prices">
+  <div class="container prices">
+    <div class="prices__head reveal">
+      <span class="kicker">Прайс</span>
+      <h2>Цены без сюрпризов<br>на кресле</h2>
+      <p class="lead">Стоимость называем до начала работы. Доплата возможна, только если вы сами добавили услугу или попросили изменить план.</p>
+    </div>
+    <div class="prices__table reveal" data-delay="1">
+      <div class="prow"><span>Консультация и диагностика</span><b>0 ₽</b></div>
+      <div class="prow"><span>Мытьё и укладка</span><b>900 ₽</b></div>
+      <div class="prow"><span>Стрижка · мастер Алиса</span><b>1 800 ₽</b></div>
+      <div class="prow"><span>Стрижка · мастера салона</span><b>1 200 ₽</b></div>
+      <div class="prow"><span>Мужская стрижка</span><b>800 ₽</b></div>
+      <div class="prow"><span>Окрашивание в один тон</span><b>3 200 ₽</b></div>
+      <div class="prow"><span>Балаяж / шатуш</span><b>5 400 ₽</b></div>
+      <div class="prow"><span>Кератиновое выпрямление</span><b>6 500 ₽</b></div>
+      <div class="prow"><span>Маникюр с покрытием</span><b>2 400 ₽</b></div>
+      <div class="prow"><span>Чистка лица</span><b>3 200 ₽</b></div>
+      <div class="prow"><span>Вечерняя укладка</span><b>2 600 ₽</b></div>
+      <p class="prices__note">Длина и густота волос могут добавить к цене до 30% — мастер предупредит заранее.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ОТЗЫВЫ: сетка цитат ============ -->
+<section class="sec">
+  <div class="container">
+    <div class="quotes__head reveal">
+      <span class="kicker">Отзывы</span>
+      <h2>Говорят наши гости</h2>
+    </div>
+    <div class="quotes">
+      <figure class="quote reveal">
+        <blockquote>Четыре года хожу к Алисе. Она единственная, кто не пытается сделать «как у всех», а сначала спрашивает про образ жизни. Балаяж — лучшее, что было в моих волосах.</blockquote>
+        <figcaption>Елена Л. · 2ГИС, 3 недели назад</figcaption>
+      </figure>
+      <figure class="quote reveal" data-delay="1">
+        <blockquote>Делала маникюр перед отпуском. Идеально чисто, стерильный инструмент видно своими глазами. Ксения предупредила, что покрытие передержу — и была права.</blockquote>
+        <figcaption>Юлия П. · Яндекс, месяц назад</figcaption>
+      </figure>
+      <figure class="quote reveal" data-delay="2">
+        <blockquote>Записывалась на свадьбу с тремя подругами. Укладки держались до утра, волосы не лохматились даже на танцполе. И ни разу не навязали лишнего.</blockquote>
+        <figcaption>Алина В. · заказ свадьбы, июль</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ЗАПИСЬ ============ -->
+<section class="sec sec--alt" id="booking">
+  <div class="container booking">
+    <div class="booking__left reveal">
+      <span class="kicker">Онлайн-запись</span>
+      <h2>Записаться<br>за 30 секунд</h2>
+      <p class="lead">Подтвердим запись в течение 15 минут и пришлём промокод на −20% в сообщении.</p>
+      <ul class="booking__list">
+        <li>Отмена и перенос без штрафов — предупредите за 4 часа</li>
+        <li>Парковка во дворе салона — 2 часа бесплатно</li>
+        <li>Кофе, чай и вода в зоне ожидания — без ограничений</li>
+      </ul>
+      <figure class="booking__ph">
+        <img src="img/spa-towels.jpg" alt="Полотенца и халаты в зоне отдыха" loading="lazy">
+      </figure>
+    </div>
+
+    <form class="booking__form reveal" data-delay="1" data-demo-form data-ok="ok-book" novalidate>
+      <div class="field">
+        <label for="b-name">Ваше имя</label>
+        <input class="input" id="b-name" name="name" type="text" data-rule="name" data-err="Напишите имя" placeholder="Анна" autocomplete="name">
+        <span class="field__err"></span>
+      </div>
+      <div class="field">
+        <label for="b-phone">Телефон</label>
+        <input class="input" id="b-phone" name="phone" type="tel" inputmode="tel" data-mask="phone"
+               data-rule="phone" data-err="Введите телефон полностью" placeholder="+7 (___) ___-__-__" autocomplete="tel">
+        <span class="field__err"></span>
+      </div>
+      <div class="field">
+        <label for="b-service">Услуга</label>
+        <select class="input" id="b-service" name="service">
+          <option>Стрижка</option><option>Окрашивание</option><option>Уход и восстановление</option>
+          <option>Маникюр</option><option>Уход за лицом</option><option>Вечерняя укладка</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="b-master">Мастер</label>
+        <select class="input" id="b-master" name="master">
+          <option>Любой свободный</option>
+          <option>Алиса Ветрова — стрижки</option>
+          <option>Вера Шмидт — цвет</option>
+          <option>Ксения Море — ногти</option>
+        </select>
+      </div>
+      <div class="field field--row">
+        <div><label for="b-date">Дата</label><input class="input" id="b-date" name="date" type="date"></div>
+        <div>
+          <label for="b-time">Время</label>
+          <select class="input" id="b-time" name="time">
+            <option>10:00</option><option>12:00</option><option>14:00</option>
+            <option>16:00</option><option>18:00</option><option>19:30</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="b-comment">Комментарий мастеру <span class="opt">— необязательно</span></label>
+        <textarea class="input" id="b-comment" name="comment" placeholder="Например: хочу убрать длину, но боюсь коротких волос"></textarea>
+      </div>
+      <button class="btn btn--block btn--lg" type="submit">Записаться со скидкой 20%</button>
+      <p class="form__note form__consent">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
+      <div class="form-ok" id="ok-book">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        <div><b>Вы записаны</b><p>Подтвердим запись звонком и пришлём промокод на −20%.</p></div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="sec">
+  <div class="container faq-sec">
+    <div class="faq-sec__head reveal">
+      <span class="kicker">Перед визитом</span>
+      <h2>Частые вопросы</h2>
+    </div>
+    <div class="acc reveal" data-delay="1">
+      <div class="acc__item">
+        <button class="acc__btn">Нужно ли что-то приносить с собой?</button>
+        <div class="acc__panel"><div>Нет. Полотенца, пеньюар, расчёски и всё для окрашивания — в салоне. Своё бельё тоже не требуется.</div></div>
+      </div>
+      <div class="acc__item">
+        <button class="acc__btn">Можно ли прийти к конкретному мастеру?</button>
+        <div class="acc__panel"><div>Да, выбираете при записи. Если нужного мастера нет в графике — предложим ближайшее свободное окно или другого специалиста с похожим стилем.</div></div>
+      </div>
+      <div class="acc__item">
+        <button class="acc__btn">Сколько держится укладка и цвет?</button>
+        <div class="acc__panel"><div>Укладка — до 3 дней при мытьё на мягкой воде. Цвет — 4–6 недель до следующего окрашивания, и мы честно говорим, сколько раз нужно мыть голову.</div></div>
+      </div>
+      <div class="acc__item">
+        <button class="acc__btn">Делаете ли вы для мужчин?</button>
+        <div class="acc__panel"><div>Да. Простые стрижки и моделирование бороды — от 800 ₽. Записывайтесь на вечерние слоты, когда салон почти пустой.</div></div>
+      </div>
+      <div class="acc__item">
+        <button class="acc__btn">Как отменить запись?</button>
+        <div class="acc__panel"><div>Позвоните или напишите за 4 часа до визита. Отмена и перенос бесплатные, предоплату мы не берём.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ ПОДВАЛ ============ -->
+<footer class="ftr">
+  <div class="container">
+    <div class="ftr__grid">
+      <div>
+        <a href="#top" class="hdr__logo hdr__logo--serif" style="margin-bottom:16px">БАРХАТ</a>
+        <p class="muted" style="max-width:32ch;font-size:15px">Салон красоты в центре города. Работаем с 2014 года, четверо мастеров, один стандарт качества.</p>
+      </div>
+      <div>
+        <h5>Услуги</h5>
+        <div class="ftr__links">
+          <a href="#services">Стрижки</a><a href="#services">Окрашивание</a>
+          <a href="#services">Уход за лицом</a><a href="#services">Маникюр</a>
+        </div>
+      </div>
+      <div>
+        <h5>Салон</h5>
+        <div class="ftr__links">
+          <a href="#team">Мастера</a><a href="#works">Работы</a>
+          <a href="#prices">Прайс</a><a href="#booking">Запись</a>
+        </div>
+      </div>
+      <div>
+        <h5>Контакты</h5>
+        <div class="ftr__links">
+          <a href="tel:+79123456789">+7 912 345-67-89</a>
+          <a href="#">ул. Мира, 23</a>
+          <a href="#">Ежедневно 09:00 — 21:00</a>
+        </div>
+      </div>
+    </div>
+    <div class="ftr__bot">
+      <span>© <span data-year>2026</span> Салон БАРХАТ · Демо-лендинг</span>
+      <span>Цены не являются публичной офертой</span>
+    </div>
+  </div>
+</footer>
+
+<div class="mcta">
+  <a class="btn btn--ghost" href="tel:+79123456789">Позвонить</a>
+  <a class="btn" href="#booking">Записаться · −20%</a>
+</div>
+
+<script src="../assets/site.js"></script>
+<script>
+(function () {
+  var d = document.getElementById('b-date');
+  if (!d) return;
+  var t = new Date(); t.setDate(t.getDate() + 1);
+  d.value = t.toISOString().slice(0, 10);
+  d.min = new Date().toISOString().slice(0, 10);
+})();
+</script>
+</body>
+</html>
