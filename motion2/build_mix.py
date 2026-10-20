@@ -42,22 +42,42 @@ def find(group, prefer=None):
 
 
 def build_key(segments, total, path, sr=48000):
+    """Ключевой сигнал для дакинга.
+
+    Берётся из САМОГО голоса (полоса 800–6000 Гц = вокальная середина),
+    а не из карты битов: речь в ролике непрерывная, и ключ по битам держал бы
+    музыку придавленной все 77 секунд без единого вдоха.
+    По реальной огибающей музыка проседает на гласных и поднимается в паузах —
+    это и есть «живой» микс.
+    """
+    voice = os.path.join(LAB, "voice.wav")
+    raw = np.frombuffer(sh(["-i", voice, "-af", "highpass=f=800,lowpass=f=6000", "-ar", str(sr),
+                            "-ac", "1", "-f", "s16le", "-"]), dtype=np.int16).astype(np.float32) / 32768.0
     n = int(total * sr)
-    t = np.arange(n) / sr
-    key = np.zeros(n, dtype=np.float32)
-    for s in segments:
-        a = int(max(0, s["start"] * sr))
-        b = int(min(n, (s["start"] + s["dur"]) * sr))
-        if b - a < 100:
-            continue
-        ramp = min(int(0.16 * sr), (b - a) // 2)
-        env = np.ones(b - a, dtype=np.float32)
-        if ramp > 1:
-            env[:ramp] = np.linspace(0, 1, ramp)
-            env[-ramp:] = np.linspace(1, 0, ramp)
-        key[a:b] = np.maximum(key[a:b], env)
-    wave = (0.26 * key * np.sin(2 * np.pi * 900 * t)).astype(np.float32)
-    pcm = (wave * 32767).astype(np.int16)
+    if len(raw) < n:
+        raw = np.pad(raw, (0, n - len(raw)))
+    raw = raw[:n]
+
+    # огибающая: среднее по окну 20 мс, затем сглаживание 120 мс
+    w = int(sr * 0.02)
+    nf = len(raw) // w
+    env = np.sqrt(np.mean(raw[:nf * w].reshape(nf, w) ** 2, axis=1))
+    k = int(sr * 0.12) // w
+    ker = np.ones(max(1, k)) / max(1, k)
+    env = np.convolve(env, ker, mode="same")
+    peak = float(env.max()) if len(env) else 1.0
+    if peak < 1e-6:
+        peak = 1.0
+    env = np.clip(env / peak, 0.0, 1.0)
+
+    # мягкая компрессия огибающей, чтобы фразы не давили музыку по-разному
+    env = env ** 0.55
+    full = np.repeat(env, w)[:n]
+    if len(full) < n:
+        full = np.pad(full, (0, n - len(full)))
+    full = full * 0.16
+
+    pcm = (np.clip(full, -1, 1) * 32767).astype(np.int16)
     sh(["-f", "s16le", "-ar", str(sr), "-ac", "1", "-i", "-", "-c:a", "pcm_s16le", path],
        stdin_bytes=pcm.tobytes())
     return path
@@ -135,7 +155,7 @@ def main():
 
     # слой A: ровный бед на весь ролик
     fc.append(f"[0:a]atrim=0:{total},asetpts=N/SR/TB,aresample=48000,"
-               f"highpass=f=45,lowpass=f=11000,volume=0.19,"
+               f"highpass=f=45,lowpass=f=11000,volume=0.34,"
                f"afade=t=in:st=0:d=1.8,afade=t=out:st={total-3}:d=3[bedA]")
     # слой B: энергичный трек входит на переломе
     fc.append(f"[1:a]atrim=0:{total},asetpts=N/SR/TB,aresample=48000,"
@@ -163,4 +183,5 @@ def main():
 
 
 main()
+
 
