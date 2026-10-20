@@ -1,67 +1,151 @@
 ﻿"""
-Финальный пакет для исполнителя ролика.
-
-  assets/voice.wav        — сведенный трек (голос + музыка + саунддизайн), 48 кГц
-  assets/voice_clean.wav  — только голос (если исполнитель соберёт звук сам)
-  assets/beatmap.json     — карта битов: id / start / end / текст
-  assets/*.png            — скриншоты настоящих лендингов
+Сборка пакета для исполнителя + перегенерация таймингов в брифе
+строго из beatmap.json (чтобы цифры в брифе и в звуке не расходились).
 """
-import json, os, shutil, subprocess
+import json, os, re, shutil, subprocess
 
+LAB = r"Z:\лендинги\motion2\.work"
 PROJ = r"Z:\лендинги\motion2"
-WORK = os.path.join(PROJ, ".work")
 ASSETS = os.path.join(PROJ, "assets")
-FFMPEG = os.path.join(WORK, "ffmpeg2.exe")
-VOICE = os.environ.get("BEST_VOICE", "ruslan")
-
+FFMPEG = os.path.join(LAB, "ffmpeg2.exe")
 os.makedirs(ASSETS, exist_ok=True)
 
 
-def sh(args, **kw):
-    r = subprocess.run(args, capture_output=True, text=True, errors="ignore", **kw)
+def sh(args):
+    r = subprocess.run([FFMPEG, "-nostdin", "-y", "-hide_banner", "-loglevel", "error"] + list(args),
+                       capture_output=True)
     if r.returncode != 0:
-        print("  ОШИБКА:", (r.stderr or "")[-400:])
-    return r.returncode == 0
+        print("  ffmpeg:", r.stderr.decode("utf-8", "ignore")[-300:])
 
 
-# 1. сведенный трек
-mix = os.path.join(WORK, "mix_final.wav")
-if os.path.exists(mix):
-    shutil.copy2(mix, os.path.join(ASSETS, "voice.wav"))
-    # mp3 для быстрого прослушивания
-    sh([FFMPEG, "-y", "-hide_banner", "-loglevel", "error", "-i", mix,
-        "-c:a", "libmp3lame", "-b:a", "192k", os.path.join(ASSETS, "voice.mp3")])
-    print("  voice.wav + voice.mp3 готовы")
+# ---------- 1. звук ----------
+shutil.copy2(os.path.join(LAB, "mix_final.wav"), os.path.join(ASSETS, "voice.wav"))
+shutil.copy2(os.path.join(LAB, "voice.wav"), os.path.join(ASSETS, "voice_clean.wav"))
+sh(["-i", os.path.join(ASSETS, "voice.wav"), "-c:a", "libmp3lame", "-b:a", "192k",
+    os.path.join(ASSETS, "voice.mp3")])
 
-# 2. чистый голос
-clean = os.path.join(WORK, f"voice_{VOICE}.wav")
-if os.path.exists(clean):
-    shutil.copy2(clean, os.path.join(ASSETS, "voice_clean.wav"))
+# ---------- 2. карта битов ----------
+tl = json.load(open(os.path.join(LAB, "timeline.json"), encoding="utf-8"))
+beats = [{"id": s["id"], "start": round(s["start"], 2), "end": round(s["start"] + s["dur"], 2),
+          "text": s["text"]} for s in tl["segments"]]
+total = round(tl["total"], 2)
+json.dump({"total": total, "fps": 60,
+           "note": "Тайминги точные, сняты с реальной длины озвучки. Ориентироваться на них.",
+           "beats": beats},
+          open(os.path.join(ASSETS, "beatmap.json"), "w", encoding="utf-8"),
+          ensure_ascii=False, indent=2)
 
-# 3. карта битов
-tl_path = os.path.join(WORK, f"timeline_{VOICE}.json")
-tl = json.load(open(tl_path, encoding="utf-8"))
-beats = [{
-    "id": s["id"],
-    "start": round(s["start"], 2),
-    "end": round(s["start"] + s["dur"], 2),
-    "text": s["text"],
-} for s in tl["segments"]]
-
-json.dump({
-    "total": round(tl["total"], 2),
-    "fps": 60,
-    "note": "Тайминги точные, взяты из реальной длины озвучки. Ориентироваться на них, а не на регламент.",
-    "beats": beats,
-}, open(os.path.join(ASSETS, "beatmap.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=2)
-print(f"  beatmap.json: {len(beats)} битов, {round(tl['total'],2)} с")
-
-# 4. скриншоты сайтов
-for n in ["shawarma", "beauty", "auto", "dental"]:
+# ---------- 3. скриншоты сайтов ----------
+for n in ["shawarma", "beauty", "auto", "dental", "portfolio"]:
     p = os.path.join(PROJ, "public", n + ".png")
     if os.path.exists(p):
         shutil.copy2(p, os.path.join(ASSETS, n + ".png"))
 
-print("\n  ПАКЕТ:")
+# ---------- 4. перегенерация таймингов в брифе ----------
+BRIEF = os.path.join(PROJ, "VIDEO-BRIEF.md")
+s = open(BRIEF, encoding="utf-8").read()
+
+MOOD = {
+    "s01": "появление карточки", "s03": "пустые слоты карточки",
+    "s04": "подсветка блока контактов", "s05": "три пустых слота",
+    "s06": "курсор отдёргивается от кнопки", "s07": "взгляд на экран",
+    "s08": "силуэт уходит, чужая карточка", "s09": "**перелом**",
+    "s10": "ссылка загорается", "s11": "карточка → сайт",
+    "s12": "веб-браузер с настоящим сайтом", "s13": "звонок, сайты вокруг",
+    "s14": "цифра +23 %", "s15": "выход на цену", "s16": "**8 000 ₽**",
+    "s17": "три карточки", "s18": "реальный сайт", "s19": "рассматриваем работы",
+    "s20": "**НАПИШИ «САЙТ»**", "s21": "финал, логотип, работы",
+}
+
+
+def fmt(x):
+    s = f"{x:.2f}".rstrip("0").rstrip(".").replace(".", ",")
+    return s
+
+
+# таблица раздела 3
+rows = []
+for b in beats:
+    mood = MOOD.get(b["id"], "")
+    rows.append(f"| {fmt(b['start'])}–{fmt(b['end'])} | «{b['text']}» | {mood} |")
+table3 = "\n".join(rows)
+
+# заменяем старую таблицу раздела 3 (между заголовком и следующим блоком)
+s = re.sub(r"(\| Время \| Реплика \| Что происходит в этот момент \|\n\|---\|---\|---\|\n)(?:\|.*\n)+",
+           lambda m: m.group(1) + table3 + "\n", s, count=1)
+
+# сценарный план раздела 7: переписываем строки времени
+for b in beats:
+    pat = re.compile(r"^- (\d+:\d\d(?:,\d)?) — (.+)$", re.M)
+    # заменяем по порядку появления
+lines7 = []
+for b in beats:
+    lines7.append((b["id"], fmt(b["start"])))
+# точечная замена: идём по строкам акта и подставляем новые значения
+act_times = [b["start"] for b in beats]
+
+s = s.replace("| Длина | **53,4 секунды** (ровно по длине озвучки `voice.wav`) |",
+              f"| Длина | **{fmt(total)} секунды** (ровно по длине озвучки `voice.wav`) |")
+s = s.replace("**таймкод `00:00:00 / 00:00:53`**", f"**таймкод `00:00:00 / 00:00:{int(total):02d}`**")
+s = s.replace("Ролик идёт **ровно 53,4 с**", f"Ролик идёт **ровно {fmt(total)} с**")
+s = s.replace("> 1. `voice.wav` — финальная озвучка с музыкой и эффектами (53,4 с).",
+              f"> 1. `voice.wav` — финальная озвучка с музыкой и эффектами ({fmt(total)} с).")
+
+# тайминги в разделах 5.3 / 6 / 7 — заменяем по значением битов
+T = {b["id"]: b["start"] for b in beats}
+def mm(sec):
+    return f"{int(sec)//60}:{int(sec)%60:02d},{int(round((sec%1)*100)):02d}".replace(",", ",")
+
+repl = {
+    "(0:17,8 / 0:31,1 / 0:39,0)": f"({mm(T['s09'])} / {mm(T['s14'])} / {mm(T['s15'])})",
+    "перед 0:17,8 / 0:31,1 / 0:39,0 / 0:48,3;": f"перед {mm(T['s09'])} / {mm(T['s14'])} / {mm(T['s15'])} / {mm(T['s20'])};",
+    "на 0:17,8 / 0:31,1 / 0:39,0 / 0:51,7;": f"на {mm(T['s09'])} / {mm(T['s14'])} / {mm(T['s15'])} / {mm(T['s21'])};",
+    "в моменты 0:10,9 / 0:19,6 / 0:22,6 / 0:48,3;": f"в моменты {mm(T['s06'])} / {mm(T['s10'])} / {mm(T['s11'])} / {mm(T['s20'])};",
+    "на 0:31,1 и 0:39,0;": f"на {mm(T['s14'])} и {mm(T['s15'])};",
+    "на 0:03,0–0:03,1 — **тишина музыки**": f"на {mm(T['s01'])}–{mm(T['s03'])} — **тишина музыки**",
+    "**АКТ 1. ПУСТОТА (0:00 — 0:17,8)**": f"**АКТ 1. ПУСТОТА (0:00 — {mm(T['s09'])})**",
+    "**АКТ 2. ПЕРЕЛОМ (0:17,8 — 0:22,5)**": f"**АКТ 2. ПЕРЕЛОМ ({mm(T['s09'])} — {mm(T['s10'])})**",
+    "**АКТ 3. РЕШЕНИЕ (0:22,6 — 0:31,0)**": f"**АКТ 3. РЕШЕНИЕ ({mm(T['s11'])} — {mm(T['s14'])})**",
+    "**АКТ 4. ЦИФРА И ЦЕНА (0:31,1 — 0:44,7)**": f"**АКТ 4. ЦИФРА И ЦЕНА ({mm(T['s14'])} — {mm(T['s18'])})**",
+    "**АКТ 5. ДОВОД И ФИНАЛ (0:44,8 — 0:53,4)**": f"**АКТ 5. ДОВОД И ФИНАЛ ({mm(T['s18'])} — {fmt(total)})**",
+}
+for a, b in repl.items():
+    s = s.replace(a, b)
+
+# строки солочки акта 7 — подставляем новые времена по порядку
+solo = [
+    ("- 0:03,0 — **пауза**.", f"- {mm(beats[0]['end'])} — **пауза**."),
+    ("- 0:03,1 — подпись «А дальше ему некуда идти».", f"- {mm(T['s03'])} — подпись «А дальше ему некуда идти»."),
+    ("- 0:04,5 — блок «Контакты» подсвечивается", f"- {mm(T['s04'])} — блок «Контакты» подсвечивается"),
+    ("- 0:06,2 — раскрываются три пустых слота", f"- {mm(T['s05'])} — раскрываются три пустых слота"),
+    ("- 0:10,9 — кнопка «Позвонить».", f"- {mm(T['s06'])} — кнопка «Позвонить»."),
+    ("- 0:12,2 — силуэт человека уходит вправо", f"- {mm(T['s07'])} — силуэт человека уходит вправо"),
+    ("- 0:14,0 — рядом появляется чужая карточка", f"- {mm(T['s08'])} — рядом появляется чужая карточка"),
+    ("- 0:17,8 — **вспышка**.", f"- {mm(T['s09'])} — **вспышка**."),
+    ("- 0:19,6 — на фоне из глубины наплывают", f"- {mm(T['s10'])} — на фоне из глубины наплывают"),
+    ("- 0:21,0 — камера доворачивает", f"- {mm(T['s11'])} — камера доворачивает"),
+    ("- 0:22,6 — курсор **кликает**", f"- {mm(T['s11'])} — курсор **кликает**"),
+    ("- 0:23,2 — **морф**", f"- {mm(T['s12'])} — **морф**"),
+    ("- 0:26,0 — кросс-фейд на настоящий **«Бархат»**", f"- {mm(T['s12'])} — кросс-фейд на настоящий **«Бархат»**"),
+    ("- 0:28,9 — иконка телефона в центре", f"- {mm(T['s13'])} — иконка телефона в центре"),
+    ("- 0:31,1 — бит с цифрой.", f"- {mm(T['s14'])} — бит с цифрой."),
+    ("- 0:31,1 — крупно: **23 %**", f"- {mm(T['s14'])} — крупно: **23 %**"),
+    ("- 0:37,7 — «Я делаю такие сайты».", f"- {mm(T['s15'])} — «Я делаю такие сайты»."),
+    ("- 0:39,0 — **8 000 ₽**", f"- {mm(T['s16'])} — **8 000 ₽**"),
+    ("- 0:42,0 — «половина оплаты — вперёд».", f"- {mm(T['s16'])} — «половина оплаты — вперёд»."),
+    ("- 0:42,1 — три карточки **Услуги / Цены / Фото работ**", f"- {mm(T['s17'])} — три карточки **Услуги / Цены / Фото работ**"),
+    ("- 0:44,8 — кросс-фейд на настоящий **«Гараж 7»**", f"- {mm(T['s18'])} — кросс-фейд на настоящий **«Гараж 7»**"),
+    ("- 0:46,4 — настоящий **«Белая линия»**", f"- {mm(T['s18'])} — настоящий **«Белая линия»**"),
+    ("- 0:48,3 — кнопка **«НАПИШИ „САЙТ“»**", f"- {mm(T['s19'])} — кнопка **«НАПИШИ „САЙТ“»**"),
+    ("- 0:51,7 — логотип, подпись «уже есть довольные клиенты»", f"- {mm(T['s21'])} — логотип, подпись «уже есть довольные клиенты»"),
+    ("- 0:53,4 — финальный кадр", f"- {fmt(total)} — финальный кадр"),
+]
+for a, b in solo:
+    s = s.replace(a, b)
+
+open(BRIEF, "w", encoding="utf-8").write(s)
+
+print("ПАКЕТ ДЛЯ ИСПОЛНИТЕЛЯ:")
 for f in sorted(os.listdir(ASSETS)):
     print(f"    {f:20} {round(os.path.getsize(os.path.join(ASSETS, f))/1048576, 2):>7} МБ")
+print(f"\n  длительность ролика: {total} с, битов: {len(beats)}")
