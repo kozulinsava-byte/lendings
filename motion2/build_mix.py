@@ -110,18 +110,17 @@ def main():
     impact2 = find("impact", "cinematic_boom")
 
     T = {s["id"]: s["start"] for s in segs}
-    TURN = T["s09"]          # момент перелома
-    CLOSE = T["s20"]         # финальный призыв
+    TURN = T["s08"]          # момент перелома («А теперь смотри, что меняется»)
 
     events = []
     # ризеры: перед переломом, перед цифрой, перед ценой, перед финалом
-    for t, g in [(TURN - 1.2, 0.5), (T["s14"] - 1.2, 0.45), (T["s15"] - 0.9, 0.4),
-                 (T["s20"] - 1.0, 0.45), (T["s21"] - 1.3, 0.5)]:
+    for t, g in [(TURN - 1.2, 0.5), (T["s13"] - 1.2, 0.45), (T["s15"] - 0.9, 0.4),
+                 (T["s23"] - 1.0, 0.45), (T["s27"] - 1.3, 0.5)]:
         if t > 0.3:
             events.append((riser if t != TURN - 1.2 else riser2, t, g,
                            "afade=t=in:st=0:d=0.06,afade=t=out:st=1.25:d=0.5"))
     # импакты
-    for t, g in [(TURN, 0.85), (T["s14"], 0.8), (T["s15"], 0.9), (T["s21"], 0.95)]:
+    for t, g in [(TURN, 0.85), (T["s13"], 0.8), (T["s15"], 0.9), (T["s27"], 0.95)]:
         events.append((impact, t, g, "afade=t=in:st=0:d=0.004,afade=t=out:st=0.45:d=0.12"))
     # второй, «весомый» импакт на переломе
     events.append((impact2, TURN, 0.7, "afade=t=in:st=0:d=0.004,afade=t=out:st=0.8:d=0.25"))
@@ -130,10 +129,10 @@ def main():
         events.append((whoosh, max(0, s["start"] - 0.14), 1.15,
                        "afade=t=in:st=0:d=0.02,afade=t=out:st=0.4:d=0.2"))
     # клики на UI-моментах
-    for t in [T["s06"], T["s10"], T["s11"], T["s20"]]:
+    for t in [T["s05"], T["s09"], T["s10"], T["s23"]]:
         events.append((click, t, 1.9, "afade=t=in:st=0:d=0.003,afade=t=out:st=0.2:d=0.06"))
     # саб-бумы
-    for t in [T["s14"], T["s15"]]:
+    for t in [T["s13"], T["s15"]]:
         events.append((sub, t, 1.4, "afade=t=in:st=0:d=0.01,afade=t=out:st=0.9:d=0.25"))
 
     inputs, fc, ev = [], [], []

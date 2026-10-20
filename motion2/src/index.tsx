@@ -217,8 +217,8 @@ const Caption: React.FC = () => {
   const start = F(active.start);
   const words = active.text.split(' ');
   const per = Math.max(1, (active.dur * fps) / words.length);
-  const accent = ['s09', 's14', 's16', 's20', 's21'].includes(active.id);
-  const big = active.id === 's14';
+  const accent = ['s08', 's13', 's15', 's23', 's27'].includes(active.id);
+  const big = active.id === 's13';
 
   return (
     <div
@@ -623,7 +623,7 @@ const Shock: React.FC<{ from: number }> = ({ from }) => {
   const d = frame - from;
   const s = spring({ frame: d + 22, fps: FPS, config: { damping: 18, mass: 0.6, stiffness: 190 } });
   // сцена живёт всю длину своего сегмента — иначе подпись висит над пустым кадром
-  const seg = S('s09');
+  const seg = S('s08');
   const life = (seg.dur + seg.gap) * FPS;
   if (d < -24 || d > life) return null;
   const ring = interpolate(d, [0, 26], [0, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
@@ -890,25 +890,32 @@ const SceneBody: React.FC<{ seg: Seg }> = ({ seg }) => {
   const f = F(seg.start);
   switch (seg.id) {
     case 's01': return <Card2GIS from={f} mode="full" />;
+    case 's02': return <Card2GIS from={f} mode="empty" />;
     case 's03': return <Card2GIS from={f} mode="empty" />;
-    case 's04': return <Card2GIS from={f} mode="empty" />;
-    case 's05': return <QuestionCards from={f} />;
-    case 's06': return <Strike from={f} />;
-    case 's07': return <QuestionCards from={f} />;
-    case 's08': return <Rival from={f} />;
-    case 's09': return <Shock from={f} />;
-    case 's10': return <Card2GIS from={f} mode="site" />;
-    case 's11': return <Morph from={f} />;
-    case 's12': return <SiteFrame src={staticFile('beauty.png')} from={f} label="barhat-beauty.ru" scrollTo={-620} />;
-    case 's13': return <CallPulse from={f} />;
-    case 's14': return <Percent from={f} />;
+    case 's04': return <QuestionCards from={f} />;
+    case 's05': return <Strike from={f} />;
+    case 's06': return <QuestionCards from={f} />;
+    case 's07': return <Rival from={f} />;
+    case 's08': return <Shock from={f} />;
+    case 's09': return <Card2GIS from={f} mode="site" />;
+    case 's10': return <Morph from={f} />;
+    case 's11': return <SiteFrame src={staticFile('beauty.png')} from={f} label="barhat-beauty.ru" scrollTo={-620} />;
+    case 's12': return <CallPulse from={f} />;
+    case 's13': return <Percent from={f} />;
+    case 's14': return <Price from={f} />;
     case 's15': return <Price from={f} />;
     case 's16': return <Price from={f} />;
-    case 's17': return <Trio from={f} />;
-    case 's18': return <SiteFrame src={staticFile('auto.png')} from={f} label="garag7.ru" scrollTo={-520} />;
-    case 's19': return <SiteFrame src={staticFile('dental.png')} from={f} label="belaya-liniya.ru" scrollTo={-420} />;
-    case 's20': return <CTA from={f} />;
-    case 's21': return <Finale from={f} />;
+    case 's17': return <Price from={f} />;
+    case 's18': return <Price from={f} />;
+    case 's19': return <Trio from={f} />;
+    case 's20': return <Trio from={f} />;
+    case 's21': return <SiteFrame src={staticFile('auto.png')} from={f} label="garag7.ru" scrollTo={-520} />;
+    case 's22': return <SiteFrame src={staticFile('dental.png')} from={f} label="belaya-liniya.ru" scrollTo={-420} />;
+    case 's23': return <CTA from={f} />;
+    case 's24': return <Finale from={f} />;
+    case 's25': return <Finale from={f} />;
+    case 's26': return <Finale from={f} />;
+    case 's27': return <Finale from={f} />;
     default: return null;
   }
 };
@@ -998,7 +1005,7 @@ const Video: React.FC = () => {
           return (
             <React.Fragment key={s.id}>
               <Streaks start={start} />
-              <LightLeak start={start} color={['s09', 's14', 's16', 's21'].includes(s.id) ? C.lime : C.violet} />
+              <LightLeak start={start} color={['s08', 's13', 's15', 's27'].includes(s.id) ? C.lime : C.violet} />
               <div style={{ position: 'absolute', inset: '0 0 240px 0', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <div style={{ opacity: op, transform: `scale(${1.07 - 0.07 * inS - 0.07 * outP}) translateX(${(1 - inS) * 80 - outP * 80}px)`, filter: `blur(${(1 - inS) * 12 + outP * 12}px)` }}>
                   <RGBSplit start={start}>
