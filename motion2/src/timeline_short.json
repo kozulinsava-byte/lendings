@@ -1,0 +1,127 @@
+{
+  "fps": 60,
+  "total": 45.35,
+  "segments": [
+    {
+      "id": "s01",
+      "text": "Человек находит тебя в 2ГИС, видит карточку.",
+      "start": 0.0,
+      "dur": 3.67,
+      "pause": 1.1,
+      "mood": "neutral",
+      "rate": "+14%",
+      "pitch": "+0Hz",
+      "file": "C:\\Users\\user\\AppData\\Local\\Temp\\opencode\\motion2\\audio_short\\s01.mp3"
+    },
+    {
+      "id": "s03",
+      "text": "А дальше ему некуда идти.",
+      "start": 4.77,
+      "dur": 2.47,
+      "pause": 0.3,
+      "mood": "медленно, тяжело",
+      "rate": "+10%",
+      "pitch": "-6Hz",
+      "file": "C:\\Users\\user\\AppData\\Local\\Temp\\opencode\\motion2\\audio_short\\s03.mp3"
+    },
+    {
+      "id": "s04",
+      "text": "Ни услуг, ни цен, ни свободного окна.",
+      "start": 7.54,
+      "dur": 3.43,
+      "pause": 0.3,
+      "mood": "буднично",
+      "rate": "+14%",
+      "pitch": "-1Hz",
+      "file": "C:\\Users\\user\\AppData\\Local\\Temp\\opencode\\motion2\\audio_short\\s04.mp3"
+    },
+    {
+      "id": "s05",
+      "text": "Звонить он не хочет — он хочет просто посмотреть.",
+      "start": 11.27,
+      "dur": 3.5,
+      "pause": 0.3,
+      "mood": "нетерпеливо",
+      "rate": "+16%",
+      "pitch": "+3Hz",
+      "file": "C:\\Users\\user\\AppData\\Local\\Temp\\opencode\\motion2\\audio_short\\s05.mp3"
+    },
+    {
+      "id": "s06",
+      "text": "И уходит к конкуренту, где в карточке есть ссылка на сайт.",
+      "start": 15.07,
+      "dur": 4.18,
+      "pause": 0.35,
+      "mood": "neutral",
+      "rate": "+12%",
+      "pitch": "+0Hz",
+      "file": "C:\\Users\\user\\AppData\\Local\\Temp\\opencode\\motion2\\audio_short\\s06.mp3"
+    },
+    {
+      "id": "s07",
+      "text": "Ты прикрепляешь к своей карточке нормальный сайт.",
+      "start": 19.6,
+      "dur": 3.41,
+      "pause": 0.35,
+      "mood": "уверенно",
+      "rate": "+12%",
+      "pitch": "+5Hz",
+      "file": "C:\\Users\\user\\AppData\\Local\\Temp\\opencode\\motion2\\audio_short\\s07.mp3"
+    },
+    {
+      "id": "s08",
+      "text": "Сразу видно услуги, цены, фотографии работ.",
+      "start": 23.36,
+      "dur": 3.77,
+      "pause": 0.3,
+      "mood": "уверенно, тепло",
+      "rate": "+14%",
+      "pitch": "+2Hz",
+      "file": "C:\\Users\\user\\AppData\\Local\\Temp\\opencode\\motion2\\audio_short\\s08.mp3"
+    },
+    {
+      "id": "s09",
+      "text": "Ссылка на сайт поднимает конверсию в звонок почти на двадцать три процента.",
+      "start": 27.43,
+      "dur": 4.61,
+      "pause": 0.4,
+      "mood": "уверенно, весомо",
+      "rate": "+16%",
+      "pitch": "+6Hz",
+      "file": "C:\\Users\\user\\AppData\\Local\\Temp\\opencode\\motion2\\audio_short\\s09.mp3"
+    },
+    {
+      "id": "s10",
+      "text": "Такие сайты делаю я. Восемь тысяч рублей, половина вперёд.",
+      "start": 32.44,
+      "dur": 5.54,
+      "pause": 0.35,
+      "mood": "уверенно",
+      "rate": "+12%",
+      "pitch": "+5Hz",
+      "file": "C:\\Users\\user\\AppData\\Local\\Temp\\opencode\\motion2\\audio_short\\s10.mp3"
+    },
+    {
+      "id": "s11",
+      "text": "Напиши слово «сайт» — и я скину портфолио.",
+      "start": 38.33,
+      "dur": 3.74,
+      "pause": 0.35,
+      "mood": "дружелюбно, улыбка",
+      "rate": "+10%",
+      "pitch": "+9Hz",
+      "file": "C:\\Users\\user\\AppData\\Local\\Temp\\opencode\\motion2\\audio_short\\s11.mp3"
+    },
+    {
+      "id": "s12",
+      "text": "У меня уже много довольных клиентов!",
+      "start": 42.42,
+      "dur": 2.88,
+      "pause": 0.05,
+      "mood": "восторг",
+      "rate": "+14%",
+      "pitch": "+11Hz",
+      "file": "C:\\Users\\user\\AppData\\Local\\Temp\\opencode\\motion2\\audio_short\\s12.mp3"
+    }
+  ]
+}

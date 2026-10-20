@@ -1,0 +1,160 @@
+{
+  "fps": 60,
+  "total": 86.58,
+  "segments": [
+    {
+      "id": "s01",
+      "text": "Человек находит тебя в 2ГИС, видит карточку.",
+      "start": 0.0,
+      "dur": 3.89,
+      "pause": 1.3,
+      "mood": "neutral",
+      "rate": "+8%",
+      "pitch": "+0Hz",
+      "file": "C:\\Users\\user\\AppData\\Local\\Temp\\opencode\\motion2\\audio_full\\s01.mp3"
+    },
+    {
+      "id": "s03",
+      "text": "А дальше ему некуда идти.",
+      "start": 5.19,
+      "dur": 2.71,
+      "pause": 0.4,
+      "mood": "медленно, тяжело",
+      "rate": "+0%",
+      "pitch": "-7Hz",
+      "file": "C:\\Users\\user\\AppData\\Local\\Temp\\opencode\\motion2\\audio_full\\s03.mp3"
+    },
+    {
+      "id": "s04",
+      "text": "В карточке — адрес и телефон. Но он не видит, какие услуги ты оказываешь, сколько они стоят и есть ли свободное окно.",
+      "start": 8.3,
+      "dur": 9.1,
+      "pause": 0.4,
+      "mood": "буднично",
+      "rate": "+6%",
+      "pitch": "-2Hz",
+      "file": "C:\\Users\\user\\AppData\\Local\\Temp\\opencode\\motion2\\audio_full\\s04.mp3"
+    },
+    {
+      "id": "s05",
+      "text": "Звонить он не хочет. Он хочет просто посмотреть.",
+      "start": 17.8,
+      "dur": 4.78,
+      "pause": 0.4,
+      "mood": "нетерпеливо",
+      "rate": "+8%",
+      "pitch": "+3Hz",
+      "file": "C:\\Users\\user\\AppData\\Local\\Temp\\opencode\\motion2\\audio_full\\s05.mp3"
+    },
+    {
+      "id": "s06",
+      "text": "И в итоге уходит к конкуренту, у которого в карточке есть ссылка на сайт.",
+      "start": 22.98,
+      "dur": 5.21,
+      "pause": 0.5,
+      "mood": "neutral",
+      "rate": "+2%",
+      "pitch": "+0Hz",
+      "file": "C:\\Users\\user\\AppData\\Local\\Temp\\opencode\\motion2\\audio_full\\s06.mp3"
+    },
+    {
+      "id": "s07",
+      "text": "А теперь смотри, что меняется.",
+      "start": 28.69,
+      "dur": 2.98,
+      "pause": 0.35,
+      "mood": "смена, бодрее",
+      "rate": "+6%",
+      "pitch": "+7Hz",
+      "file": "C:\\Users\\user\\AppData\\Local\\Temp\\opencode\\motion2\\audio_full\\s07.mp3"
+    },
+    {
+      "id": "s08",
+      "text": "Ты прикрепляешь к своей карточке в 2ГИС нормальный сайт.",
+      "start": 32.02,
+      "dur": 4.37,
+      "pause": 0.45,
+      "mood": "уверенно",
+      "rate": "+0%",
+      "pitch": "+5Hz",
+      "file": "C:\\Users\\user\\AppData\\Local\\Temp\\opencode\\motion2\\audio_full\\s08.mp3"
+    },
+    {
+      "id": "s09",
+      "text": "Человек заходит и сразу видит услуги, цены, фотографии работ. Понимает, что ты серьёзная компания, которой можно доверять.",
+      "start": 36.84,
+      "dur": 9.36,
+      "pause": 0.3,
+      "mood": "уверенно, тепло",
+      "rate": "+6%",
+      "pitch": "+2Hz",
+      "file": "C:\\Users\\user\\AppData\\Local\\Temp\\opencode\\motion2\\audio_full\\s09.mp3"
+    },
+    {
+      "id": "s10",
+      "text": "И звонит уже практически готовым клиентом.",
+      "start": 46.5,
+      "dur": 3.5,
+      "pause": 0.5,
+      "mood": "уверенно",
+      "rate": "+4%",
+      "pitch": "+4Hz",
+      "file": "C:\\Users\\user\\AppData\\Local\\Temp\\opencode\\motion2\\audio_full\\s10.mp3"
+    },
+    {
+      "id": "s11",
+      "text": "По данных самого 2ГИС, одна только ссылка на сайт в карточке повышает конверсию в звонок или запись почти на двадцать три процента.",
+      "start": 50.5,
+      "dur": 7.85,
+      "pause": 0.5,
+      "mood": "уверенно, весомо",
+      "rate": "+10%",
+      "pitch": "+6Hz",
+      "file": "C:\\Users\\user\\AppData\\Local\\Temp\\opencode\\motion2\\audio_full\\s11.mp3"
+    },
+    {
+      "id": "s12",
+      "text": "Я делаю такие сайты. Стоимость — восемь тысяч рублей, половина оплачивается вперёд.",
+      "start": 58.85,
+      "dur": 7.32,
+      "pause": 0.45,
+      "mood": "уверенно",
+      "rate": "+4%",
+      "pitch": "+5Hz",
+      "file": "C:\\Users\\user\\AppData\\Local\\Temp\\opencode\\motion2\\audio_full\\s12.mp3"
+    },
+    {
+      "id": "s13",
+      "text": "Всё просто и красиво: услуги, цены, фотографии работ. Чтобы твоя карточка в 2ГИС наконец-то работала как надо.",
+      "start": 66.62,
+      "dur": 9.02,
+      "pause": 0.45,
+      "mood": "спокойно, тепло",
+      "rate": "+6%",
+      "pitch": "+3Hz",
+      "file": "C:\\Users\\user\\AppData\\Local\\Temp\\opencode\\motion2\\audio_full\\s13.mp3"
+    },
+    {
+      "id": "s14",
+      "text": "Хочешь посмотреть примеры? Напиши слово «сайт» — и я скину тебе портфолио.",
+      "start": 76.09,
+      "dur": 6.84,
+      "pause": 0.45,
+      "mood": "дружелюбно, улыбка",
+      "rate": "+2%",
+      "pitch": "+9Hz",
+      "file": "C:\\Users\\user\\AppData\\Local\\Temp\\opencode\\motion2\\audio_full\\s14.mp3"
+    },
+    {
+      "id": "s15",
+      "text": "У меня уже много довольных клиентов!",
+      "start": 83.38,
+      "dur": 3.1,
+      "pause": 0.1,
+      "mood": "восторг",
+      "rate": "+6%",
+      "pitch": "+11Hz",
+      "file": "C:\\Users\\user\\AppData\\Local\\Temp\\opencode\\motion2\\audio_full\\s15.mp3"
+    }
+  ]
+}

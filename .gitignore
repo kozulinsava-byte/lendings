@@ -1,0 +1,6 @@
+node_modules/
+motion2/out/
+motion2/.work/
+motion2/assets/
+motion2/public/
+*.log
