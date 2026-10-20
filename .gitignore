@@ -8,4 +8,8 @@ motion2/*.py
 *.mp4
 *.wav
 motion2/.ffmpeg-path
+motion2/kit/
+motion2/kit-2gis.zip
+motion2/elevenlabs/
+motion2/.work/backup_piper/
 
