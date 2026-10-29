@@ -340,12 +340,26 @@
       const e = edge(nodes[i].id, nodes[j].id);
       if (e && e.w === 3) cand.push({ i, j, w: e.w });
     }
-    // разрежаем сеть: не больше трёх связей на узел — так читается рисунок, а не клубок
+    // разрежаем сеть: по две связи на узел, чтобы читался рисунок, а не клубок
     const links = [];
     const deg = new Array(nodes.length).fill(0);
-    for (const l of cand) {
-      if (deg[l.i] >= 3 || deg[l.j] >= 3) continue;
-      links.push(l); deg[l.i]++; deg[l.j]++;
+    const used = new Set();
+    const add = (l) => {
+      const k = l.i + "-" + l.j;
+      if (used.has(k)) return;
+      used.add(k); links.push(l); deg[l.i]++; deg[l.j]++;
+    };
+    for (let pass = 0; pass < 2; pass++) {
+      for (let i = 0; i < nodes.length; i++) {
+        if (deg[i] >= 2) continue;
+        for (const l of cand) {
+          if (l.i !== i && l.j !== i) continue;
+          if (deg[i] >= 2) break;
+          const o = l.i === i ? l.j : l.i;
+          if (deg[o] >= 2) continue;
+          add(l);
+        }
+      }
     }
     nodes.forEach((n, i) => (n.deg = deg[i]));
     let W = 0, H = 0, dpr = 1, hover = -1, t0 = performance.now(), raf = 0, visible = true;
@@ -394,7 +408,12 @@
         const hot = hover === l.i || hover === l.j;
         ctx.strokeStyle = hot ? "rgba(178,75,29,.6)" : "rgba(23,20,15,.15)";
         ctx.lineWidth = hot ? 1.1 : 0.65;
-        ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+        const mx = (a.x + b.x) / 2, my = (a.y + b.y) / 2;
+        const dx = b.x - a.x, dy = b.y - a.y;
+        ctx.beginPath();
+        ctx.moveTo(a.x, a.y);
+        ctx.quadraticCurveTo(mx - dy * 0.1, my + dx * 0.1, b.x, b.y);
+        ctx.stroke();
       }
 
       // узлы
