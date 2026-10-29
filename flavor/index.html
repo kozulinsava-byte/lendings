@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Вкусовой атлас — сочетания, которые работают</title>
+<meta name="description" content="173 ингредиента и 3 801 связь между ними. Генератор вкусовых сочетаний, атлас продуктов и логика, по которой они работают.">
+<meta property="og:title" content="Вкусовой атлас">
+<meta property="og:description" content="Не рецепты. Логика вкуса: 173 ингредиента, 3 801 связь, генератор сочетаний.">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prata&family=Cormorant+Garamond:ital,wght@1,300;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="home">
+
+<header class="topbar" id="topbar">
+  <a class="brand" href="index.html">
+    <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12H3M16.5 4.2L7.5 19.8M7.5 4.2L16.5 19.8"/><circle cx="12" cy="12" r="1.3" fill="currentColor" stroke="none"/></svg></span>
+    <span class="brand-name">Вкусовой<br>атлас</span>
+  </a>
+  <nav class="nav">
+    <a href="index.html" data-nav="home">Генератор</a>
+    <a href="atlas.html" data-nav="atlas">Атлас</a>
+    <a href="combos.html" data-nav="combos">Трио</a>
+    <a href="method.html" data-nav="method">Метод</a>
+  </nav>
+  <div class="topbar-actions">
+    <button class="icon-btn" id="searchBtn" aria-label="Поиск">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></svg>
+    </button>
+    <button class="icon-btn" id="savedBtn" aria-label="Сохранённые">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20s-7-4.3-7-9.6A4.1 4.1 0 0112 7a4.1 4.1 0 017 3.4C19 15.7 12 20 12 20z"/></svg>
+      <span id="savedCount">0</span>
+    </button>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <div class="hero-kicker">
+          <span class="mono" style="color:var(--muted)">Исследование вкуса</span>
+          <span class="line"></span>
+          <span class="mono" style="color:var(--muted)">2026</span>
+        </div>
+        <h1>Вкусовой<br><em>атлас</em></h1>
+        <p class="hero-lead">
+          <b>173 ингредиента</b> и <b>3 801 связь</b> между ними. Не рецепты, а логика:
+          почему помидор дружит с базиликом, клубника — с чёрным перцем,
+          а свёкла — с козьим сыром.
+        </p>
+        <div class="hero-actions">
+          <a class="btn" href="#generator">Собрать сочетание <span class="arrow">→</span></a>
+          <a class="btn btn--ghost" href="atlas.html">Открыть атлас</a>
+        </div>
+        <div class="hero-stats">
+          <div><b data-total-ing>173</b><span>ингредиента</span></div>
+          <div><b data-total-edges>3 801</b><span>связей</span></div>
+          <div><b>69</b><span>готовых трио</span></div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="stamp">atlas<br>of flavour<br>173 / 2026</div>
+        <div class="plate">
+          <div class="plate-label"><span>Созвездие вкусов</span><span>fig. 01</span></div>
+          <canvas id="constellation" width="720" height="700" aria-label="Интерактивное созвездие ингредиентов"></canvas>
+          <div class="plate-caption">
+            <span>наведите на узел</span>
+            <span>клик — карточка</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>помидор</span><i>✦</i><span>базилик</span><i>✦</i><span>клубника</span><i>✦</i><span>чёрный перец</span><i>✦</i><span>свёкла</span><i>✦</i><span>козий сыр</span><i>✦</i><span>лосось</span><i>✦</i><span>мисо</span><i>✦</i><span>гранат</span><i>✦</i><span>тахини</span><i>✦</i><span>кардамон</span><i>✦</i><span>кофе</span><i>✦</i><span>инжир</span><i>✦</i><span>мёд</span><i>✦</i><span>тимьян</span><i>✦</i><span>сливочное масло</span><i>✦</i>
+      <span>помидор</span><i>✦</i><span>базилик</span><i>✦</i><span>клубника</span><i>✦</i><span>чёрный перец</span><i>✦</i><span>свёкла</span><i>✦</i><span>козий сыр</span><i>✦</i><span>лосось</span><i>✦</i><span>мисо</span><i>✦</i><span>гранат</span><i>✦</i><span>тахини</span><i>✦</i><span>кардамон</span><i>✦</i><span>кофе</span><i>✦</i><span>инжир</span><i>✦</i><span>мёд</span><i>✦</i><span>тимьян</span><i>✦</i><span>сливочное масло</span><i>✦</i>
+    </div>
+  </div>
+
+  <section class="section generator" id="generator">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="num">01 / генератор</div>
+        <h2>Соберите сочетание</h2>
+        <p>Два, три или четыре компонента. Режим задаёт смелость: от проверенной классики до эксперимента.</p>
+      </div>
+
+      <div class="gen-grid">
+        <div class="controls">
+          <div class="control-group">
+            <div class="control-label"><span class="mono">Компонентов</span><span>2—4</span></div>
+            <div class="seg">
+              <button data-count="2">2</button>
+              <button data-count="3" class="is-on">3</button>
+              <button data-count="4">4</button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <div class="control-label"><span class="mono">Режим</span><span>смелость</span></div>
+            <div class="mode-list">
+              <button class="mode" data-mode="classic">
+                <span class="bullet"></span>
+                <span><b>Классика</b><small>Только проверенные пары, вес 3 из 3</small></span>
+              </button>
+              <button class="mode is-on" data-mode="balance">
+                <span class="bullet"></span>
+                <span><b>Баланс</b><small>Уверенные связи, немного неожиданности</small></span>
+              </button>
+              <button class="mode" data-mode="bold">
+                <span class="bullet"></span>
+                <span><b>Эксперимент</b><small>Смелые пары с кулинарным обоснованием</small></span>
+              </button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <div class="control-label"><span class="mono">Бюджет</span><span>цена</span></div>
+            <div class="chip-row">
+              <button class="chip is-on" data-budget="any">любой</button>
+              <button class="chip" data-budget="eco">эконом</button>
+              <button class="chip" data-budget="premium">премиум</button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <div class="control-label"><span class="mono">Исключить</span><span>фильтр</span></div>
+            <div class="switches">
+              <button class="switch" data-toggle="noMeat">Без мяса и птицы <i></i></button>
+              <button class="switch" data-toggle="noFish">Без рыбы и морепродуктов <i></i></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="result">
+          <div class="result-head">
+            <span class="mono">Ваше сочетание</span>
+            <div class="result-actions">
+              <button class="icon-ghost" id="shareCombo" aria-label="Поделиться" title="Скопировать ссылку">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v12"/><path d="M8 7l4-4 4 4"/><path d="M5 14v5a2 2 0 002 2h10a2 2 0 002-2v-5"/></svg>
+              </button>
+              <button class="icon-ghost" id="saveCombo" aria-label="Сохранить" title="Сохранить">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 20s-7-4.3-7-9.6A4.1 4.1 0 0112 7a4.1 4.1 0 017 3.4C19 15.7 12 20 12 20z"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="combo" id="combo"></div>
+          <div class="why" id="why"></div>
+
+          <div class="result-foot">
+            <button class="btn btn--light" id="shuffle">Ещё сочетание <span class="arrow">↻</span></button>
+            <span class="hint">или нажмите <kbd>R</kbd></span>
+            <span class="hint" style="margin-left:auto;max-width:34ch;text-align:right;line-height:1.5" id="comboUse"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section atlas-teaser">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="num">02 / атлас</div>
+        <h2>173 образца</h2>
+        <p>Каждый ингредиент — карточка с вкусовым профилем, сезоном, ценой и всеми связями. Фильтруйте по категории и бюджету.</p>
+      </div>
+
+      <div class="cat-list" id="catList"></div>
+
+      <div style="margin-top:44px" class="spec-grid four" id="homeSpecimens"></div>
+
+      <div style="margin-top:36px;display:flex;gap:14px;flex-wrap:wrap">
+        <a class="btn" href="atlas.html">Весь атлас <span class="arrow">→</span></a>
+        <a class="btn btn--ghost" href="atlas.html?sort=degree">Сначала самые связанные</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section trios">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="num">03 / трио</div>
+        <h2>Проверенные комбинации</h2>
+        <p>Шестьдесят девять троек, у которых есть имя, идея и объяснение. Всего из базы собирается 5 367 троек с надёжными связями.</p>
+      </div>
+      <div class="trio-scroll" id="homeTrios"></div>
+      <div style="margin-top:26px;display:flex;gap:14px;flex-wrap:wrap">
+        <a class="btn" href="combos.html">Все трио <span class="arrow">→</span></a>
+        <a class="btn btn--ghost" href="combos.html#genTrio">Сгенерировать</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section method-band">
+    <div class="wrap">
+      <div class="method-quote reveal">
+        <blockquote>«Сочетание — это не правило. Это <em>повод</em>, по которому два продукта встречаются».</blockquote>
+        <div class="side">
+          <span class="mono">Как мы собирали</span>
+          Кулинарная классика, ароматические семьи и химия вкуса. Каждая связь имеет причину: общий аромат, контраст, кислоту против жира или традицию региона.
+          <div style="margin-top:18px"><a class="link-underline" href="method.html">Читать метод и источники</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="search-overlay" id="searchOverlay">
+  <button class="search-close icon-btn" aria-label="Закрыть">✕</button>
+  <div class="search-box">
+    <div class="mono">Поиск по атласу · Ctrl K</div>
+    <input class="search-input" id="searchInput" type="text" placeholder="мята, говядина, умами…" autocomplete="off">
+    <div class="search-results" id="searchResults"></div>
+  </div>
+</div>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer">
+  <div class="drawer-head"><b>Сохранённые сочетания</b><button class="icon-btn" id="drawerClose" aria-label="Закрыть">✕</button></div>
+  <div class="drawer-body" id="drawerBody"></div>
+</aside>
+
+<div class="toast" id="toast"></div>
+
+<noscript><div style="padding:20px;font-family:monospace">Для работы генератора нужен JavaScript.</div></noscript>
+
+<script src="assets/data/meta.js"></script>
+<script src="assets/data/ingredients.js"></script>
+<script src="assets/data/pairs.js"></script>
+<script src="assets/data/trios.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

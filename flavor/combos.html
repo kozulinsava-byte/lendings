@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Трио — проверенные комбинации | Вкусовой атлас</title>
+<meta name="description" content="69 готовых трио с объяснением, почему они работают, и генератор новых сочетаний из базы атласа.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prata&family=Cormorant+Garamond:ital,wght@1,300;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="combos">
+
+<header class="topbar" id="topbar">
+  <a class="brand" href="index.html">
+    <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12H3M16.5 4.2L7.5 19.8M7.5 4.2L16.5 19.8"/><circle cx="12" cy="12" r="1.3" fill="currentColor" stroke="none"/></svg></span>
+    <span class="brand-name">Вкусовой<br>атлас</span>
+  </a>
+  <nav class="nav">
+    <a href="index.html" data-nav="home">Генератор</a>
+    <a href="atlas.html" data-nav="atlas">Атлас</a>
+    <a href="combos.html" data-nav="combos">Трио</a>
+    <a href="method.html" data-nav="method">Метод</a>
+  </nav>
+  <div class="topbar-actions">
+    <button class="icon-btn" id="searchBtn" aria-label="Поиск">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></svg>
+    </button>
+    <button class="icon-btn" id="savedBtn" aria-label="Сохранённые">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20s-7-4.3-7-9.6A4.1 4.1 0 0112 7a4.1 4.1 0 017 3.4C19 15.7 12 20 12 20z"/></svg>
+      <span id="savedCount">0</span>
+    </button>
+  </div>
+</header>
+
+<main>
+  <section class="page-head">
+    <div class="wrap">
+      <div class="crumbs"><a href="index.html">Главная</a><span>/</span><span>Трио</span></div>
+      <h1>Трио <em>и поводы</em></h1>
+      <div class="sub">
+        <p>Шестьдесят девять комбинаций, у которых есть имя, сезон и объяснение. Это не догма: каждое трио — точка входа в логику, из которой можно собрать своё.</p>
+        <div class="stats">
+          <div><b>69</b><span>готовых трио</span></div>
+          <div><b data-total-edges>3 801</b><span>связь в базе</span></div>
+          <div><b data-total-tri>5 367</b><span>трио из базы</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="combos-body">
+    <div class="wrap">
+      <div class="filters" id="tagFilters" style="margin-bottom:16px"></div>
+
+      <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:30px">
+        <select class="select" id="comboPrice" aria-label="Цена">
+          <option value="any">Любая цена</option>
+          <option value="1">Эконом</option>
+          <option value="2">Средний</option>
+          <option value="3">Премиум</option>
+        </select>
+        <select class="select" id="comboSeason" aria-label="Сезон">
+          <option value="any">Любой сезон</option>
+          <option value="весна">Весна</option>
+          <option value="лето">Лето</option>
+          <option value="осень">Осень</option>
+          <option value="зима">Зима</option>
+          <option value="круглый год">Круглый год</option>
+        </select>
+        <button class="btn btn--sm" id="genTrio">Собрать трио <span class="arrow">↻</span></button>
+        <span class="count" id="comboCount" style="margin-left:auto;font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)"></span>
+      </div>
+
+      <div class="combo-grid" id="comboGrid"></div>
+
+      <div style="margin-top:44px;padding-top:26px;border-top:1px solid var(--line-2);display:flex;gap:14px;flex-wrap:wrap;align-items:center">
+        <a class="btn" href="index.html#generator">Свой генератор на 2—4 компонента <span class="arrow">→</span></a>
+        <span style="font-size:12.5px;color:var(--muted);max-width:46ch;line-height:1.5">Кнопка «Собрать трио» берёт только пары с максимальной уверенностью — вес 3 из 3. Поэтому результат всегда объясним.</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="search-overlay" id="searchOverlay">
+  <button class="search-close icon-btn" aria-label="Закрыть">✕</button>
+  <div class="search-box">
+    <div class="mono">Поиск по атласу · Ctrl K</div>
+    <input class="search-input" id="searchInput" type="text" placeholder="мята, говядина, умами…" autocomplete="off">
+    <div class="search-results" id="searchResults"></div>
+  </div>
+</div>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer">
+  <div class="drawer-head"><b>Сохранённые сочетания</b><button class="icon-btn" id="drawerClose" aria-label="Закрыть">✕</button></div>
+  <div class="drawer-body" id="drawerBody"></div>
+</aside>
+<div class="toast" id="toast"></div>
+
+<script src="assets/data/meta.js"></script>
+<script src="assets/data/ingredients.js"></script>
+<script src="assets/data/pairs.js"></script>
+<script src="assets/data/trios.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
