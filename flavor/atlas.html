@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Атлас — 173 ингредиента | Вкусовой атлас</title>
-<meta name="description" content="Каталог ингредиентов: вкусовой профиль, сезон, цена и все связи. Фильтры по категориям и бюджету.">
-<meta name="theme-color" content="#f2ebdd">
+<title>Атлас продуктов — 173 вкуса | Вкусовой атлас</title>
+<meta name="description" content="Каталог продуктов: вкусовой профиль, сезон, цена и все пары. Поиск и фильтры по категориям.">
+<meta name="theme-color" content="#faf5ec">
 <meta property="og:site_name" content="Вкусовой атлас">
 <meta property="og:locale" content="ru_RU">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://kozulinsava-byte.github.io/lendings/flavor/atlas.html">
-<meta property="og:title" content="Атлас — 173 ингредиента">
-<meta property="og:description" content="Каталог ингредиентов: вкусовой профиль, сезон, цена и все связи. Фильтры по категориям и бюджету.">
+<meta property="og:title" content="Атлас продуктов — 173 вкуса">
+<meta property="og:description" content="Каталог продуктов: вкусовой профиль, сезон, цена и все пары.">
 <meta property="og:image" content="https://kozulinsava-byte.github.io/lendings/flavor/assets/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -19,102 +19,67 @@
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Prata&family=Cormorant+Garamond:ital,wght@1,300;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Prata&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body data-page="atlas">
 
-<header class="topbar" id="topbar">
-  <a class="brand" href="index.html">
-    <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12H3M16.5 4.2L7.5 19.8M7.5 4.2L16.5 19.8"/><circle cx="12" cy="12" r="1.3" fill="currentColor" stroke="none"/></svg></span>
-    <span class="brand-name">Вкусовой<br>атлас</span>
-  </a>
-  <nav class="nav">
-    <a href="index.html" data-nav="home">Генератор</a>
-    <a href="atlas.html" data-nav="atlas">Атлас</a>
-    <a href="combos.html" data-nav="combos">Трио</a>
-    <a href="method.html" data-nav="method">Метод</a>
-  </nav>
-  <div class="topbar-actions">
-    <button class="icon-btn" id="searchBtn" aria-label="Поиск">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></svg>
-    </button>
-    <button class="icon-btn" id="savedBtn" aria-label="Сохранённые">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20s-7-4.3-7-9.6A4.1 4.1 0 0112 7a4.1 4.1 0 017 3.4C19 15.7 12 20 12 20z"/></svg>
-      <span id="savedCount">0</span>
-    </button>
+<header class="bar">
+  <div class="wrap bar__in">
+    <a class="logo" href="index.html">
+      <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+        <circle cx="16" cy="16" r="12.5"/>
+        <circle cx="16" cy="16" r="6.5"/>
+        <path d="M16 3.5v3M16 25.5v3M3.5 16h3M25.5 16h3"/>
+      </svg>
+      <b>Вкусовой атлас</b>
+    </a>
+    <nav class="nav">
+      <a href="index.html" data-nav="home">Сочетание</a>
+      <a href="atlas.html" data-nav="atlas">Атлас</a>
+      <a href="combos.html" data-nav="combos">Трио</a>
+      <a href="method.html" data-nav="method">О данных</a>
+    </nav>
   </div>
 </header>
 
 <main>
-  <section class="page-head">
-    <div class="wrap">
-      <div class="crumbs"><a href="index.html">Главная</a><span>/</span><span>Атлас</span></div>
-      <h1>Атлас <em>образцов</em></h1>
-      <div class="sub">
-        <p>Каждый продукт описан по семи осям вкуса и связан с другими. Это не энциклопедия: связи показывают, с чем продукт работает и почему.</p>
-        <div class="stats">
-          <div><b data-total-ing>173</b><span>образца</span></div>
-          <div><b data-total-edges>3 801</b><span>связь</span></div>
-          <div><b>12</b><span>категорий</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="toolbar">
-    <div class="wrap toolbar-inner">
-      <label class="search">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></svg>
-        <input id="atlasSearch" type="text" placeholder="Найти продукт…" autocomplete="off">
-      </label>
-      <select class="select" id="priceFilter" aria-label="Цена">
-        <option value="any">Любая цена</option>
-        <option value="1">Эконом</option>
-        <option value="2">Средний</option>
-        <option value="3">Премиум</option>
-      </select>
-      <select class="select" id="seasonFilter" aria-label="Сезон">
-        <option value="any">Любой сезон</option>
-        <option value="весна">Весна</option>
-        <option value="лето">Лето</option>
-        <option value="осень">Осень</option>
-        <option value="зима">Зима</option>
-        <option value="круглый год">Круглый год</option>
-      </select>
-      <select class="select" id="atlasSort" aria-label="Сортировка">
-        <option value="name">По алфавиту</option>
-        <option value="degree">По числу связей</option>
-        <option value="price">По цене</option>
-        <option value="season">По сезону</option>
-      </select>
-      <span class="count" id="atlasCount"></span>
-    </div>
+  <div class="wrap page-head">
+    <h1>Атлас продуктов</h1>
+    <p>Сто семьдесят три продукта — от помидора до ферментированного перца. Выберите категорию или найдите свой: внутри карточки вкусовой профиль и все пары.</p>
   </div>
 
-  <section class="atlas-body">
-    <div class="wrap">
-      <div class="filters" id="catFilters" style="margin-bottom:22px"></div>
-      <div class="atlas-grid" id="atlasGrid"></div>
+  <div class="wrap">
+    <div class="tools">
+      <label class="search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/>
+        </svg>
+        <input id="atlasSearch" type="search" placeholder="Найти продукт: мята, говядина, умами…" autocomplete="off">
+      </label>
     </div>
-  </section>
+    <div class="seg" id="atlasCats" style="margin-bottom:26px"></div>
+    <div class="cards" id="atlasGrid"></div>
+  </div>
 </main>
 
-<div class="search-overlay" id="searchOverlay">
-  <button class="search-close icon-btn" aria-label="Закрыть">✕</button>
-  <div class="search-box">
-    <div class="mono">Поиск по атласу · Ctrl K</div>
-    <input class="search-input" id="searchInput" type="text" placeholder="мята, говядина, умами…" autocomplete="off">
-    <div class="search-results" id="searchResults"></div>
+<footer class="foot">
+  <div class="wrap foot__in">
+    <span>Вкусовой атлас · 2026</span>
+    <div class="foot__links">
+      <a href="index.html">Сочетание</a>
+      <a href="combos.html">Трио</a>
+      <a href="method.html">О данных и фото</a>
+    </div>
   </div>
-</div>
+</footer>
 
-<div class="scrim" id="scrim"></div>
-<aside class="drawer" id="drawer">
-  <div class="drawer-head"><b>Сохранённые сочетания</b><button class="icon-btn" id="drawerClose" aria-label="Закрыть">✕</button></div>
-  <div class="drawer-body" id="drawerBody"></div>
-</aside>
-<div class="toast" id="toast"></div>
+<dialog id="dlgIngredient">
+  <div class="sheet" style="position:relative">
+    <button class="close-x" type="button" aria-label="Закрыть">✕</button>
+    <div id="ingBody"></div>
+  </div>
+</dialog>
 
 <script src="assets/data/meta.js"></script>
 <script src="assets/data/ingredients.js"></script>
