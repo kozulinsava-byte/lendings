@@ -60,24 +60,18 @@
   "entity": "Q10998"
  },
  "sweet_potato": {
-  "file": "Ipomoea batatas (Sweet Potato) Flower.jpg",
-  "license": "CC BY-SA 3.0",
-  "author": "Earth100",
-  "page": "https://commons.wikimedia.org/wiki/File:Ipomoea_batatas_(Sweet_Potato)_Flower.jpg",
-  "how": "p18",
-  "label": "батат",
-  "desc": "вид растений",
-  "entity": "Q37937"
+  "file": "Pile of Sweet Potatoes at Barkin Dogo Market, Kaduna North 01.jpg",
+  "license": "CC BY-SA 4.0",
+  "author": "Samsule2",
+  "page": "https://commons.wikimedia.org/wiki/File:Pile_of_Sweet_Potatoes_at_Barkin_Dogo_Market,_Kaduna_North_01.jpg",
+  "label": "sweet potato tubers"
  },
  "pumpkin": {
-  "file": "Yellow squash DSC01080.jpg",
-  "license": "CC BY-SA 1.0",
-  "author": "",
-  "page": "https://commons.wikimedia.org/wiki/File:Yellow_squash_DSC01080.jpg",
-  "how": "p18",
-  "label": "тыква",
-  "desc": "род травянистых растений семейства тыквенные",
-  "entity": "Q5339301"
+  "file": "PUMPKIN FLOWER.jpg",
+  "license": "CC BY-SA 4.0",
+  "author": "Dinkun Chen",
+  "page": "https://commons.wikimedia.org/wiki/File:PUMPKIN_FLOWER.jpg",
+  "label": "pumpkin orange"
  },
  "eggplant": {
   "file": "Solanum melongena 24 08 2012 (1).JPG",
@@ -90,14 +84,11 @@
   "entity": "Q7540"
  },
  "cabbage": {
-  "file": "Brassica rapa plant.jpg",
-  "license": "CC BY-SA 3.0",
-  "author": "TeunSpaans",
-  "page": "https://commons.wikimedia.org/wiki/File:Brassica_rapa_plant.jpg",
-  "how": "p18",
-  "label": "капуста",
-  "desc": "род съедобных растениий",
-  "entity": "Q58677"
+  "file": "Savoy Cabbage Soup (10938352955).jpg",
+  "license": "CC BY-SA 2.0",
+  "author": "Peter Bond from Cincinnati, USA",
+  "page": "https://commons.wikimedia.org/wiki/File:Savoy_Cabbage_Soup_(10938352955).jpg",
+  "label": "cabbage head vegetable"
  },
  "cauliflower": {
   "file": "Woolworths-cauliflower.jpg",
@@ -210,14 +201,11 @@
   "entity": "Q154166"
  },
  "olive": {
-  "file": "Aceitunas coloradas.jpg",
-  "license": "CC BY-SA 4.0",
-  "author": "E4024",
-  "page": "https://commons.wikimedia.org/wiki/File:Aceitunas_coloradas.jpg",
-  "how": "p18",
-  "label": "оливка",
-  "desc": "плод оливкового дерева",
-  "entity": "Q1621080"
+  "file": "Fresh green olives and black olives served at a food display.jpg",
+  "license": "CC BY 2.0",
+  "author": "Shixart1985",
+  "page": "https://commons.wikimedia.org/wiki/File:Fresh_green_olives_and_black_olives_served_at_a_food_display.jpg",
+  "label": "olives green bowl"
  },
  "lime": {
   "file": "Limette.jpg",
@@ -332,18 +320,18 @@
   "label": "Руккола"
  },
  "pear": {
-  "file": "Pear_tree.jpg",
-  "license": "CC BY 3.0",
-  "author": "Bangin",
-  "page": "https://commons.wikimedia.org/wiki/File:Pear_tree.jpg",
-  "label": "Груша"
+  "file": "Parkes - BIG Pears.jpg",
+  "license": "CC BY-SA 4.0",
+  "author": "MEGutsell",
+  "page": "https://commons.wikimedia.org/wiki/File:Parkes_-_BIG_Pears.jpg",
+  "label": "pear fruit"
  },
  "cherry": {
-  "file": "Prunus_avium_fruit.jpg",
-  "license": "CC BY 2.5",
-  "author": "MPF",
-  "page": "https://commons.wikimedia.org/wiki/File:Prunus_avium_fruit.jpg",
-  "label": "Черешня"
+  "file": "Lapins cherries in bowl.jpg",
+  "license": "CC BY 4.0",
+  "author": "DrThneed",
+  "page": "https://commons.wikimedia.org/wiki/File:Lapins_cherries_in_bowl.jpg",
+  "label": "cherries bowl"
  },
  "strawberry": {
   "file": "Fruit-left-Fragaria_vesca,right-Fragaria_viridis.jpg",
@@ -409,18 +397,18 @@
   "label": "Абрикос"
  },
  "orange": {
-  "file": "Laranxeira_Naranjo_GFDL.JPG",
-  "license": "CC BY-SA 3.0",
-  "author": "Luis Miguel Bugallo Sánchez (Lmbuga Commons)(Lmbuga Galipedia)\n\nPublicada por/Publish by:  Luis Miguel Bugallo Sánchez",
-  "page": "https://commons.wikimedia.org/wiki/File:Laranxeira_Naranjo_GFDL.JPG",
-  "label": "Апельсин"
+  "file": "Orange -- 2022 -- 9711.jpg",
+  "license": "CC BY-SA 4.0",
+  "author": "Dietmar Rabich",
+  "page": "https://commons.wikimedia.org/wiki/File:Orange_--_2022_--_9711.jpg",
+  "label": "orange fruit"
  },
  "lemon": {
-  "file": "Citrus_limon_a.JPG",
-  "license": "CC BY-SA 3.0",
-  "author": "Taken by Carsten Niehaus (user:Lumbar).",
-  "page": "https://commons.wikimedia.org/wiki/File:Citrus_limon_a.JPG",
-  "label": "Лимон"
+  "file": "Lemon - whole and split.jpg",
+  "license": "CC BY-SA 4.0",
+  "author": "Ivar Leidus",
+  "page": "https://commons.wikimedia.org/wiki/File:Lemon_-_whole_and_split.jpg",
+  "label": "lemon fruit"
  },
  "grapefruit": {
   "file": "Grapefruits_-_whole-halved-segments.jpg",
@@ -430,11 +418,11 @@
   "label": "Грейпфрут"
  },
  "banana": {
-  "file": "Bananes_(baie_dHalong_terrestre)_(4369177548).jpg",
-  "license": "CC BY 2.0",
-  "author": "Jean-Pierre Dalbéra from Paris, France",
-  "page": "https://commons.wikimedia.org/wiki/File:Bananes_(baie_dHalong_terrestre)_(4369177548).jpg",
-  "label": "Банан"
+  "file": "A Bunch of Bananas displayed by a roadside seller 01.jpg",
+  "license": "CC BY-SA 4.0",
+  "author": "Samsule2",
+  "page": "https://commons.wikimedia.org/wiki/File:A_Bunch_of_Bananas_displayed_by_a_roadside_seller_01.jpg",
+  "label": "bananas bunch"
  },
  "pineapple": {
   "file": "Nanas_variegata_cheche.jpg",
@@ -451,18 +439,18 @@
   "label": "Страстоцвет"
  },
  "fig": {
-  "file": "Starr-140925-1987-Ficus_carica-Brown_Turkey_fruit-Pali_o_Waipio_Huelo-Maui_(24950994930).jpg",
-  "license": "CC BY 3.0 us",
-  "author": "Forest and Kim Starr",
-  "page": "https://commons.wikimedia.org/wiki/File:Starr-140925-1987-Ficus_carica-Brown_Turkey_fruit-Pali_o_Waipio_Huelo-Maui_(24950994930).jpg",
-  "label": "Инжир"
+  "file": "Fig (Ficus carica) fruit halved.jpg",
+  "license": "CC BY-SA 4.0",
+  "author": "Ivar Leidus",
+  "page": "https://commons.wikimedia.org/wiki/File:Fig_(Ficus_carica)_fruit_halved.jpg",
+  "label": "fig fruit"
  },
  "persimmon": {
-  "file": "200412_-_Plaqueminier_et_ses_kakis.jpg",
-  "license": "CC BY-SA 3.0",
-  "author": "Semnoz",
-  "page": "https://commons.wikimedia.org/wiki/File:200412_-_Plaqueminier_et_ses_kakis.jpg",
-  "label": "Хурма"
+  "file": "Some Persimmons.jpg",
+  "license": "CC BY-SA 4.0",
+  "author": "Dinkun Chen",
+  "page": "https://commons.wikimedia.org/wiki/File:Some_Persimmons.jpg",
+  "label": "persimmon"
  },
  "date": {
   "file": "Phoenix_(botanical)_финики.jpg",
@@ -591,11 +579,11 @@
   "label": "Гвоздика"
  },
  "star_anise": {
-  "file": "Illicium_anisatum5.jpg",
-  "license": "CC BY-SA 3.0",
-  "author": "KENPEI",
-  "page": "https://commons.wikimedia.org/wiki/File:Illicium_anisatum5.jpg",
-  "label": "Бадьян"
+  "file": "Dried Star Anise Fruit Seeds.jpg",
+  "license": "CC BY-SA 4.0",
+  "author": "Sanjay Acharya",
+  "page": "https://commons.wikimedia.org/wiki/File:Dried_Star_Anise_Fruit_Seeds.jpg",
+  "label": "star anise spice"
  },
  "horseradish": {
   "file": "Armoracia_rusticana_kz03.jpg",
@@ -647,46 +635,46 @@
   "label": "Прошутто"
  },
  "salmon": {
-  "file": "Salmo_salar-Atlantic_Salmon-Atlanterhavsparken_Norway_(cropped).JPG",
-  "license": "CC BY-SA 2.5",
-  "author": "Hans-Petter Fjeld",
-  "page": "https://commons.wikimedia.org/wiki/File:Salmo_salar-Atlantic_Salmon-Atlanterhavsparken_Norway_(cropped).JPG",
-  "label": "Лосось"
+  "file": "Salmon Fillet Salad - Jonny's 2026-06-12.jpg",
+  "license": "CC0",
+  "author": "Andy Li",
+  "page": "https://commons.wikimedia.org/wiki/File:Salmon_Fillet_Salad_-_Jonny%27s_2026-06-12.jpg",
+  "label": "salmon fillet"
  },
  "cod": {
-  "file": "Обитатели_петербургского_Океанариума_38.jpg",
-  "license": "CC BY-SA 4.0",
-  "author": "Anastasiya Lvova",
-  "page": "https://commons.wikimedia.org/wiki/File:%D0%9E%D0%B1%D0%B8%D1%82%D0%B0%D1%82%D0%B5%D0%BB%D0%B8_%D0%BF%D0%B5%D1%82%D0%B5%D1%80%D0%B1%D1%83%D1%80%D0%B3%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%9E%D0%BA%D0%B5%D0%B0%D0%BD%D0%B0%D1%80%D0%B8%D1%83%D0%BC%D0%B0_38.jpg",
-  "label": "Треска"
+  "file": "Deep sea cod fillet.jpg",
+  "license": "CC BY 2.0",
+  "author": "François Nguyen",
+  "page": "https://commons.wikimedia.org/wiki/File:Deep_sea_cod_fillet.jpg",
+  "label": "cod fillet"
  },
  "tuna": {
-  "file": "Pacific_bluefin_tuna.jpg",
-  "license": "CC BY 2.1 jp",
-  "author": "aes256",
-  "page": "https://commons.wikimedia.org/wiki/File:Pacific_bluefin_tuna.jpg",
-  "label": "Тунец"
+  "file": "Yellow fin tuna Sashimi.jpg",
+  "license": "CC BY-SA 4.0",
+  "author": "CNEcija12345",
+  "page": "https://commons.wikimedia.org/wiki/File:Yellow_fin_tuna_Sashimi.jpg",
+  "label": "tuna sashimi"
  },
  "sea_bass": {
-  "file": "Dicentrarchus_labrax011.JPG",
-  "license": "CC BY 3.0",
-  "author": "Georges Jansoone (JoJan)",
-  "page": "https://commons.wikimedia.org/wiki/File:Dicentrarchus_labrax011.JPG",
-  "label": "Сибас"
+  "file": "Sea bass soup.jpg",
+  "license": "CC BY-SA 4.0",
+  "author": "E4024",
+  "page": "https://commons.wikimedia.org/wiki/File:Sea_bass_soup.jpg",
+  "label": "sea bass fish dish"
  },
  "mackerel": {
-  "file": "Scomber_scombrus.jpg",
+  "file": "Smoked mackerel sellers in Jamestown, Accra 02.jpg",
   "license": "CC BY-SA 4.0",
-  "author": "Hans Hillewaert",
-  "page": "https://commons.wikimedia.org/wiki/File:Scomber_scombrus.jpg",
-  "label": "Скумбрия"
+  "author": "Angela L. Rak",
+  "page": "https://commons.wikimedia.org/wiki/File:Smoked_mackerel_sellers_in_Jamestown,_Accra_02.jpg",
+  "label": "mackerel fish"
  },
  "herring": {
-  "file": "Clupea_harengus_Gervais.flipped.jpg",
-  "license": "Public domain",
-  "author": "Gervais et Boulart, 1877",
-  "page": "https://commons.wikimedia.org/wiki/File:Clupea_harengus_Gervais.flipped.jpg",
-  "label": "Сельдь"
+  "file": "Herring - Royal Fish, Markthal Rotterdam 2024-12-02.jpg",
+  "license": "CC0",
+  "author": "Andy Li",
+  "page": "https://commons.wikimedia.org/wiki/File:Herring_-_Royal_Fish,_Markthal_Rotterdam_2024-12-02.jpg",
+  "label": "herring"
  },
  "mussels": {
   "file": "Moules_Miesmuscheln_mussel.jpg",
@@ -696,11 +684,11 @@
   "label": "Мидии"
  },
  "squid": {
-  "file": "Loligo_forbesii.jpg",
-  "license": "Public domain",
-  "author": "Comingio Merculiano (1845–1915)",
-  "page": "https://commons.wikimedia.org/wiki/File:Loligo_forbesii.jpg",
-  "label": "Кальмар"
+  "file": "20190415 Yehliu fish market squid-1.jpg",
+  "license": "CC0",
+  "author": "Balon Greyjoy",
+  "page": "https://commons.wikimedia.org/wiki/File:20190415_Yehliu_fish_market_squid-1.jpg",
+  "label": "squid"
  },
  "rice": {
   "file": "Green_Rice.jpg",
@@ -885,11 +873,11 @@
   "label": "Перец сладкий"
  },
  "coconut": {
-  "file": "1859-Martinique.web.jpg",
-  "license": "Copyrighted free use",
-  "author": "Patrick Verdier, Free On Line Photos",
-  "page": "https://commons.wikimedia.org/wiki/File:1859-Martinique.web.jpg",
-  "label": "Кокос"
+  "file": "Coconuts - single and cracked open.jpg",
+  "license": "CC BY-SA 4.0",
+  "author": "Ivar Leidus",
+  "page": "https://commons.wikimedia.org/wiki/File:Coconuts_-_single_and_cracked_open.jpg",
+  "label": "coconut cracked"
  },
  "dill": {
   "file": "Anethum_graveolens_02.jpg",
@@ -948,11 +936,11 @@
   "label": "Куркума"
  },
  "cream": {
-  "file": "Coffee creamer.jpg",
+  "file": "2025.08.18 Antique Pressed Glass Swirl Creamer 02.jpg",
   "license": "CC BY-SA 4.0",
-  "author": "WanderingTrad",
-  "page": "https://commons.wikimedia.org/wiki/File:Coffee_creamer.jpg",
-  "label": "cream pouring dairy"
+  "author": "Illarion Kalashnikov",
+  "page": "https://commons.wikimedia.org/wiki/File:2025.08.18_Antique_Pressed_Glass_Swirl_Creamer_02.jpg",
+  "label": "cream jug milk"
  },
  "ricotta": {
   "file": "Ricotta.jpeg",
@@ -1158,11 +1146,11 @@
   "label": "bacon slices"
  },
  "anchovy": {
-  "file": "Inshore Forage Fish, prob anchovies, Bahamas 0544.jpg",
+  "file": "14-07-2017 Bottle of Anchovies fillets in olive oil, Pitéu.JPG",
   "license": "CC BY-SA 4.0",
-  "author": "Paul Harrison",
-  "page": "https://commons.wikimedia.org/wiki/File:Inshore_Forage_Fish,_prob_anchovies,_Bahamas_0544.jpg",
-  "label": "anchovies"
+  "author": "Kolforn (Kolforn)\nI'd appreciate if you could mail me (Kolforn@gmail.com) if you want to use this picture out of the Wikimedia project scope.\n\n\n\n This file is l",
+  "page": "https://commons.wikimedia.org/wiki/File:14-07-2017_Bottle_of_Anchovies_fillets_in_olive_oil,_Pit%C3%A9u.JPG",
+  "label": "anchovy fillets"
  },
  "buckwheat": {
   "file": "Buckwheat and products from it 01.jpg",
@@ -1200,11 +1188,11 @@
   "label": "cashew nuts"
  },
  "mustard": {
-  "file": "Dew kissed mustard flower 01.jpg",
-  "license": "CC BY-SA 4.0",
-  "author": "Satdeep Gill",
-  "page": "https://commons.wikimedia.org/wiki/File:Dew_kissed_mustard_flower_01.jpg",
-  "label": "mustard"
+  "file": "Mustard Pot MET DP228033.jpg",
+  "license": "CC0",
+  "author": "Creator:Joseph Shoemaker",
+  "page": "https://commons.wikimedia.org/wiki/File:Mustard_Pot_MET_DP228033.jpg",
+  "label": "mustard jar"
  },
  "red_wine": {
   "file": "Red and white wine 12-2015.jpg",
@@ -1219,5 +1207,19 @@
   "author": "Georg Pik",
   "page": "https://commons.wikimedia.org/wiki/File:Paprika_flakes_(red_and_green).jpg",
   "label": "paprika powder"
+ },
+ "caper": {
+  "file": "Caper bush - Capparis spinosa var nummularia IMG 5076.jpg",
+  "license": "CC BY-SA 2.0",
+  "author": "RuthP",
+  "page": "https://commons.wikimedia.org/wiki/File:Caper_bush_-_Capparis_spinosa_var_nummularia_IMG_5076.jpg",
+  "label": "capers"
+ },
+ "plum": {
+  "file": "Plums from farm.jpg",
+  "license": "CC BY-SA 4.0",
+  "author": "MaiDenzel",
+  "page": "https://commons.wikimedia.org/wiki/File:Plums_from_farm.jpg",
+  "label": "plums fruit"
  }
 }

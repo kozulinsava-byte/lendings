@@ -405,6 +405,7 @@ dialog::backdrop { background: rgba(27, 21, 16, .45); backdrop-filter: blur(3px)
   .nav { gap: 0; overflow-x: auto; scrollbar-width: none; }
   .nav::-webkit-scrollbar { display: none; }
   .nav a { padding: 7px 8px; font-size: 13px; white-space: nowrap; }
+  .nav a[data-nav="method"] { display: none; }
   .hero { padding-top: 30px; }
   .hero__lead { font-size: 16.5px; }
   .hero__btns .btn { flex: 1 1 100%; }
