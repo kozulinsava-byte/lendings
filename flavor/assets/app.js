@@ -149,6 +149,19 @@
     return "Собрать в одной сковороде или в салате: сначала плотные текстуры, травы и кислота — в конце.";
   }
 
+  const lowerName = (id) => {
+    const n = name(id);
+    // «Лук репчатый» → «лук репчатый», но аббревиатуры и латиницу не трогаем
+    return n.charAt(0).toLowerCase() + n.slice(1);
+  };
+
+  const ROLE = {
+    veg: "свежесть и плотность", fruit: "сладость и кислоту", herb: "зелёный аромат",
+    spice: "пряность и тепло", dairy: "сливочность", meat: "плотность и жар",
+    fish: "морской вкус", grain: "тёплую основу", nut: "хруст и горечь",
+    sweet: "десертную ноту", sauce: "кислоту и жир", drink: "кислотность и аромат"
+  };
+
   function story(combo) {
     const pairs = whyPairs(combo);
     const top = pairs[0];
@@ -157,9 +170,16 @@
     const detail = FA.WHY[key];
     const reason = FA.REASONS[top.code] ? FA.REASONS[top.code].label : "";
     const first = detail
-      ? `${cap(name(top.a))} и ${name(top.b)} — ${reason}: ${detail}.`
-      : `${cap(name(top.a))} и ${name(top.b)}: ${FA.REASONS[top.code] ? FA.REASONS[top.code].text : "проверенная пара"}.`;
-    return `<b>Почему работает.</b> ${esc(first)}<br><b>Как собрать.</b> ${esc(comboUse(combo))}`;
+      ? `${cap(lowerName(top.a))} и ${lowerName(top.b)} — ${reason}: ${detail}.`
+      : `${cap(lowerName(top.a))} и ${lowerName(top.b)}: ${FA.REASONS[top.code] ? FA.REASONS[top.code].text : "проверенная пара"}.`;
+
+    const rest = combo.filter((id) => id !== top.a && id !== top.b);
+    const extra = rest.map((id) => {
+      const role = ROLE[BY_ID[id].cat] || "свой характер";
+      return `${cap(lowerName(id))} добавляет ${role}.`;
+    }).join(" ");
+
+    return `<b>Почему работает.</b> ${esc(first)}${extra ? " " + esc(extra) : ""}<br><b>Как собрать.</b> ${esc(comboUse(combo))}`;
   }
 
   function budgetWord(combo) {
@@ -203,7 +223,7 @@
 
   /* ---------- герой ---------- */
 
-  const PLATE = ["tomato", "basil", "mozzarella", "olive_oil", "garlic"];
+  const PLATE = ["tomato", "basil", "lemon", "honey", "garlic"];
 
   const RAIL = ["tomato", "garlic", "parmesan", "honey", "dark_chocolate", "coffee", "butter", "beef", "shrimp", "bread"];
 
