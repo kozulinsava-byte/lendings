@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Вкусовой атлас — с чем это сочетается</title>
-<meta name="description" content="173 продукта и 3 801 проверенная пара. Соберите сочетание — и увидите фотографии, объяснение и способ приготовления.">
-<meta name="theme-color" content="#faf5ec">
+<meta name="description" content="173 продукта и 3 801 проверенная пара. Соберите сочетание — покажем фотографии и объясним, почему это вкусно.">
+<meta name="theme-color" content="#fcfbf8">
 <meta property="og:site_name" content="Вкусовой атлас">
 <meta property="og:locale" content="ru_RU">
 <meta property="og:type" content="website">
@@ -19,151 +19,83 @@
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Prata&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body data-page="home">
 
-<header class="bar">
-  <div class="wrap bar__in">
-    <a class="logo" href="index.html">
-      <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
-        <circle cx="16" cy="16" r="12.5"/>
-        <circle cx="16" cy="16" r="6.5"/>
-        <path d="M16 3.5v3M16 25.5v3M3.5 16h3M25.5 16h3"/>
-      </svg>
-      <b>Вкусовой атлас</b>
-    </a>
-    <nav class="nav">
-      <a href="index.html" data-nav="home">Сочетание</a>
-      <a href="atlas.html" data-nav="atlas">Атлас</a>
-      <a href="combos.html" data-nav="combos">Трио</a>
-      <a href="method.html" data-nav="method">О данных</a>
-    </nav>
-  </div>
+<header class="top wrap">
+  <a class="brand" href="index.html"><i></i>Вкусовой атлас</a>
+  <nav>
+    <a href="atlas.html">Атлас</a>
+    <a href="method.html">О данных</a>
+  </nav>
 </header>
 
-<main>
+<main class="stage wrap">
 
-  <section class="hero">
-    <div class="wrap hero__in">
-      <div>
-        <h1>С чем это <em>сочетается?</em></h1>
-        <p class="hero__lead">173 продукта и 3 801 проверенная пара. Соберите сочетание — и увидите фотографии, объяснение и способ приготовления.</p>
-        <div class="hero__btns">
-          <button class="btn btn--primary" id="btnRandom">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-              <rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="8.5" cy="8.5" r="1.3" fill="currentColor"/>
-              <circle cx="15.5" cy="15.5" r="1.3" fill="currentColor"/><circle cx="12" cy="12" r="1.3" fill="currentColor"/>
-            </svg>
-            Рандомное сочетание
-          </button>
-          <button class="btn btn--ghost" id="btnSettings">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-              <path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2.2"/><circle cx="10" cy="17" r="2.2"/>
-            </svg>
-            Сочетание с настройками
-          </button>
+  <section class="start" id="viewStart">
+    <h1>С чем это сочетается?</h1>
+    <p class="sub">Сто семьдесят три продукта и три тысячи восемьсот проверенных пар. Нажмите кнопку — покажем сочетание, фотографии и короткое объяснение.</p>
+    <div class="actions">
+      <button class="btn btn-primary" id="btnRandom">Рандомное сочетание</button>
+      <button class="btn btn-ghost" id="btnSettings">Сочетание с настройками</button>
+    </div>
+  </section>
+
+  <section class="settings" id="viewSettings" hidden>
+    <button class="back" id="btnBack">← назад</button>
+    <h2>Сочетание с настройками</h2>
+
+    <div class="opts">
+      <div class="opt">
+        <span>Сколько продуктов</span>
+        <div class="pills" data-group="count">
+          <button class="pill" data-count="2" aria-pressed="false">Два</button>
+          <button class="pill" data-count="3" aria-pressed="true">Три</button>
+          <button class="pill" data-count="4" aria-pressed="false">Четыре</button>
         </div>
-        <p class="hero__note">К каждому сочетанию — фотографии продуктов, короткое объяснение и идея, как его собрать.</p>
       </div>
 
-      <div class="plate" id="heroPlate" aria-hidden="true"></div>
+      <div class="opt">
+        <span>Бюджет</span>
+        <div class="pills" data-group="budget">
+          <button class="pill" data-budget="eco" aria-pressed="false">Экономно</button>
+          <button class="pill" data-budget="any" aria-pressed="true">Любой</button>
+          <button class="pill" data-budget="premium" aria-pressed="false">Премиум</button>
+        </div>
+      </div>
+
+      <div class="opt">
+        <span>Исключить</span>
+        <div class="pills" data-group="exclude">
+          <button class="pill" data-exclude="noMeat" aria-pressed="false">Мясо и птицу</button>
+          <button class="pill" data-exclude="noFish" aria-pressed="false">Рыбу</button>
+        </div>
+      </div>
     </div>
+
+    <button class="btn btn-primary btn-wide" id="btnApply">Подобрать сочетание</button>
   </section>
 
   <section class="result" id="result">
-    <div class="wrap">
-      <article class="combo">
-        <div class="combo__media" id="comboMedia" data-count="3"></div>
-        <div class="combo__body">
-          <span class="combo__kicker">Ваше сочетание</span>
-          <h2 class="combo__title" id="comboTitle">Помидор · Базилик · Моцарелла</h2>
-          <p class="combo__story" id="comboStory"></p>
-          <ul class="chips" id="comboChips"></ul>
-          <div class="combo__actions">
-            <button class="btn btn--primary btn--sm" id="btnAgain">Ещё сочетание</button>
-            <button class="btn btn--quiet btn--sm" id="btnCopy">Скопировать ссылку</button>
-          </div>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="wrap">
-      <div class="head">
-        <div>
-          <h2>Атлас продуктов</h2>
-          <p>У каждого продукта — вкусовой профиль, сезон, цена и все пары, с которыми он работает.</p>
-        </div>
-        <a href="atlas.html">Все 173 →</a>
-      </div>
-      <div class="rail" id="homeRail"></div>
-    </div>
-  </section>
-
-  <section class="section section--tight">
-    <div class="wrap">
-      <div class="head">
-        <div>
-          <h2>Проверенные трио</h2>
-          <p>Семьдесят готовых троек с объяснением — если не хочется выбирать самому.</p>
-        </div>
-        <a href="combos.html">Все трио →</a>
-      </div>
-      <div class="trio-grid" id="homeTrios"></div>
+    <div class="shots" id="shots" style="--n:3"></div>
+    <h2 id="comboTitle">Помидор · Базилик · Моцарелла</h2>
+    <p class="desc" id="comboDesc"></p>
+    <div class="actions">
+      <button class="btn btn-primary" id="btnAgain">Ещё сочетание</button>
+      <button class="btn btn-plain" id="btnCopy">Скопировать ссылку</button>
     </div>
   </section>
 
 </main>
 
-<footer class="foot">
-  <div class="wrap foot__in">
+<footer class="foot wrap">
+  <div class="foot__in">
     <span>Вкусовой атлас · 2026</span>
-    <div class="foot__links">
-      <a href="atlas.html">Атлас</a>
-      <a href="combos.html">Трио</a>
-      <a href="method.html">О данных и фото</a>
-    </div>
+    <span><a href="combos.html">69 готовых трио</a> · <a href="method.html">фото и источники</a></span>
   </div>
 </footer>
-
-<dialog id="dlgSettings">
-  <form method="dialog" class="sheet" onsubmit="return false">
-    <button class="close-x" type="button" aria-label="Закрыть">✕</button>
-    <h2>Сочетание с настройками</h2>
-    <p class="lead">Три вопроса — и подберём сочетание под задачу.</p>
-
-    <div class="field">
-      <span class="label">Сколько продуктов</span>
-      <div class="seg">
-        <button type="button" data-count="2" aria-pressed="false">Два</button>
-        <button type="button" data-count="3" aria-pressed="true">Три</button>
-        <button type="button" data-count="4" aria-pressed="false">Четыре</button>
-      </div>
-    </div>
-
-    <div class="field">
-      <span class="label">Бюджет</span>
-      <div class="seg">
-        <button type="button" data-budget="eco" aria-pressed="false">Экономно</button>
-        <button type="button" data-budget="any" aria-pressed="true">Любой</button>
-        <button type="button" data-budget="premium" aria-pressed="false">Премиум</button>
-      </div>
-    </div>
-
-    <div class="field">
-      <span class="label">Исключить</span>
-      <label class="check"><input type="checkbox" id="optMeat"> Мясо и птицу</label>
-      <label class="check"><input type="checkbox" id="optFish"> Рыбу и морепродукты</label>
-    </div>
-
-    <div class="sheet__actions">
-      <button class="btn btn--primary" type="button" id="btnApply">Подобрать сочетание</button>
-    </div>
-  </form>
-</dialog>
 
 <script src="assets/data/meta.js"></script>
 <script src="assets/data/ingredients.js"></script>

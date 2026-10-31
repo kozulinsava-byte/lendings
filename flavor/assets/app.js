@@ -1,6 +1,7 @@
 /* ============================================================
-   Вкусовой атлас — вся логика
-   Данные: assets/data/*.js (FA = ингредиенты, пары, трио, мета)
+   Вкусовой атлас — логика
+   Один экран: две кнопки, карточка сочетания, каталоги.
+   Данные: assets/data/*.js (window.FA)
    ============================================================ */
 
 (function () {
@@ -11,6 +12,7 @@
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
+  const low = (s) => s.charAt(0).toLowerCase() + s.slice(1);
 
   /* ---------- индексы ---------- */
 
@@ -37,7 +39,7 @@
 
   const edge = (a, b) => EDGES.get(a < b ? a + "|" + b : b + "|" + a) || null;
   const name = (id) => (BY_ID[id] ? BY_ID[id].name : id);
-  const catOf = (id) => FA.CATS[BY_ID[id].cat] || { name: "", color: "#b9a58c" };
+  const catOf = (id) => FA.CATS[BY_ID[id].cat] || { name: "", short: "" };
 
   /* ---------- картинки ---------- */
 
@@ -46,19 +48,16 @@
   function fallbackImages(root) {
     $$("img", root).forEach((el) => {
       el.addEventListener("error", () => {
-        const box = el.closest(".tile, .card__pic, .mini__pic, .ing__pic, .plate__item, .trio__pics");
+        const box = el.closest(".shot, .tile__pic, .trio__pics, .ing__pic");
         if (!box) return;
-        const src = el.getAttribute("src") || "";
-        const id = src.split("/").pop().replace(".jpg", "");
+        const id = (el.getAttribute("src") || "").split("/").pop().replace(".jpg", "");
         el.remove();
-        box.classList.add("tile--empty");
-        box.insertAdjacentHTML("afterbegin",
-          `<span class="tile__letter">${esc((BY_ID[id] ? BY_ID[id].name : id).charAt(0))}</span>`);
+        box.insertAdjacentHTML("afterbegin", `<span class="shot__letter">${esc((BY_ID[id] ? BY_ID[id].name : id).charAt(0))}</span>`);
       });
     });
   }
 
-  /* ---------- выборка сочетаний ---------- */
+  /* ---------- выборка ---------- */
 
   function sample(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
 
@@ -112,10 +111,7 @@
         for (const it of scored) { r -= it.s; if (r <= 0) { pick = it.id; break; } }
         combo.push(pick);
       }
-      if (combo.length === count) {
-        if (mode === "bold" && !combo.some((id, i) => combo.slice(i + 1).some((j) => (edge(id, j) || { w: 0 }).w <= 1))) continue;
-        return combo;
-      }
+      if (combo.length === count) return combo;
     }
     const combo = [opts.must || sample(pool)];
     while (combo.length < count) {
@@ -142,188 +138,134 @@
     const trio = FA.TRIOS.find((t) => [...t.ids].sort().join("|") === ids);
     if (trio) return trio.note;
     const cats = combo.map((id) => BY_ID[id].cat);
-    if (cats.includes("fish")) return "Быстрый жар или запекание, кислоту и зелень добавляем в конце — так аромат останется.";
+    if (cats.includes("fish")) return "Быстрый жар или запекание, кислоту и зелень добавляйте в конце.";
     if (cats.includes("meat")) return "Сильный жар до корочки, отдых под фольгой, кислота — в соус.";
-    if (cats.filter((c) => c === "fruit").length >= 2) return "Салат или десерт: соль и кислота держат сладость, сливки её смягчают.";
-    if (cats.includes("grain")) return "Тёплая основа: специи обжарить в масле, собрать всё вместе и дать постоять.";
-    return "Собрать в одной сковороде или в салате: сначала плотные текстуры, травы и кислота — в конце.";
+    if (cats.filter((c) => c === "fruit").length >= 2) return "Салат или десерт: соль и кислота держат сладость.";
+    if (cats.includes("grain")) return "Тёплая основа: специи обжарить в масле и собрать всё вместе.";
+    return "Собрать в одной сковороде или в салате — кислоту добавляйте в конце.";
   }
 
-  const lowerName = (id) => {
-    const n = name(id);
-    // «Лук репчатый» → «лук репчатый», но аббревиатуры и латиницу не трогаем
-    return n.charAt(0).toLowerCase() + n.slice(1);
-  };
-
   const ROLE = {
-    veg: "свежесть и плотность", fruit: "сладость и кислоту", herb: "зелёный аромат",
-    spice: "пряность и тепло", dairy: "сливочность", meat: "плотность и жар",
-    fish: "морской вкус", grain: "тёплую основу", nut: "хруст и горечь",
-    sweet: "десертную ноту", sauce: "кислоту и жир", drink: "кислотность и аромат"
+    veg: "свежесть", fruit: "сладость", herb: "зелёный аромат", spice: "пряность",
+    dairy: "сливочность", meat: "плотность", fish: "морской вкус", grain: "тёплую основу",
+    nut: "хруст", sweet: "десертную ноту", sauce: "кислоту", drink: "аромат"
   };
 
   function story(combo) {
-    const pairs = whyPairs(combo);
-    const top = pairs[0];
-    if (!top) return "Продукты связаны через общие ноты — проверенная база сочетаний.";
-    const key = [top.a, top.b].sort().join("|");
-    const detail = FA.WHY[key];
+    const top = whyPairs(combo)[0];
+    if (!top) return "Продукты связаны через общие ноты.";
+    const detail = FA.WHY[[top.a, top.b].sort().join("|")];
     const reason = FA.REASONS[top.code] ? FA.REASONS[top.code].label : "";
-    const first = detail
-      ? `${cap(lowerName(top.a))} и ${lowerName(top.b)} — ${reason}: ${detail}.`
-      : `${cap(lowerName(top.a))} и ${lowerName(top.b)}: ${FA.REASONS[top.code] ? FA.REASONS[top.code].text : "проверенная пара"}.`;
+    const head = detail
+      ? `${cap(low(name(top.a)))} и ${low(name(top.b))} — ${reason}: ${detail}.`
+      : `${cap(low(name(top.a)))} и ${low(name(top.b))} — ${reason || "проверенная пара"}.`;
+
+    // у готового трио есть собственное описание — второй абзац не нужен
+    const known = FA.TRIOS.find((t) => [...t.ids].sort().join("|") === [...combo].sort().join("|"));
+    if (known) return `${head} ${known.note}`;
 
     const rest = combo.filter((id) => id !== top.a && id !== top.b);
-    const extra = rest.map((id) => {
-      const role = ROLE[BY_ID[id].cat] || "свой характер";
-      return `${cap(lowerName(id))} добавляет ${role}.`;
-    }).join(" ");
-
-    return `<b>Почему работает.</b> ${esc(first)}${extra ? " " + esc(extra) : ""}<br><b>Как собрать.</b> ${esc(comboUse(combo))}`;
+    const extra = rest.map((id) => `${cap(low(name(id)))} добавляет ${ROLE[BY_ID[id].cat] || "свой характер"}.`).join(" ");
+    return `${head}${extra ? " " + extra : ""} ${comboUse(combo)}`;
   }
 
-  function budgetWord(combo) {
-    const prices = combo.map((id) => BY_ID[id].price);
-    if (prices.every((p) => p === 1)) return "экономно";
-    if (prices.some((p) => p === 3)) return "премиум";
-    return "средний бюджет";
-  }
-
-  /* ---------- карточка сочетания ---------- */
+  /* ---------- рендер сочетания ---------- */
 
   function renderCombo(combo, opts = {}) {
-    const media = $("#comboMedia");
-    const title = $("#comboTitle");
-    const storyEl = $("#comboStory");
-    const chips = $("#comboChips");
-    if (!media || !title) return;
-
-    media.dataset.count = combo.length;
-    media.innerHTML = combo.map((id) => `
-      <div class="tile">
-        ${img(id)}
-        <span class="tile__cat" style="background:${catOf(id).color}"></span>
-        <span class="tile__name">${esc(name(id))}</span>
+    const shots = $("#shots");
+    if (!shots) return;
+    shots.style.setProperty("--n", String(combo.length));
+    shots.dataset.n = String(combo.length);
+    shots.innerHTML = combo.map((id) => `
+      <div class="shot-wrap">
+        <div class="shot">${img(id)}</div>
+        <span class="shot__name">${esc(name(id))}</span>
       </div>`).join("");
 
-    title.textContent = combo.map(name).join(" · ");
-    storyEl.innerHTML = story(combo);
+    $("#comboTitle").textContent = combo.map(name).join(" · ");
+    $("#comboDesc").textContent = story(combo);
+    fallbackImages(shots);
 
-    const labels = [...new Set(whyPairs(combo).map((p) => (FA.REASONS[p.code] ? FA.REASONS[p.code].label : "")))].filter(Boolean).slice(0, 2);
-    chips.innerHTML = [...labels, budgetWord(combo)].map((t) => `<li>${esc(t)}</li>`).join("");
+    const url = new URL(location.href);
+    url.searchParams.set("c", combo.join(","));
+    try { history.replaceState(null, "", url); } catch { /* file:// */ }
 
-    fallbackImages(media);
-    if (opts.scroll && $("#result")) $("#result").scrollIntoView({ behavior: "smooth", block: "center" });
-    try {
-      const url = new URL(location.href);
-      url.searchParams.set("c", combo.join(","));
-      history.replaceState(null, "", url);
-    } catch { /* file:// — не страшно */ }
+    if (opts.scroll) $("#result").scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
-  /* ---------- герой ---------- */
+  /* ---------- экраны ---------- */
 
-  const PLATE = ["tomato", "basil", "lemon", "honey", "garlic"];
-
-  const RAIL = ["tomato", "garlic", "parmesan", "honey", "dark_chocolate", "coffee", "butter", "beef", "shrimp", "bread"];
-
-  function initHero() {
-    const plate = $("#heroPlate");
-    if (!plate) return;
-    plate.innerHTML = PLATE.map((id, i) =>
-      `<div class="plate__item plate__item--${i + 1}">${img(id)}</div>`).join("") +
-      `<span class="plate__cap">сочетается</span>`;
-    fallbackImages(plate);
-
-    const random = $("#btnRandom");
-    if (random) random.addEventListener("click", () => {
-      renderCombo(pickCombo({ count: 3, mode: "balance", budget: "any" }), { scroll: true });
-    });
+  function showView(which) {
+    const start = $("#viewStart");
+    const settings = $("#viewSettings");
+    if (!start || !settings) return;
+    start.hidden = which !== "start";
+    settings.hidden = which !== "settings";
   }
 
-  /* ---------- настройки ---------- */
-
-  function initSettings() {
-    const dlg = $("#dlgSettings");
-    if (!dlg) return;
+  function initHome() {
     const state = { count: 3, budget: "any", mode: "balance", noMeat: false, noFish: false };
 
-    $$("[data-count]", dlg).forEach((b) => b.addEventListener("click", () => {
+    $("#btnRandom").addEventListener("click", () => {
+      renderCombo(pickCombo({ count: 3, mode: "balance" }), { scroll: true });
+    });
+
+    $("#btnSettings").addEventListener("click", () => {
+      showView("settings");
+      $("#viewSettings").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    $("#btnBack").addEventListener("click", () => showView("start"));
+
+    $$("[data-count]").forEach((b) => b.addEventListener("click", () => {
       state.count = +b.dataset.count;
-      $$("[data-count]", dlg).forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+      $$("[data-count]").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
     }));
-    $$("[data-budget]", dlg).forEach((b) => b.addEventListener("click", () => {
+    $$("[data-budget]").forEach((b) => b.addEventListener("click", () => {
       state.budget = b.dataset.budget;
-      $$("[data-budget]", dlg).forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+      $$("[data-budget]").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+    }));
+    $$("[data-exclude]").forEach((b) => b.addEventListener("click", () => {
+      const on = b.getAttribute("aria-pressed") !== "true";
+      b.setAttribute("aria-pressed", String(on));
+      state[b.dataset.exclude] = on;
     }));
 
-    const btn = $("#btnSettings");
-    if (btn) btn.addEventListener("click", () => dlg.showModal());
-
-    $("#btnApply", dlg).addEventListener("click", () => {
-      const meat = $("#optMeat", dlg);
-      const fish = $("#optFish", dlg);
-      state.noMeat = !!(meat && meat.checked);
-      state.noFish = !!(fish && fish.checked);
-      dlg.close();
+    $("#btnApply").addEventListener("click", () => {
       renderCombo(pickCombo(state), { scroll: true });
     });
 
-    $(".close-x", dlg).addEventListener("click", () => dlg.close());
-    dlg.addEventListener("click", (e) => { if (e.target === dlg) dlg.close(); });
-  }
+    $("#btnAgain").addEventListener("click", () => {
+      renderCombo(pickCombo(state), { scroll: true });
+    });
 
-  /* ---------- главная: тизеры ---------- */
+    $("#btnCopy").addEventListener("click", async (e) => {
+      try {
+        await navigator.clipboard.writeText(location.href);
+        const b = e.currentTarget;
+        const old = b.textContent;
+        b.textContent = "Ссылка скопирована";
+        setTimeout(() => { b.textContent = old; }, 1600);
+      } catch { /* игнорируем */ }
+    });
 
-  function initHome() {
-    const rail = $("#homeRail");
-    if (rail) {
-      const ids = RAIL;
-      rail.innerHTML = ids.map((id) => `
-        <a class="mini" href="atlas.html?id=${id}">
-          <div class="mini__pic">${img(id)}</div>
-          <b>${esc(name(id))}</b>
-          <span>${esc(catOf(id).short || catOf(id).name)}</span>
-        </a>`).join("");
-      fallbackImages(rail);
-    }
-
-    const trios = $("#homeTrios");
-    if (trios) {
-      trios.innerHTML = FA.TRIOS.slice(0, 3).map(trioCard).join("");
-      fallbackImages(trios);
-    }
-
-    initHero();
-    initSettings();
-    initCopy();
-
-    const btnAgain = $("#btnAgain");
-    if (btnAgain) btnAgain.addEventListener("click", () => renderCombo(pickCombo({ count: 3 }), { scroll: true }));
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "r" || e.key === "R" || e.key === "к" || e.key === "К") {
+        if (e.target.matches("input, textarea")) return;
+        renderCombo(pickCombo(state), { scroll: true });
+      }
+    });
 
     const params = new URLSearchParams(location.search);
     const c = params.get("c");
     if (c) {
       const ids = c.split(",").filter((id) => BY_ID[id]);
-      if (ids.length >= 2) { renderCombo(ids, { scroll: true }); return; }
+      if (ids.length >= 2) { renderCombo(ids); if (params.get("view") === "settings") showView("settings"); return; }
     }
     const withId = params.get("with");
-    if (withId && BY_ID[withId]) { renderCombo(pickCombo({ count: 3, must: withId }), { scroll: true }); return; }
+    if (withId && BY_ID[withId]) { renderCombo(pickCombo({ count: 3, must: withId })); return; }
     renderCombo(["tomato", "basil", "mozzarella"]);
-  }
-
-  function initCopy() {
-    const btn = $("#btnCopy");
-    if (!btn) return;
-    btn.addEventListener("click", async () => {
-      try {
-        await navigator.clipboard.writeText(location.href);
-        btn.textContent = "Ссылка скопирована";
-        setTimeout(() => { btn.textContent = "Скопировать ссылку"; }, 1800);
-      } catch {
-        btn.textContent = "Скопируйте адрес из строки браузера";
-      }
-    });
+    if (params.get("view") === "settings") showView("settings");
   }
 
   /* ---------- атлас ---------- */
@@ -337,7 +279,7 @@
 
     const cats = [["all", "Все"], ...Object.entries(FA.CATS).map(([k, v]) => [k, v.short || v.name])];
     chips.innerHTML = cats.map(([k, label]) =>
-      `<button data-cat="${k}" aria-pressed="${k === "all"}">${esc(label)}</button>`).join("");
+      `<button class="pill" data-cat="${k}" aria-pressed="${k === "all"}">${esc(label)}</button>`).join("");
 
     function draw() {
       const q = (search.value || "").trim().toLowerCase();
@@ -349,11 +291,11 @@
       });
       grid.innerHTML = list.map((r) => {
         const it = BY_ID[r[0]];
-        return `<button class="card" data-id="${it.id}">
-          <div class="card__pic">${img(it.id)}</div>
-          <div class="card__body"><b>${esc(it.name)}</b><span>${esc(catOf(it.id).name)}</span></div>
+        return `<button class="tile" data-id="${it.id}">
+          <div class="tile__pic">${img(it.id)}</div>
+          <b>${esc(it.name)}</b><span>${esc(catOf(it.id).name)}</span>
         </button>`;
-      }).join("") || `<p class="empty-state">Ничего не нашлось — попробуйте другое слово.</p>`;
+      }).join("") || `<p class="empty">Ничего не нашлось — попробуйте другое слово.</p>`;
       fallbackImages(grid);
     }
 
@@ -366,7 +308,7 @@
     });
     search.addEventListener("input", draw);
     grid.addEventListener("click", (e) => {
-      const card = e.target.closest(".card[data-id]");
+      const card = e.target.closest(".tile[data-id]");
       if (card) openIngredient(card.dataset.id);
     });
     draw();
@@ -381,7 +323,7 @@
     const dlg = $("#dlgIngredient");
     const it = BY_ID[id];
     if (!dlg || !it) return;
-    const partners = (ADJ[id] || []).slice(0, 10);
+    const partners = (ADJ[id] || []).slice(0, 8);
 
     $("#ingBody").innerHTML = `
       <div class="ing">
@@ -390,17 +332,15 @@
           <h2>${esc(it.name)}</h2>
           <div class="latin">${esc(it.latin)}</div>
           <p class="note">${esc(it.note)}</p>
-          <div class="bars">
+          <div class="meters">
             ${it.tastes.map((v, i) => `
               <div class="meter-row"><span>${TASTES[i]}</span><span class="meter"><i style="width:${(v / 3) * 100}%"></i></span></div>`).join("")}
           </div>
-          <p class="note" style="margin-top:14px;color:var(--muted);font-size:13.5px">
-            ${esc(catOf(id).name)} · ${esc(it.season)} · ${["", "экономно", "средний бюджет", "премиум"][it.price]}
-          </p>
+          <p class="meta">${esc(catOf(id).name)} · ${esc(it.season)}</p>
           ${partners.length ? `<div class="partners">${partners.map((p) =>
             `<button data-partner="${p.id}">${esc(name(p.id))}</button>`).join("")}</div>` : ""}
-          <div style="margin-top:20px">
-            <a class="btn btn--primary btn--sm" href="index.html?with=${encodeURIComponent(id)}">Сочетать с этим продуктом</a>
+          <div style="margin-top:18px">
+            <a class="btn btn-primary btn-sm" href="index.html?with=${encodeURIComponent(id)}">Собрать сочетание с ним</a>
           </div>
         </div>
       </div>`;
@@ -410,65 +350,40 @@
       if (b) openIngredient(b.dataset.partner);
     };
     if (!dlg.open) dlg.showModal();
-    $(".close-x", dlg).onclick = () => dlg.close();
+    $(".close", dlg).onclick = () => dlg.close();
     dlg.onclick = (e) => { if (e.target === dlg) dlg.close(); };
   }
 
   /* ---------- трио ---------- */
 
-  function trioCard(t) {
-    return `<article class="trio">
-      <div class="trio__pics">${t.ids.map((id) => img(id)).join("")}</div>
-      <div class="trio__body">
-        <h3>${esc(t.name)}</h3>
-        <p>${esc(t.note)}</p>
-        <div class="trio__meta">
-          <span>${esc((Array.isArray(t.tags) ? t.tags : String(t.tags || "").split(",")).slice(0, 2).join(" · "))}</span>
-          <span>${esc(t.season)}</span>
-        </div>
-      </div>
-    </article>`;
-  }
-
   function initCombos() {
     const grid = $("#comboGrid");
     if (!grid) return;
-    const chips = $("#comboCats");
-    const cats = [["all", "Все"], ...Object.entries(FA.CATS).map(([k, v]) => [k, v.short || v.name])];
-    chips.innerHTML = cats.map(([k, label]) =>
-      `<button data-cat="${k}" aria-pressed="${k === "all"}">${esc(label)}</button>`).join("");
-
-    const draw = (cat) => {
-      const list = FA.TRIOS.filter((t) => cat === "all" || t.ids.some((id) => BY_ID[id] && BY_ID[id].cat === cat));
-      grid.innerHTML = list.map(trioCard).join("") || `<p class="empty-state">В этой категории пока нет готовых трио.</p>`;
-      fallbackImages(grid);
-    };
-
-    chips.addEventListener("click", (e) => {
-      const b = e.target.closest("button[data-cat]");
-      if (!b) return;
-      $$("button[data-cat]", chips).forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
-      draw(b.dataset.cat);
-    });
-    draw("all");
+    grid.innerHTML = FA.TRIOS.map((t) => `
+      <article class="trio">
+        <div class="trio__pics">${t.ids.map((id) => img(id)).join("")}</div>
+        <h3>${esc(t.name)}</h3>
+        <p>${esc(t.note)}</p>
+      </article>`).join("");
+    fallbackImages(grid);
   }
 
-  /* ---------- «о данных»: фотографии ---------- */
+  /* ---------- лицензии фото ---------- */
 
   async function initCredits() {
     const box = $("#credits");
     if (!box) return;
     try {
-      const res = await fetch("assets/img/manifest.json");
-      const data = await res.json();
-      const rows = Object.entries(data).sort((a, b) => a[0].localeCompare(b[0]));
-      box.innerHTML = rows.map(([id, m]) => {
-        const title = m.label || m.file || id;
-        const link = m.page ? `<a href="${esc(m.page)}" target="_blank" rel="noopener">${esc(title)}</a>` : esc(title);
-        return `<li><b>${esc(name(id))}</b> — ${link}, ${esc(m.license || "")}${m.author ? ", " + esc(m.author) : ""}</li>`;
-      }).join("");
+      const data = await (await fetch("assets/img/manifest.json")).json();
+      box.innerHTML = Object.entries(data)
+        .sort((a, b) => a[0].localeCompare(b[0]))
+        .map(([id, m]) => {
+          const title = m.label || m.file || id;
+          const link = m.page ? `<a href="${esc(m.page)}" target="_blank" rel="noopener">${esc(title)}</a>` : esc(title);
+          return `<li><b>${esc(name(id))}</b> — ${link}, ${esc(m.license || "")}${m.author ? ", " + esc(m.author) : ""}</li>`;
+        }).join("");
     } catch {
-      box.innerHTML = `<li>Список не загрузился — обновите страницу.</li>`;
+      box.innerHTML = `<li>Список не загрузился.</li>`;
     }
   }
 
@@ -476,13 +391,9 @@
 
   document.addEventListener("DOMContentLoaded", () => {
     const page = document.body.dataset.page;
-    $$(".nav a").forEach((a) => {
-      if (a.dataset.nav === page) a.setAttribute("aria-current", "page");
-    });
     if (page === "home") initHome();
     if (page === "atlas") initAtlas();
     if (page === "combos") initCombos();
     if (page === "method") initCredits();
-    initCopy();
   });
 })();
