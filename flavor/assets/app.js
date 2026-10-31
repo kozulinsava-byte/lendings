@@ -113,7 +113,12 @@
         const cands = pool.filter((id) => !combo.includes(id) && combo.every((c) => {
           const e = edge(c, id);
           return e && e.w >= minW;
-        }));
+        })).filter((id) => {
+          const cat = BY_ID[id].cat;
+          const same = combo.filter((c) => BY_ID[c].cat === cat).length;
+          if (["grain", "legume", "meat", "fish"].includes(cat)) return same === 0;
+          return same < 2;
+        });
         if (!cands.length) break;
 
         const scored = cands.map((id) => {
@@ -278,6 +283,20 @@
   /* ---------- домашний экран ---------- */
 
   function initHome() {
+    const stats = $("#stats");
+    if (stats) {
+      const n = FA.ING.length;
+      const tail = n % 10 === 1 && n % 100 !== 11 ? "продукт" : [2, 3, 4].includes(n % 10) && ![12, 13, 14].includes(n % 100) ? "продукта" : "продуктов";
+      stats.textContent = `${n} ${tail} · ${EDGES.size.toLocaleString("ru-RU").replace(/\u00A0/g, " ")} проверенных пар`;
+    }
+
+    const note = $("#purposesNote");
+    if (note && FA.PURPOSES) {
+      const n = FA.PURPOSES.length;
+      const word = [2, 3, 4].includes(n % 10) && ![12, 13, 14].includes(n % 100) ? "повода" : "поводов";
+      note.textContent = `От джема до маринада — ${n} ${word}`;
+    }
+
     const state = { purpose: "jam", count: 3, budget: "any", bold: 1, noMeat: false, noFish: false };
 
     /* карточки целей */
@@ -491,6 +510,10 @@
   /* ---------- лицензии ---------- */
 
   async function initCredits() {
+    $$("[data-stat]").forEach((el) => {
+      if (el.dataset.stat === "ing") el.textContent = FA.ING.length;
+      if (el.dataset.stat === "pairs") el.textContent = EDGES.size.toLocaleString("ru-RU").replace(/\u00A0/g, " ");
+    });
     const box = $("#credits");
     if (!box) return;
     try {

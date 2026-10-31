@@ -1221,5 +1221,1251 @@
   "author": "MaiDenzel",
   "page": "https://commons.wikimedia.org/wiki/File:Plums_from_farm.jpg",
   "label": "plums fruit"
+ },
+ "sea_buckthorn": {
+  "file": "Hippophae_rhamnoides-01_(xndr).JPG",
+  "license": "CC BY-SA 3.0",
+  "author": "No machine-readable author provided. Svdmolen assumed (based on copyright claims).",
+  "page": "https://commons.wikimedia.org/wiki/File:Hippophae_rhamnoides-01_(xndr).JPG",
+  "label": "Облепиха"
+ },
+ "lingonberry": {
+  "file": "Vaccinium_vitis-idaea_20060824_003.jpg",
+  "license": "Public domain",
+  "author": "Jonas Bergsten",
+  "page": "https://commons.wikimedia.org/wiki/File:Vaccinium_vitis-idaea_20060824_003.jpg",
+  "label": "Брусника"
+ },
+ "cloudberry": {
+  "file": "Rabamurakad_2001.jpg",
+  "license": "Public domain",
+  "author": "Epukas",
+  "page": "https://commons.wikimedia.org/wiki/File:Rabamurakad_2001.jpg",
+  "label": "Морошка"
+ },
+ "viburnum": {
+  "file": "Viburnum_opulus_fruits_-_Keila.jpg",
+  "license": "CC BY-SA 4.0",
+  "author": "Ivar Leidus",
+  "page": "https://commons.wikimedia.org/wiki/File:Viburnum_opulus_fruits_-_Keila.jpg",
+  "label": "Калина"
+ },
+ "aronia": {
+  "file": "Aronia_arbutifolia2475275707.jpg",
+  "license": "CC BY 2.0",
+  "author": "Bob Gutowski",
+  "page": "https://commons.wikimedia.org/wiki/File:Aronia_arbutifolia2475275707.jpg",
+  "label": "Арония"
+ },
+ "elderberry": {
+  "file": "Sambucus_nigra_002.jpg",
+  "license": "CC BY-SA 2.5",
+  "author": "Willow",
+  "page": "https://commons.wikimedia.org/wiki/File:Sambucus_nigra_002.jpg",
+  "label": "Бузина"
+ },
+ "mulberry": {
+  "file": "Morus_nigra_(fruit)_-_Samarkand_June_2022.jpg",
+  "license": "CC BY-SA 4.0",
+  "author": "DS28",
+  "page": "https://commons.wikimedia.org/wiki/File:Morus_nigra_(fruit)_-_Samarkand_June_2022.jpg",
+  "label": "Шелковица"
+ },
+ "dogwood": {
+  "file": "Cornus_florida_02_by_Line1.jpg",
+  "license": "CC BY-SA 3.0",
+  "author": "Liné1",
+  "page": "https://commons.wikimedia.org/wiki/File:Cornus_florida_02_by_Line1.jpg",
+  "label": "Кизил"
+ },
+ "rosehip": {
+  "file": "Шиповник_в_Белгороде_crop.jpg",
+  "license": "CC BY-SA 4.0",
+  "author": "Лобачев Владимир",
+  "page": "https://commons.wikimedia.org/wiki/File:%D0%A8%D0%B8%D0%BF%D0%BE%D0%B2%D0%BD%D0%B8%D0%BA_%D0%B2_%D0%91%D0%B5%D0%BB%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%B5_crop.jpg",
+  "label": "Шиповник"
+ },
+ "sloe": {
+  "file": "Blackthorn_bushes_at_Holma_2.jpg",
+  "license": "CC0",
+  "author": "W.carter",
+  "page": "https://commons.wikimedia.org/wiki/File:Blackthorn_bushes_at_Holma_2.jpg",
+  "label": "Тёрн"
+ },
+ "cherry_plum": {
+  "file": "My_mother's_cherry_plum.JPG",
+  "license": "CC BY-SA 4.0",
+  "author": "Alyana Alya",
+  "page": "https://commons.wikimedia.org/wiki/File:My_mother%27s_cherry_plum.JPG",
+  "label": "Алыча"
+ },
+ "medlar": {
+  "file": "Medlar_pomes_and_leaves.jpg",
+  "license": "CC BY-SA 2.0",
+  "author": "",
+  "page": "https://commons.wikimedia.org/wiki/File:Medlar_pomes_and_leaves.jpg",
+  "label": "Мушмула"
+ },
+ "redcurrant": {
+  "file": "Ribes_rubrum_1.jpg",
+  "license": "Public domain",
+  "author": "",
+  "page": "https://commons.wikimedia.org/wiki/File:Ribes_rubrum_1.jpg",
+  "label": "Красная смородина"
+ },
+ "white_currant": {
+  "file": "White currants in basket 2020 G1.jpg",
+  "license": "Public domain",
+  "author": "George Chernilevsky",
+  "page": "https://commons.wikimedia.org/wiki/File:White_currants_in_basket_2020_G1.jpg",
+  "label": "Белая смородина"
+ },
+ "honeysuckle": {
+  "file": "Lonicera_caprifolium_RF.jpg",
+  "license": "CC BY 3.0",
+  "author": "Robert Flogaus-Faust",
+  "page": "https://commons.wikimedia.org/wiki/File:Lonicera_caprifolium_RF.jpg",
+  "label": "Жимолость"
+ },
+ "feijoa": {
+  "file": "Acca_sellowiana_tree.jpg",
+  "license": "CC BY-SA 3.0",
+  "author": "user:yelod - wikimedia commons\n\nמשתמש:ילוד - ויקיפדיה העיברית",
+  "page": "https://commons.wikimedia.org/wiki/File:Acca_sellowiana_tree.jpg",
+  "label": "Фейхоа"
+ },
+ "pomelo": {
+  "file": "Pomelo flesh.jpg",
+  "license": "CC BY-SA 4.0",
+  "author": "Ivar Leidus",
+  "page": "https://commons.wikimedia.org/wiki/File:Pomelo_flesh.jpg",
+  "label": "Помело"
+ },
+ "tangerine": {
+  "file": "Mandarin_orange_tree.jpg",
+  "license": "CC BY-SA 3.0",
+  "author": "",
+  "page": "https://commons.wikimedia.org/wiki/File:Mandarin_orange_tree.jpg",
+  "label": "Мандарин"
+ },
+ "nectarine": {
+  "file": "Owoce_Nektarynka.jpg",
+  "license": "GFDL 1.2",
+  "author": "Agnieszka Kwiecień, Nova",
+  "page": "https://commons.wikimedia.org/wiki/File:Owoce_Nektarynka.jpg",
+  "label": "Нектарин"
+ },
+ "damson": {
+  "file": "Prunus domestica, Agde 01.jpg",
+  "license": "CC BY-SA 4.0",
+  "author": "Christian Ferrer",
+  "page": "https://commons.wikimedia.org/wiki/File:Prunus_domestica,_Agde_01.jpg",
+  "label": "Дамасская слива"
+ },
+ "papaya": {
+  "file": "Papaya_BW_1.jpg",
+  "license": "CC BY-SA 3.0",
+  "author": "Berthold Werner",
+  "page": "https://commons.wikimedia.org/wiki/File:Papaya_BW_1.jpg",
+  "label": "Папайя"
+ },
+ "guava": {
+  "file": "Starr_020803-0117_Psidium_guajava.jpg",
+  "license": "CC BY 3.0",
+  "author": "Forest &amp; Kim Starr",
+  "page": "https://commons.wikimedia.org/wiki/File:Starr_020803-0117_Psidium_guajava.jpg",
+  "label": "Гуава"
+ },
+ "lychee": {
+  "file": "Starr-090617-0938-Litchi_chinensis-fruiting_habit-Haiku-Maui_(41353189901).jpg",
+  "license": "CC BY 3.0 us",
+  "author": "Forest and Kim Starr",
+  "page": "https://commons.wikimedia.org/wiki/File:Starr-090617-0938-Litchi_chinensis-fruiting_habit-Haiku-Maui_(41353189901).jpg",
+  "label": "Личи"
+ },
+ "dragonfruit": {
+  "file": "Dragonfruit_Chiayi_market.jpg",
+  "license": "CC BY-SA 2.0",
+  "author": "_e.t",
+  "page": "https://commons.wikimedia.org/wiki/File:Dragonfruit_Chiayi_market.jpg",
+  "label": "Питайя"
+ },
+ "physalis": {
+  "file": "PhysalisAng2.jpg",
+  "license": "CC BY-SA 4.0",
+  "author": "Douglas Goldman",
+  "page": "https://commons.wikimedia.org/wiki/File:PhysalisAng2.jpg",
+  "label": "Физалис"
+ },
+ "kumquat": {
+  "file": "Owoce_Kumkwat.jpg",
+  "license": "CC BY-SA 3.0",
+  "author": "Agnieszka Kwiecień, Nova",
+  "page": "https://commons.wikimedia.org/wiki/File:Owoce_Kumkwat.jpg",
+  "label": "Кумкват"
+ },
+ "bergamot": {
+  "file": "Bergamottepflanze.jpg",
+  "license": "CC BY-SA 3.0",
+  "author": "",
+  "page": "https://commons.wikimedia.org/wiki/File:Bergamottepflanze.jpg",
+  "label": "Бергамот"
+ },
+ "yuzu": {
+  "file": "Citrus_junos3.jpg",
+  "license": "CC BY-SA 3.0",
+  "author": "KENPEI",
+  "page": "https://commons.wikimedia.org/wiki/File:Citrus_junos3.jpg",
+  "label": "Юдзу"
+ },
+ "tamarind": {
+  "file": "Tamarindus_indica_pods.JPG",
+  "license": "CC BY 2.5",
+  "author": "B.navez",
+  "page": "https://commons.wikimedia.org/wiki/File:Tamarindus_indica_pods.JPG",
+  "label": "Тамаринд"
+ },
+ "prune": {
+  "file": "Prune.JPG",
+  "license": "Public domain",
+  "author": "Merzperson at English Wikipedia",
+  "page": "https://commons.wikimedia.org/wiki/File:Prune.JPG",
+  "label": "Чернослив"
+ },
+ "dried_apricot": {
+  "file": "Ab_food_04.jpg",
+  "license": "CC BY-SA 3.0",
+  "author": "Andrey Butko",
+  "page": "https://commons.wikimedia.org/wiki/File:Ab_food_04.jpg",
+  "label": "Курага"
+ },
+ "dried_fig": {
+  "file": "Smokvicaa.png",
+  "license": "CC BY-SA 4.0",
+  "author": "Jelena Raskovic",
+  "page": "https://commons.wikimedia.org/wiki/File:Smokvicaa.png",
+  "label": "Сушёный инжир"
+ },
+ "romanesco": {
+  "file": "Romanesco -- 2021 -- 5768.jpg",
+  "license": "CC BY-SA 4.0",
+  "author": "Dietmar Rabich",
+  "page": "https://commons.wikimedia.org/wiki/File:Romanesco_--_2021_--_5768.jpg",
+  "label": "Романеско"
+ },
+ "kohlrabi": {
+  "file": "Koolrabi.jpg",
+  "license": "CC BY-SA 3.0",
+  "author": "Toubib at Dutch Wikipedia",
+  "page": "https://commons.wikimedia.org/wiki/File:Koolrabi.jpg",
+  "label": "Кольраби"
+ },
+ "turnip": {
+  "file": "Brassica_rapa_plant.jpg",
+  "license": "CC BY-SA 3.0",
+  "author": "TeunSpaans",
+  "page": "https://commons.wikimedia.org/wiki/File:Brassica_rapa_plant.jpg",
+  "label": "Репа"
+ },
+ "rutabaga": {
+  "file": "Rutabaga,_variety_nadmorska.JPG",
+  "license": "CC BY-SA 3.0",
+  "author": "Picasa user Seedambassadors",
+  "page": "https://commons.wikimedia.org/wiki/File:Rutabaga,_variety_nadmorska.JPG",
+  "label": "Брюква"
+ },
+ "parsnip": {
+  "file": "Пастернак - 20260710 123723.jpg",
+  "license": "CC BY-SA 4.0",
+  "author": "Микола Василечко",
+  "page": "https://commons.wikimedia.org/wiki/File:%D0%9F%D0%B0%D1%81%D1%82%D0%B5%D1%80%D0%BD%D0%B0%D0%BA_-_20260710_123723.jpg",
+  "label": "Пастернак"
+ },
+ "celeriac": {
+  "file": "Apium graveolens (Apio).jpg",
+  "license": "CC BY-SA 4.0",
+  "author": "Mockingbird291",
+  "page": "https://commons.wikimedia.org/wiki/File:Apium_graveolens_(Apio).jpg",
+  "label": "Сельдерей корневой"
+ },
+ "jerusalem_artichoke": {
+  "file": "20130827Helianthus_tuberosus5.jpg",
+  "license": "CC0",
+  "author": "AnRo0002",
+  "page": "https://commons.wikimedia.org/wiki/File:20130827Helianthus_tuberosus5.jpg",
+  "label": "Топинамбур"
+ },
+ "yam": {
+  "file": "YamsatBrixtonMarket.jpg",
+  "license": "CC BY-SA 3.0",
+  "author": "",
+  "page": "https://commons.wikimedia.org/wiki/File:YamsatBrixtonMarket.jpg",
+  "label": "Ямс"
+ },
+ "taro": {
+  "file": "(MHNT) Colocasia esculenta - Les Martels, Giroussens Tarn.jpg",
+  "license": "CC BY-SA 4.0",
+  "author": "Didier Descouens",
+  "page": "https://commons.wikimedia.org/wiki/File:(MHNT)_Colocasia_esculenta_-_Les_Martels,_Giroussens_Tarn.jpg",
+  "label": "Таро"
+ },
+ "okra": {
+  "file": "Hong_Kong_Okra_Aug_25_2012.JPG",
+  "license": "CC BY-SA 3.0",
+  "author": "Earth100",
+  "page": "https://commons.wikimedia.org/wiki/File:Hong_Kong_Okra_Aug_25_2012.JPG",
+  "label": "Окра"
+ },
+ "chard": {
+  "file": "Chard_in_the_Victory_Garden.jpg",
+  "license": "CC BY-SA 2.0",
+  "author": "mercedesfromtheeighties",
+  "page": "https://commons.wikimedia.org/wiki/File:Chard_in_the_Victory_Garden.jpg",
+  "label": "Мангольд"
+ },
+ "kale": {
+  "file": "John Cale (49386832313).jpg",
+  "license": "CC BY 2.0",
+  "author": "Paul Hudson from United Kingdom",
+  "page": "https://commons.wikimedia.org/wiki/File:John_Cale_(49386832313).jpg",
+  "label": "Кейл"
+ },
+ "bok_choy": {
+  "file": "Brassica_rapa_var._chinensis_(leaf).jpg",
+  "license": "CC BY 2.5",
+  "author": "おむこさん志望",
+  "page": "https://commons.wikimedia.org/wiki/File:Brassica_rapa_var._chinensis_(leaf).jpg",
+  "label": "Бок-чой"
+ },
+ "endive": {
+  "file": "Cichorium_endivia_J1.JPG",
+  "license": "CC BY-SA 3.0",
+  "author": "Jamain",
+  "page": "https://commons.wikimedia.org/wiki/File:Cichorium_endivia_J1.JPG",
+  "label": "Эндивий"
+ },
+ "radicchio": {
+  "file": "Cichorium intybus 01.JPG",
+  "license": "CC BY-SA 4.0",
+  "author": "Uoaei1",
+  "page": "https://commons.wikimedia.org/wiki/File:Cichorium_intybus_01.JPG",
+  "label": "Радиккио"
+ },
+ "iceberg": {
+  "file": "Айсберг_в_Антарктической_проливе.jpg",
+  "license": "CC BY-SA 3.0",
+  "author": "Georg Botz",
+  "page": "https://commons.wikimedia.org/wiki/File:%D0%90%D0%B9%D1%81%D0%B1%D0%B5%D1%80%D0%B3_%D0%B2_%D0%90%D0%BD%D1%82%D0%B0%D1%80%D0%BA%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B9_%D0%BF%D1%80%D0%BE%D0%BB%D0%B8%D0%B2%D0%B5.jpg",
+  "label": "Айсберг"
+ },
+ "watercress": {
+  "file": "Rorippa_nasturtium-aquaticum01.jpg",
+  "license": "CC BY-SA 3.0",
+  "author": "",
+  "page": "https://commons.wikimedia.org/wiki/File:Rorippa_nasturtium-aquaticum01.jpg",
+  "label": "Водяной кресс"
+ },
+ "artichoke": {
+  "file": "Artichoke_Cynara_cardunculus_Plants_2000px.jpg",
+  "license": "CC BY-SA 3.0",
+  "author": "Photo by and (c)2008 Derek Ramsey (Ram-Man).  Co-attribution must be given to the Chanticleer Garden.",
+  "page": "https://commons.wikimedia.org/wiki/File:Artichoke_Cynara_cardunculus_Plants_2000px.jpg",
+  "label": "Артишок"
+ },
+ "leek": {
+  "file": "Leeks,_greengrocers_display,_Redruth,_Cornwall_-_October_2022.jpg",
+  "license": "CC BY-SA 4.0",
+  "author": "Mutney",
+  "page": "https://commons.wikimedia.org/wiki/File:Leeks,_greengrocers_display,_Redruth,_Cornwall_-_October_2022.jpg",
+  "label": "Лук-порей"
+ },
+ "shallot": {
+  "file": "Echalote_p1040227.jpg",
+  "license": "CC BY-SA 3.0",
+  "author": "David Monniaux",
+  "page": "https://commons.wikimedia.org/wiki/File:Echalote_p1040227.jpg",
+  "label": "Шалот"
+ },
+ "spring_onion": {
+  "file": "CSA-Red-Spring-Onions.jpg",
+  "license": "Public domain",
+  "author": "Evan-Amos",
+  "page": "https://commons.wikimedia.org/wiki/File:CSA-Red-Spring-Onions.jpg",
+  "label": "Зелёный лук"
+ },
+ "daikon": {
+  "file": "Daikon.Japan.jpg",
+  "license": "CC BY-SA 3.0",
+  "author": "Chris 73",
+  "page": "https://commons.wikimedia.org/wiki/File:Daikon.Japan.jpg",
+  "label": "Дайкон"
+ },
+ "chayote": {
+  "file": "Sechium_edule_dsc07767.jpg",
+  "license": "CC BY-SA 3.0",
+  "author": "",
+  "page": "https://commons.wikimedia.org/wiki/File:Sechium_edule_dsc07767.jpg",
+  "label": "Чайот"
+ },
+ "brussels_sprouts": {
+  "file": "Brysselkål,_Iduns_kokbok.jpg",
+  "license": "Public domain",
+  "author": "",
+  "page": "https://commons.wikimedia.org/wiki/File:Brysselk%C3%A5l,_Iduns_kokbok.jpg",
+  "label": "Брюссельская капуста"
+ },
+ "red_cabbage": {
+  "file": "Aesthetic_Cabage.jpg",
+  "license": "CC BY-SA 4.0",
+  "author": "Thamizhpparithi Maari",
+  "page": "https://commons.wikimedia.org/wiki/File:Aesthetic_Cabage.jpg",
+  "label": "Краснокочанная капуста"
+ },
+ "savoy_cabbage": {
+  "file": "Wirsingkohl.jpg",
+  "license": "CC BY-SA 3.0",
+  "author": "",
+  "page": "https://commons.wikimedia.org/wiki/File:Wirsingkohl.jpg",
+  "label": "Савойская капуста"
+ },
+ "edamame": {
+  "file": "Edamame_on_a_bamboo_bowl_by_yomi955.jpg",
+  "license": "CC BY 2.0",
+  "author": "yomi955",
+  "page": "https://commons.wikimedia.org/wiki/File:Edamame_on_a_bamboo_bowl_by_yomi955.jpg",
+  "label": "Эдамаме"
+ },
+ "nori": {
+  "file": "Nori.jpg",
+  "license": "CC BY-SA 3.0",
+  "author": "Alice Wiegand, (Lyzzy)",
+  "page": "https://commons.wikimedia.org/wiki/File:Nori.jpg",
+  "label": "Нори"
+ },
+ "kelp": {
+  "file": "Kombu.jpg",
+  "license": "CC BY-SA 3.0",
+  "author": "Alice Wiegand, (Lyzzy)",
+  "page": "https://commons.wikimedia.org/wiki/File:Kombu.jpg",
+  "label": "Комбу"
+ },
+ "bamboo_shoots": {
+  "file": "Big_Bamboo_Shoot_(Joi_Ito).jpg",
+  "license": "CC BY 2.0",
+  "author": "Joi Ito",
+  "page": "https://commons.wikimedia.org/wiki/File:Big_Bamboo_Shoot_(Joi_Ito).jpg",
+  "label": "Бамбуковые побеги"
+ },
+ "lotus_root": {
+  "file": "Fried lotus root (2pc) - Goemon Hand Roll Bar 2024-09-12.jpg",
+  "license": "CC0",
+  "author": "Andy Li",
+  "page": "https://commons.wikimedia.org/wiki/File:Fried_lotus_root_(2pc)_-_Goemon_Hand_Roll_Bar_2024-09-12.jpg",
+  "label": "Корень лотоса"
+ },
+ "chervil": {
+  "file": "Myrrhis_odorata,_Roomse_kervel_plant.jpg",
+  "license": "CC BY-SA 3.0",
+  "author": "Rasbak",
+  "page": "https://commons.wikimedia.org/wiki/File:Myrrhis_odorata,_Roomse_kervel_plant.jpg",
+  "label": "Кервель"
+ },
+ "marjoram": {
+  "file": "Origanum_majorana_001.JPG",
+  "license": "CC BY-SA 3.0",
+  "author": "H. Zell",
+  "page": "https://commons.wikimedia.org/wiki/File:Origanum_majorana_001.JPG",
+  "label": "Майоран"
+ },
+ "lovage": {
+  "file": "Levisticum_officinale-planto.jpg",
+  "license": "FAL",
+  "author": "Mikrolit'",
+  "page": "https://commons.wikimedia.org/wiki/File:Levisticum_officinale-planto.jpg",
+  "label": "Любисток"
+ },
+ "savory": {
+  "file": "Satureja_montana_Cząber_górski_flower.jpg",
+  "license": "CC BY 3.0",
+  "author": "Agnieszka Kwiecień, Nova",
+  "page": "https://commons.wikimedia.org/wiki/File:Satureja_montana_Cz%C4%85ber_g%C3%B3rski_flower.jpg",
+  "label": "Чабер"
+ },
+ "shiso": {
+  "file": "Perilla_frutescens_frutescens_732814283.jpg",
+  "license": "CC BY 4.0",
+  "author": "Alex Abair",
+  "page": "https://commons.wikimedia.org/wiki/File:Perilla_frutescens_frutescens_732814283.jpg",
+  "label": "Шисо"
+ },
+ "curry_leaf": {
+  "file": "Bergera koenigii Curry leaf tree.jpg",
+  "license": "CC BY-SA 4.0",
+  "author": "SarKaLay စာကလေး",
+  "page": "https://commons.wikimedia.org/wiki/File:Bergera_koenigii_Curry_leaf_tree.jpg",
+  "label": "Карри-лист"
+ },
+ "pandan": {
+  "file": "Albrecht_Dürer_-_Adam_and_Eve_(Prado)_2.jpg",
+  "license": "Public domain",
+  "author": "Albrecht Dürer",
+  "page": "https://commons.wikimedia.org/wiki/File:Albrecht_D%C3%BCrer_-_Adam_and_Eve_(Prado)_2.jpg",
+  "label": "Пандан"
+ },
+ "wild_garlic": {
+  "file": "Bärlauch-Ernte.jpg",
+  "license": "Public domain",
+  "author": "sarang",
+  "page": "https://commons.wikimedia.org/wiki/File:B%C3%A4rlauch-Ernte.jpg",
+  "label": "Черемша"
+ },
+ "nettle": {
+  "file": "Urtica_dioica_1.jpg",
+  "license": "CC BY-SA 3.0",
+  "author": "Franz Xaver",
+  "page": "https://commons.wikimedia.org/wiki/File:Urtica_dioica_1.jpg",
+  "label": "Крапива"
+ },
+ "dandelion_greens": {
+  "file": "Pusteblumen_Wiese.jpg",
+  "license": "CC BY-SA 4.0",
+  "author": "Robert.photography",
+  "page": "https://commons.wikimedia.org/wiki/File:Pusteblumen_Wiese.jpg",
+  "label": "Одуванчик"
+ },
+ "white_pepper": {
+  "file": "Dried_Peppercorns.jpg",
+  "license": "CC BY-SA 3.0",
+  "author": "en:User:Bunchofgrapes",
+  "page": "https://commons.wikimedia.org/wiki/File:Dried_Peppercorns.jpg",
+  "label": "Белый перец"
+ },
+ "green_pepper": {
+  "file": "Pimienta negra (Piper nigrum), 2020-06-12, DD 20-40 FS.jpg",
+  "license": "CC BY-SA 4.0",
+  "author": "Diego Delso",
+  "page": "https://commons.wikimedia.org/wiki/File:Pimienta_negra_(Piper_nigrum),_2020-06-12,_DD_20-40_FS.jpg",
+  "label": "Зелёный перец"
+ },
+ "szechuan_pepper": {
+  "file": "Poivre_fond_blanc.jpg",
+  "license": "CC BY-SA 4.0",
+  "author": "Didier Descouens",
+  "page": "https://commons.wikimedia.org/wiki/File:Poivre_fond_blanc.jpg",
+  "label": "Сычуаньский перец"
+ },
+ "grains_of_paradise": {
+  "file": "Gousse de poivre de Guinée ou de maniguette ou de graine de paradis ou (ou encore atakoun au Bénin).jpg",
+  "license": "CC BY-SA 4.0",
+  "author": "Adoscam",
+  "page": "https://commons.wikimedia.org/wiki/File:Gousse_de_poivre_de_Guin%C3%A9e_ou_de_maniguette_ou_de_graine_de_paradis_ou_(ou_encore_atakoun_au_B%C3%A9nin).jpg",
+  "label": "Райские зёрна"
+ },
+ "mace": {
+  "file": "Fleur_de_muscade.jpg",
+  "license": "Public domain",
+  "author": "Jastrow at French Wikipedia",
+  "page": "https://commons.wikimedia.org/wiki/File:Fleur_de_muscade.jpg",
+  "label": "Мускатный цвет"
+ },
+ "fenugreek": {
+  "file": "Trigonella_caerulea.jpg",
+  "license": "CC BY-SA 3.0",
+  "author": "Flyout",
+  "page": "https://commons.wikimedia.org/wiki/File:Trigonella_caerulea.jpg",
+  "label": "Пажитник"
+ },
+ "nigella": {
+  "file": "IMG_0503-Nigella_sativa.jpg",
+  "license": "CC BY 3.0",
+  "author": "C T Johansson",
+  "page": "https://commons.wikimedia.org/wiki/File:IMG_0503-Nigella_sativa.jpg",
+  "label": "Калинджи"
+ },
+ "caraway": {
+  "file": "Caraway_Carum_carvi_Kerava_VI08_H5457_C.jpg",
+  "license": "CC BY-SA 3.0",
+  "author": "Anneli Salo",
+  "page": "https://commons.wikimedia.org/wiki/File:Caraway_Carum_carvi_Kerava_VI08_H5457_C.jpg",
+  "label": "Тмин"
+ },
+ "fennel_seed": {
+  "file": "Foeniculum vulgare kz07.jpg",
+  "license": "CC BY 4.0",
+  "author": "Krzysztof Ziarnek, Kenraiz",
+  "page": "https://commons.wikimedia.org/wiki/File:Foeniculum_vulgare_kz07.jpg",
+  "label": "Семена фенхеля"
+ },
+ "celery_seed": {
+  "file": "Apium graveolens (Apio).jpg",
+  "license": "CC BY-SA 4.0",
+  "author": "Mockingbird291",
+  "page": "https://commons.wikimedia.org/wiki/File:Apium_graveolens_(Apio).jpg",
+  "label": "Семена сельдерея"
+ },
+ "poppy_seed": {
+  "file": "Papaver_somniferum_02_by-dpc.jpg",
+  "license": "CC BY 3.0",
+  "author": "David Perez",
+  "page": "https://commons.wikimedia.org/wiki/File:Papaver_somniferum_02_by-dpc.jpg",
+  "label": "Мак"
+ },
+ "cayenne": {
+  "file": "Capsicum_frutescens02.JPG",
+  "license": "CC BY-SA 3.0",
+  "author": "Meneerke bloem",
+  "page": "https://commons.wikimedia.org/wiki/File:Capsicum_frutescens02.JPG",
+  "label": "Кайенский перец"
+ },
+ "chipotle": {
+  "file": "Capsicum_annuum_chipotle_dried.jpg",
+  "license": "CC BY-SA 2.5",
+  "author": "User:Carstor",
+  "page": "https://commons.wikimedia.org/wiki/File:Capsicum_annuum_chipotle_dried.jpg",
+  "label": "Чипотле"
+ },
+ "ancho": {
+  "file": "Спомен-76-7-Анчо Стаев.jpg",
+  "license": "Public domain",
+  "author": "Unknown authorUnknown author",
+  "page": "https://commons.wikimedia.org/wiki/File:%D0%A1%D0%BF%D0%BE%D0%BC%D0%B5%D0%BD-76-7-%D0%90%D0%BD%D1%87%D0%BE_%D0%A1%D1%82%D0%B0%D0%B5%D0%B2.jpg",
+  "label": "Анчо"
+ },
+ "zaatar": {
+  "file": "ZaatarbyGassan.jpg",
+  "license": "CC BY 3.0",
+  "author": "Sjschen",
+  "page": "https://commons.wikimedia.org/wiki/File:ZaatarbyGassan.jpg",
+  "label": "Заатар"
+ },
+ "garam_masala": {
+  "file": "Garammasalaphoto.jpg",
+  "license": "CC BY 3.0",
+  "author": "Badagnani",
+  "page": "https://commons.wikimedia.org/wiki/File:Garammasalaphoto.jpg",
+  "label": "Гарам масала"
+ },
+ "curry_powder": {
+  "file": "Mixed vegetable curry 1.jpg",
+  "license": "CC BY-SA 4.0",
+  "author": "Dolon Prova",
+  "page": "https://commons.wikimedia.org/wiki/File:Mixed_vegetable_curry_1.jpg",
+  "label": "Карри"
+ },
+ "galangal": {
+  "file": "20240824 Pad-Kee-Mao Restaurant Thai-Art Berlin anagoria.jpg",
+  "license": "CC BY-SA 4.0",
+  "author": "Anagoria",
+  "page": "https://commons.wikimedia.org/wiki/File:20240824_Pad-Kee-Mao_Restaurant_Thai-Art_Berlin_anagoria.jpg",
+  "label": "Галангал"
+ },
+ "wasabi": {
+  "file": "Wasabia_japonica_4.JPG",
+  "license": "CC BY-SA 3.0",
+  "author": "Qwert1234",
+  "page": "https://commons.wikimedia.org/wiki/File:Wasabia_japonica_4.JPG",
+  "label": "Васаби"
+ },
+ "asafoetida": {
+  "file": "Asafoetida2.jpg",
+  "license": "CC BY-SA 3.0",
+  "author": "Toyah",
+  "page": "https://commons.wikimedia.org/wiki/File:Asafoetida2.jpg",
+  "label": "Асафетида"
+ },
+ "kefir": {
+  "file": "Kefir_in_a_glass.JPG",
+  "license": "CC BY-SA 3.0",
+  "author": "Quijote at Russian Wikipedia",
+  "page": "https://commons.wikimedia.org/wiki/File:Kefir_in_a_glass.JPG",
+  "label": "Кефир"
+ },
+ "buttermilk": {
+  "file": "Buttermilk-(right)-and-Milk-(left).jpg",
+  "license": "CC BY-SA 3.0",
+  "author": "Ukko-wc",
+  "page": "https://commons.wikimedia.org/wiki/File:Buttermilk-(right)-and-Milk-(left).jpg",
+  "label": "Пахта"
+ },
+ "creme_fraiche": {
+  "file": "Raspberries_with_crème_fraîche_and_sugar.jpg",
+  "license": "CC BY 2.0",
+  "author": "Jef Poskanzer from Berkeley, CA, USA",
+  "page": "https://commons.wikimedia.org/wiki/File:Raspberries_with_cr%C3%A8me_fra%C3%AEche_and_sugar.jpg",
+  "label": "Крем-фреш"
+ },
+ "halloumi": {
+  "file": "Halloumislicefresh.jpg",
+  "license": "Public domain",
+  "author": "No machine-readable author provided. J.P.Lon~commonswiki assumed (based on copyright claims).",
+  "page": "https://commons.wikimedia.org/wiki/File:Halloumislicefresh.jpg",
+  "label": "Халлуми"
+ },
+ "paneer": {
+  "file": "European cheese in the European Delicatessen.jpg",
+  "license": "CC BY-SA 4.0",
+  "author": "Peachyeung316",
+  "page": "https://commons.wikimedia.org/wiki/File:European_cheese_in_the_European_Delicatessen.jpg",
+  "label": "Панир"
+ },
+ "gouda": {
+  "file": "Gouda_vanuit_de_lucht.jpg",
+  "license": "CC BY 2.0",
+  "author": "ben.fitzgerald on Flickr",
+  "page": "https://commons.wikimedia.org/wiki/File:Gouda_vanuit_de_lucht.jpg",
+  "label": "Гауда"
+ },
+ "manchego": {
+  "file": "Manchego.jpg",
+  "license": "CC BY-SA 3.0",
+  "author": "Zerohund",
+  "page": "https://commons.wikimedia.org/wiki/File:Manchego.jpg",
+  "label": "Манчего"
+ },
+ "pecorino": {
+  "file": "Pecorino_au_poivre.jpg",
+  "license": "CC BY-SA 3.0",
+  "author": "Ji-Elle",
+  "page": "https://commons.wikimedia.org/wiki/File:Pecorino_au_poivre.jpg",
+  "label": "Пекорино"
+ },
+ "blue_cheese": {
+  "file": "Cheese_La_Roche.jpg",
+  "license": "CC BY-SA 3.0",
+  "author": "User:Simm",
+  "page": "https://commons.wikimedia.org/wiki/File:Cheese_La_Roche.jpg",
+  "label": "Голубой сыр"
+ },
+ "camembert": {
+  "file": "Camembert.JPG",
+  "license": "CC BY 2.5",
+  "author": "NJGJ",
+  "page": "https://commons.wikimedia.org/wiki/File:Camembert.JPG",
+  "label": "Камамбер"
+ },
+ "burrata": {
+  "file": "Burrata2.jpg",
+  "license": "CC0",
+  "author": "Popo le Chien",
+  "page": "https://commons.wikimedia.org/wiki/File:Burrata2.jpg",
+  "label": "Буррата"
+ },
+ "cream_cheese": {
+  "file": "NCI_cream_cheese_bagel.jpg",
+  "license": "Public domain",
+  "author": "Renee Comet",
+  "page": "https://commons.wikimedia.org/wiki/File:NCI_cream_cheese_bagel.jpg",
+  "label": "Сливочный сыр"
+ },
+ "cottage_cheese": {
+  "file": "De Noord-Hollandse boer, 1840-1841, BI-B-FM-124-42.jpg",
+  "license": "CC0",
+  "author": "Rijksmuseum",
+  "page": "https://commons.wikimedia.org/wiki/File:De_Noord-Hollandse_boer,_1840-1841,_BI-B-FM-124-42.jpg",
+  "label": "Творожный сыр"
+ },
+ "veal": {
+  "file": "Beef_inspection_USDA.jpg",
+  "license": "Public domain",
+  "author": "USDA",
+  "page": "https://commons.wikimedia.org/wiki/File:Beef_inspection_USDA.jpg",
+  "label": "Телятина"
+ },
+ "rabbit": {
+  "file": "Oryctolagus_cuniculus_Rcdo.jpg",
+  "license": "CC BY 3.0",
+  "author": "JM Ligero Loarte",
+  "page": "https://commons.wikimedia.org/wiki/File:Oryctolagus_cuniculus_Rcdo.jpg",
+  "label": "Кролик"
+ },
+ "venison": {
+  "file": "101129_Reh_Schlachtkörper-ohne-Decke_web.jpg",
+  "license": "CC BY 2.5 ch",
+  "author": "Nienetwiler",
+  "page": "https://commons.wikimedia.org/wiki/File:101129_Reh_Schlachtk%C3%B6rper-ohne-Decke_web.jpg",
+  "label": "Оленина"
+ },
+ "goose": {
+  "file": "Domestic_Goose.jpg",
+  "license": "CC BY-SA 3.0",
+  "author": "JJ Harrison",
+  "page": "https://commons.wikimedia.org/wiki/File:Domestic_Goose.jpg",
+  "label": "Гусь"
+ },
+ "quail": {
+  "file": "Coturnix_coturnix_(Lmbuga).jpg",
+  "license": "CC BY-SA 3.0",
+  "author": "Luis Miguel Bugallo Sánchez (Lmbuga Commons)(Lmbuga Galipedia)\n\nPublicada por/Publish by: Luis Miguel Bugallo Sánchez",
+  "page": "https://commons.wikimedia.org/wiki/File:Coturnix_coturnix_(Lmbuga).jpg",
+  "label": "Перепел"
+ },
+ "sausage": {
+  "file": "Kielbasa7.jpg",
+  "license": "CC BY 3.0",
+  "author": "Mariuszjbie",
+  "page": "https://commons.wikimedia.org/wiki/File:Kielbasa7.jpg",
+  "label": "Колбаса"
+ },
+ "chorizo": {
+  "file": "Palacioschorizo.jpg",
+  "license": "CC BY-SA 3.0",
+  "author": "Asturnut (talk)",
+  "page": "https://commons.wikimedia.org/wiki/File:Palacioschorizo.jpg",
+  "label": "Чоризо"
+ },
+ "salami": {
+  "file": "Salami_aka.jpg",
+  "license": "CC BY-SA 2.5",
+  "author": "André Karwath aka Aka",
+  "page": "https://commons.wikimedia.org/wiki/File:Salami_aka.jpg",
+  "label": "Салями"
+ },
+ "ham": {
+  "file": "Ветчина_нарезанная.jpg",
+  "license": "CC BY-SA 4.0",
+  "author": "Klaus33",
+  "page": "https://commons.wikimedia.org/wiki/File:%D0%92%D0%B5%D1%82%D1%87%D0%B8%D0%BD%D0%B0_%D0%BD%D0%B0%D1%80%D0%B5%D0%B7%D0%B0%D0%BD%D0%BD%D0%B0%D1%8F.jpg",
+  "label": "Ветчина"
+ },
+ "trout": {
+  "file": "Salmo_trutta.jpg",
+  "license": "Public domain",
+  "author": "Eric Engbretson for U.S. Fish and Wildlife Service",
+  "page": "https://commons.wikimedia.org/wiki/File:Salmo_trutta.jpg",
+  "label": "Форель"
+ },
+ "pike": {
+  "file": "Hecht.jpg",
+  "license": "CC BY-SA 3.0",
+  "author": "",
+  "page": "https://commons.wikimedia.org/wiki/File:Hecht.jpg",
+  "label": "Щука"
+ },
+ "perch": {
+  "file": "Perca_fluviatilis-female_Siverskiy_Donets_River_Ukraine.jpg",
+  "license": "CC BY-SA 3.0",
+  "author": "GeSHaFish",
+  "page": "https://commons.wikimedia.org/wiki/File:Perca_fluviatilis-female_Siverskiy_Donets_River_Ukraine.jpg",
+  "label": "Окунь"
+ },
+ "halibut": {
+  "file": "Hippoglossus-hippoglossus-idlm2005.jpg",
+  "license": "CC BY-SA 3.0",
+  "author": "Matthieu Godbout",
+  "page": "https://commons.wikimedia.org/wiki/File:Hippoglossus-hippoglossus-idlm2005.jpg",
+  "label": "Палтус"
+ },
+ "sardine": {
+  "file": "Longline_bait_sardina_for_toothfish.jpg",
+  "license": "CC BY-SA 3.0",
+  "author": "GeSHaFish",
+  "page": "https://commons.wikimedia.org/wiki/File:Longline_bait_sardina_for_toothfish.jpg",
+  "label": "Сардина"
+ },
+ "eel": {
+  "file": "Úhoř říční (Anguilla anguilla) 07.jpg",
+  "license": "CC BY-SA 4.0",
+  "author": "Pohled 111",
+  "page": "https://commons.wikimedia.org/wiki/File:%C3%9Aho%C5%99_%C5%99%C3%AD%C4%8Dn%C3%AD_(Anguilla_anguilla)_07.jpg",
+  "label": "Угорь"
+ },
+ "octopus": {
+  "file": "Octopus2.jpg",
+  "license": "CC BY-SA 3.0",
+  "author": "albert kok",
+  "page": "https://commons.wikimedia.org/wiki/File:Octopus2.jpg",
+  "label": "Осьминог"
+ },
+ "crab": {
+  "file": "Liocarcinus_vernalis.jpg",
+  "license": "CC BY-SA 4.0",
+  "author": "Hans Hillewaert",
+  "page": "https://commons.wikimedia.org/wiki/File:Liocarcinus_vernalis.jpg",
+  "label": "Краб"
+ },
+ "oyster": {
+  "file": "Crassostrea_gigas_p1040848.jpg",
+  "license": "CC BY-SA 3.0",
+  "author": "David Monniaux",
+  "page": "https://commons.wikimedia.org/wiki/File:Crassostrea_gigas_p1040848.jpg",
+  "label": "Устрица"
+ },
+ "clam": {
+  "file": "Mollusk_collage.jpg",
+  "license": "Public domain",
+  "author": "These images belongs to his respective owners",
+  "page": "https://commons.wikimedia.org/wiki/File:Mollusk_collage.jpg",
+  "label": "Моллюск"
+ },
+ "caviar": {
+  "file": "Красная икра.jpg",
+  "license": "CC BY-SA 4.0",
+  "author": "Pannet",
+  "page": "https://commons.wikimedia.org/wiki/File:%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D0%B0%D1%8F_%D0%B8%D0%BA%D1%80%D0%B0.jpg",
+  "label": "Икра"
+ },
+ "pollock": {
+  "file": "Walleye_pollock.jpg",
+  "license": "Public domain",
+  "author": "National Oceanic and Atmospheric Administration",
+  "page": "https://commons.wikimedia.org/wiki/File:Walleye_pollock.jpg",
+  "label": "Минтай"
+ },
+ "hake": {
+  "file": "Dülmen, Dernekamp, ehem. Munitionslager -- 2019 -- 4045.jpg",
+  "license": "CC BY-SA 4.0",
+  "author": "Dietmar Rabich",
+  "page": "https://commons.wikimedia.org/wiki/File:D%C3%BClmen,_Dernekamp,_ehem._Munitionslager_--_2019_--_4045.jpg",
+  "label": "Хек"
+ },
+ "spelt": {
+  "file": "Usdaemmer1.jpg",
+  "license": "Public domain",
+  "author": "",
+  "page": "https://commons.wikimedia.org/wiki/File:Usdaemmer1.jpg",
+  "label": "Полба"
+ },
+ "rye": {
+  "file": "Rye_Mature_Grain_Summer.jpg",
+  "license": "CC0",
+  "author": "Tappancs https://pixabay.com/en/users/Tappancs-829780/",
+  "page": "https://commons.wikimedia.org/wiki/File:Rye_Mature_Grain_Summer.jpg",
+  "label": "Рожь"
+ },
+ "barley": {
+  "file": "Pearled_barley.JPG",
+  "license": "CC BY-SA 3.0",
+  "author": "Glane23",
+  "page": "https://commons.wikimedia.org/wiki/File:Pearled_barley.JPG",
+  "label": "Перловка"
+ },
+ "millet": {
+  "file": "Пшено.jpg",
+  "license": "CC BY-SA 4.0",
+  "author": "Ralex64r",
+  "page": "https://commons.wikimedia.org/wiki/File:%D0%9F%D1%88%D0%B5%D0%BD%D0%BE.jpg",
+  "label": "Пшено"
+ },
+ "couscous": {
+  "file": "Tomato & Couscous Salad - The Canopy 2025-08-03.jpg",
+  "license": "CC0",
+  "author": "Andy Li",
+  "page": "https://commons.wikimedia.org/wiki/File:Tomato_%26_Couscous_Salad_-_The_Canopy_2025-08-03.jpg",
+  "label": "Кускус"
+ },
+ "polenta": {
+  "file": "Polenta_&_feta_ready_for_grilling_later_-food_-veggie_-vegetarian_-homemade.jpg",
+  "license": "CC BY-SA 2.0",
+  "author": "Ellie",
+  "page": "https://commons.wikimedia.org/wiki/File:Polenta_%26_feta_ready_for_grilling_later_-food_-veggie_-vegetarian_-homemade.jpg",
+  "label": "Полента"
+ },
+ "noodles": {
+  "file": "Noodles_2.png",
+  "license": "CC BY-SA 3.0",
+  "author": "Tiia Monto",
+  "page": "https://commons.wikimedia.org/wiki/File:Noodles_2.png",
+  "label": "Лапша"
+ },
+ "basmati": {
+  "file": "Dülmen, Dernekamp, ehem. Munitionslager -- 2019 -- 4045.jpg",
+  "license": "CC BY-SA 4.0",
+  "author": "Dietmar Rabich",
+  "page": "https://commons.wikimedia.org/wiki/File:D%C3%BClmen,_Dernekamp,_ehem._Munitionslager_--_2019_--_4045.jpg",
+  "label": "Рис басмати"
+ },
+ "arborio": {
+  "file": "Dülmen, Dernekamp, ehem. Munitionslager -- 2019 -- 4045.jpg",
+  "license": "CC BY-SA 4.0",
+  "author": "Dietmar Rabich",
+  "page": "https://commons.wikimedia.org/wiki/File:D%C3%BClmen,_Dernekamp,_ehem._Munitionslager_--_2019_--_4045.jpg",
+  "label": "Рис арборио"
+ },
+ "pita": {
+  "file": "Pita_Flatbread.jpg",
+  "license": "CC BY 2.0",
+  "author": "fugzu",
+  "page": "https://commons.wikimedia.org/wiki/File:Pita_Flatbread.jpg",
+  "label": "Пита"
+ },
+ "tortilla": {
+  "file": "NCI_flour_tortillas.jpg",
+  "license": "Public domain",
+  "author": "",
+  "page": "https://commons.wikimedia.org/wiki/File:NCI_flour_tortillas.jpg",
+  "label": "Тортилья"
+ },
+ "crackers": {
+  "file": "I_heart_Crackers_(2534334373).jpg",
+  "license": "CC BY-SA 2.0",
+  "author": "Marcus Quigmire from Florida, USA",
+  "page": "https://commons.wikimedia.org/wiki/File:I_heart_Crackers_(2534334373).jpg",
+  "label": "Крекеры"
+ },
+ "pecan": {
+  "file": "Carya illinoinensis MHNT.BOT.2011.3.85.jpg",
+  "license": "CC BY-SA 3.0",
+  "author": "Roger Culos",
+  "page": "https://commons.wikimedia.org/wiki/File:Carya_illinoinensis_MHNT.BOT.2011.3.85.jpg",
+  "label": "Пекан"
+ },
+ "brazil_nut": {
+  "file": "Bertholletia_excelsa_ehk_parapähklipuu_lehestik.jpg",
+  "license": "Public domain",
+  "author": "Vihelik",
+  "page": "https://commons.wikimedia.org/wiki/File:Bertholletia_excelsa_ehk_parap%C3%A4hklipuu_lehestik.jpg",
+  "label": "Бразильский орех"
+ },
+ "macadamia": {
+  "file": "Proteaceae-_Macadamia_integrifolia_(macadamia_nut)_3.jpg",
+  "license": "CC BY 2.0",
+  "author": "Kristof Zyskowski &amp; Yulia Bereshpolova",
+  "page": "https://commons.wikimedia.org/wiki/File:Proteaceae-_Macadamia_integrifolia_(macadamia_nut)_3.jpg",
+  "label": "Макадамия"
+ },
+ "chestnut": {
+  "file": "Bad-homburg-schlosshof-kastanie-002.jpg",
+  "license": "CC BY-SA 3.0",
+  "author": "Dontworry",
+  "page": "https://commons.wikimedia.org/wiki/File:Bad-homburg-schlosshof-kastanie-002.jpg",
+  "label": "Каштан"
+ },
+ "pumpkin_seed": {
+  "file": "Cucurbita sp. (DHGTOMX).jpg",
+  "license": "CC BY-SA 4.0",
+  "author": "Juan Carlos Fonseca Mata",
+  "page": "https://commons.wikimedia.org/wiki/File:Cucurbita_sp._(DHGTOMX).jpg",
+  "label": "Тыквенные семечки"
+ },
+ "flaxseed": {
+  "file": "Gemeiner_flachs.jpg",
+  "license": "CC BY-SA 3.0",
+  "author": "4d44 at German Wikipedia",
+  "page": "https://commons.wikimedia.org/wiki/File:Gemeiner_flachs.jpg",
+  "label": "Лён"
+ },
+ "chia": {
+  "file": "Salvia_aethiopis_jd_alp_0.jpg",
+  "license": "CC BY-SA 3.0",
+  "author": "Pancrat",
+  "page": "https://commons.wikimedia.org/wiki/File:Salvia_aethiopis_jd_alp_0.jpg",
+  "label": "Чиа"
+ },
+ "milk_chocolate": {
+  "file": "Cocoa_Powder_and_Chocolate_on_Marble_Background.jpg",
+  "license": "CC BY 2.0",
+  "author": "formulatehealth",
+  "page": "https://commons.wikimedia.org/wiki/File:Cocoa_Powder_and_Chocolate_on_Marble_Background.jpg",
+  "label": "Молочный шоколад"
+ },
+ "white_chocolate": {
+  "file": "White_chocolate_with_rose_petals.jpg",
+  "license": "CC BY 2.0",
+  "author": "Richard Faulder",
+  "page": "https://commons.wikimedia.org/wiki/File:White_chocolate_with_rose_petals.jpg",
+  "label": "Белый шоколад"
+ },
+ "marzipan": {
+  "file": "Lebensmittel-Marzipan1-Asio.jpg",
+  "license": "CC BY-SA 3.0",
+  "author": "Asio otus",
+  "page": "https://commons.wikimedia.org/wiki/File:Lebensmittel-Marzipan1-Asio.jpg",
+  "label": "Марципан"
+ },
+ "nougat": {
+  "file": "Nougat.jpg",
+  "license": "CC BY 2.5",
+  "author": "The original uploader was Gregory at Finnish Wikipedia.",
+  "page": "https://commons.wikimedia.org/wiki/File:Nougat.jpg",
+  "label": "Нуга"
+ },
+ "molasses": {
+  "file": "Blackstrapmolasses.JPG",
+  "license": "CC BY 3.0",
+  "author": "Badagnani",
+  "page": "https://commons.wikimedia.org/wiki/File:Blackstrapmolasses.JPG",
+  "label": "Меласса"
+ },
+ "brown_sugar": {
+  "file": "Brown_sugar_crystals.JPG",
+  "license": "CC BY 2.5",
+  "author": "The original uploader was Genesis12 at English Wikipedia.",
+  "page": "https://commons.wikimedia.org/wiki/File:Brown_sugar_crystals.JPG",
+  "label": "Коричневый сахар"
+ },
+ "halva": {
+  "file": "Semolina_Dry_Halwa.JPG",
+  "license": "CC0",
+  "author": "Miansari66",
+  "page": "https://commons.wikimedia.org/wiki/File:Semolina_Dry_Halwa.JPG",
+  "label": "Халва"
+ },
+ "licorice": {
+  "file": "Glycyrrhiza_glabra_Y03.jpg",
+  "license": "CC BY-SA 4.0",
+  "author": "Юрий Данилевский",
+  "page": "https://commons.wikimedia.org/wiki/File:Glycyrrhiza_glabra_Y03.jpg",
+  "label": "Лакрица"
+ },
+ "mayonnaise": {
+  "file": "Mayonnaise_(1).jpg",
+  "license": "CC BY 2.0",
+  "author": "jules",
+  "page": "https://commons.wikimedia.org/wiki/File:Mayonnaise_(1).jpg",
+  "label": "Майонез"
+ },
+ "ketchup": {
+  "file": "Ketchup_20160918_181342_(cropped).jpg",
+  "license": "CC BY 4.0",
+  "author": "Kim Holger Kelting",
+  "page": "https://commons.wikimedia.org/wiki/File:Ketchup_20160918_181342_(cropped).jpg",
+  "label": "Кетчуп"
+ },
+ "bbq_sauce": {
+  "file": "Pork_steaks_cooking-1.jpg",
+  "license": "CC BY-SA 3.0",
+  "author": "Wikipedian Kbh3rd",
+  "page": "https://commons.wikimedia.org/wiki/File:Pork_steaks_cooking-1.jpg",
+  "label": "Соус барбекю"
+ },
+ "sriracha": {
+  "file": "Sriracha_sauce_rus.jpg",
+  "license": "CC BY-SA 4.0",
+  "author": "Pannet",
+  "page": "https://commons.wikimedia.org/wiki/File:Sriracha_sauce_rus.jpg",
+  "label": "Шрирача"
+ },
+ "tabasco": {
+  "file": "Villahermosa.Palacio_de_Gobierno_01.JPG",
+  "license": "CC BY-SA 3.0",
+  "author": "Alfonsobouchot",
+  "page": "https://commons.wikimedia.org/wiki/File:Villahermosa.Palacio_de_Gobierno_01.JPG",
+  "label": "Табаско"
+ },
+ "oyster_sauce": {
+  "file": "OysterSauce2.jpg",
+  "license": "CC BY-SA 3.0",
+  "author": "Gossipguy",
+  "page": "https://commons.wikimedia.org/wiki/File:OysterSauce2.jpg",
+  "label": "Устричный соус"
+ },
+ "hoisin": {
+  "file": "Restaurante Seu Xerea.jpg",
+  "license": "CC BY 2.0",
+  "author": "https://www.flickr.com/photos/cdelmoral/",
+  "page": "https://commons.wikimedia.org/wiki/File:Restaurante_Seu_Xerea.jpg",
+  "label": "Хойсин"
+ },
+ "pesto": {
+  "file": "BasilPesto.JPG",
+  "license": "CC BY-SA 3.0",
+  "author": "Ɱ",
+  "page": "https://commons.wikimedia.org/wiki/File:BasilPesto.JPG",
+  "label": "Песто"
+ },
+ "aioli": {
+  "file": "Allioli.jpg",
+  "license": "Public domain",
+  "author": "Ralph Sperling",
+  "page": "https://commons.wikimedia.org/wiki/File:Allioli.jpg",
+  "label": "Айоли"
+ },
+ "worcestershire": {
+  "file": "Lea_and_Perrins_800.JPG",
+  "license": "CC BY-SA 4.0",
+  "author": "user:penarc",
+  "page": "https://commons.wikimedia.org/wiki/File:Lea_and_Perrins_800.JPG",
+  "label": "Вустерский соус"
+ },
+ "cider": {
+  "file": "Sagardoa_eta_sagarrak.jpg",
+  "license": "CC BY-SA 3.0",
+  "author": "Alberto Elosegi (ARGIA.com)",
+  "page": "https://commons.wikimedia.org/wiki/File:Sagardoa_eta_sagarrak.jpg",
+  "label": "Сидр"
+ },
+ "champagne": {
+  "file": "Champagne_flute_and_bottle.jpg",
+  "license": "CC BY 2.0",
+  "author": "Taken on September 22, 2005",
+  "page": "https://commons.wikimedia.org/wiki/File:Champagne_flute_and_bottle.jpg",
+  "label": "Шампанское"
+ },
+ "sake": {
+  "file": "Sake_cup_(3952904067).jpg",
+  "license": "CC BY-SA 2.0",
+  "author": "Mokeneco",
+  "page": "https://commons.wikimedia.org/wiki/File:Sake_cup_(3952904067).jpg",
+  "label": "Саке"
+ },
+ "vermouth": {
+  "file": "Vermuts-Colores_difrentes.jpg",
+  "license": "CC BY 3.0",
+  "author": "Tamorlan",
+  "page": "https://commons.wikimedia.org/wiki/File:Vermuts-Colores_difrentes.jpg",
+  "label": "Вермут"
+ },
+ "tequila": {
+  "file": "Tequilas.JPG",
+  "license": "Public domain",
+  "author": "Photomag",
+  "page": "https://commons.wikimedia.org/wiki/File:Tequilas.JPG",
+  "label": "Текила"
+ },
+ "gin": {
+  "file": "Assorted_gin_bottles_on_a_store_shelf.jpg",
+  "license": "CC BY 2.0",
+  "author": "Jon Worth",
+  "page": "https://commons.wikimedia.org/wiki/File:Assorted_gin_bottles_on_a_store_shelf.jpg",
+  "label": "Джин"
+ },
+ "vodka": {
+  "file": "Salmon_eggs_&_Stoli.JPG",
+  "license": "CC BY-SA 3.0",
+  "author": "Lord Mountbatten",
+  "page": "https://commons.wikimedia.org/wiki/File:Salmon_eggs_%26_Stoli.JPG",
+  "label": "Водка"
+ },
+ "whiskey": {
+  "file": "Whiskyhogmanay2010.jpg",
+  "license": "CC BY-SA 3.0",
+  "author": "Guinnog",
+  "page": "https://commons.wikimedia.org/wiki/File:Whiskyhogmanay2010.jpg",
+  "label": "Виски"
+ },
+ "tea": {
+  "file": "Longjing-steeping-tallglass.jpg",
+  "license": "CC0",
+  "author": "Kaminix",
+  "page": "https://commons.wikimedia.org/wiki/File:Longjing-steeping-tallglass.jpg",
+  "label": "Чай"
+ },
+ "kvass": {
+  "file": "Mint_bread_kvas.jpg",
+  "license": "CC BY-SA 3.0",
+  "author": "Mr.Icon (Mricon)",
+  "page": "https://commons.wikimedia.org/wiki/File:Mint_bread_kvas.jpg",
+  "label": "Квас"
+ },
+ "kombucha": {
+  "file": "Kombucha_jar.jpg",
+  "license": "Public domain",
+  "author": "Romarin",
+  "page": "https://commons.wikimedia.org/wiki/File:Kombucha_jar.jpg",
+  "label": "Комбуча"
+ },
+ "snow_peas": {
+  "file": "Starr-070730-7859-Pisum sativum var macrocarpum-sugar snap peas-Foodland Pukalani-Maui (24864191996).jpg",
+  "license": "CC BY 3.0 us",
+  "author": "Forest and Kim Starr",
+  "page": "https://commons.wikimedia.org/wiki/File:Starr-070730-7859-Pisum_sativum_var_macrocarpum-sugar_snap_peas-Foodland_Pukalani-Maui_(24864191996).jpg",
+  "label": "snow peas"
+ },
+ "baharat": {
+  "file": "Gaziantep baharat çarşısı 1.JPG",
+  "license": "Public domain",
+  "author": "Seksen iki yüz kırk beş",
+  "page": "https://commons.wikimedia.org/wiki/File:Gaziantep_baharat_%C3%A7ar%C5%9F%C4%B1s%C4%B1_1.JPG",
+  "label": "baharat spice"
  }
 }
