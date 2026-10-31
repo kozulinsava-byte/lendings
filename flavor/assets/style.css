@@ -111,7 +111,10 @@ h1, h2, h3 { margin: 0; font-weight: 600; letter-spacing: -.035em; line-height: 
   margin: 0 auto;
 }
 
-.shot { position: relative; aspect-ratio: 1; border-radius: var(--radius); overflow: hidden; background: #f2eee6; }
+.shot {
+  position: relative; aspect-ratio: 1; border-radius: var(--radius); overflow: hidden;
+  background: #f2eee6; box-shadow: 0 22px 44px -30px rgba(35, 25, 15, .45);
+}
 .shot img { width: 100%; height: 100%; object-fit: cover; transition: transform .45s var(--ease); }
 .shot:hover img { transform: scale(1.03); }
 
