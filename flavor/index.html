@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Вкусовой атлас — с чем это сочетается</title>
-<meta name="description" content="173 продукта и 3 801 проверенная пара. Соберите сочетание — покажем фотографии и объясним, почему это вкусно.">
-<meta name="theme-color" content="#fcfbf8">
+<meta name="description" content="173 продукта и 3 801 проверенная пара. Выберите цель — джем, выпечка, паста, салат, гриль, суп, десерт или напиток — и получите сочетание с фотографиями и объяснением.">
+<meta name="theme-color" content="#f8f2e7">
 <meta property="og:site_name" content="Вкусовой атлас">
 <meta property="og:locale" content="ru_RU">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://kozulinsava-byte.github.io/lendings/flavor/">
 <meta property="og:title" content="Вкусовой атлас — с чем это сочетается">
-<meta property="og:description" content="173 продукта и 3 801 проверенная пара. Соберите сочетание и посмотрите, почему оно работает.">
+<meta property="og:description" content="Выберите цель — и получите сочетание с фотографиями и объяснением.">
 <meta property="og:image" content="https://kozulinsava-byte.github.io/lendings/flavor/assets/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -19,7 +19,7 @@
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400..600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body data-page="home">
@@ -28,26 +28,45 @@
   <a class="brand" href="index.html"><i></i>Вкусовой атлас</a>
   <nav>
     <a href="atlas.html">Атлас</a>
+    <a href="combos.html">Трио</a>
     <a href="method.html">О данных</a>
   </nav>
 </header>
 
 <main class="stage wrap">
 
-  <section class="start" id="viewStart">
-    <h1>С чем это сочетается?</h1>
-    <p class="sub">Сто семьдесят три продукта и три тысячи восемьсот проверенных пар. Нажмите кнопку — покажем сочетание, фотографии и короткое объяснение.</p>
-    <div class="actions">
-      <button class="btn btn-primary" id="btnRandom">Рандомное сочетание</button>
-      <button class="btn btn-ghost" id="btnSettings">Сочетание с настройками</button>
+  <section class="hero" id="viewStart">
+    <span class="kicker">173 продукта · 3 801 пара</span>
+    <h1>С чем это <em>сочетается?</em></h1>
+    <p class="lead">Выберите, для чего нужно сочетание. Соберём продукты, которые действительно работают вместе, — с фотографиями и коротким объяснением.</p>
+  </section>
+
+  <section class="purposes-block" id="purposeBlock">
+    <div class="purpose-head">
+      <h2>Для чего собираем</h2>
+      <span>От джема до гриля — восемь поводов</span>
+    </div>
+    <div class="purposes" id="purposes"></div>
+    <div class="surprise-row">
+      <button class="btn btn-primary" id="btnSurprise">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <path d="M12 3v3M12 18v3M4.2 7.5l2.6 1.5M17.2 15l2.6 1.5M4.2 16.5l2.6-1.5M17.2 9l2.6-1.5"/>
+          <circle cx="12" cy="12" r="3.4"/>
+        </svg>
+        Удиви меня
+      </button>
+      <button class="btn btn-plain" id="btnSettings">настроить</button>
     </div>
   </section>
 
   <section class="settings" id="viewSettings" hidden>
     <button class="back" id="btnBack">← назад</button>
-    <h2>Сочетание с настройками</h2>
-
+    <h2>Настройки</h2>
     <div class="opts">
+      <div class="opt">
+        <span>Цель</span>
+        <div class="pills" data-group="purpose" id="setPurposes"></div>
+      </div>
       <div class="opt">
         <span>Сколько продуктов</span>
         <div class="pills" data-group="count">
@@ -56,7 +75,6 @@
           <button class="pill" data-count="4" aria-pressed="false">Четыре</button>
         </div>
       </div>
-
       <div class="opt">
         <span>Бюджет</span>
         <div class="pills" data-group="budget">
@@ -65,7 +83,14 @@
           <button class="pill" data-budget="premium" aria-pressed="false">Премиум</button>
         </div>
       </div>
-
+      <div class="opt">
+        <span>Смелость</span>
+        <div class="pills" data-group="bold">
+          <button class="pill" data-bold="0" aria-pressed="false">Проверенное</button>
+          <button class="pill" data-bold="1" aria-pressed="true">Интересное</button>
+          <button class="pill" data-bold="2" aria-pressed="false">Смелое</button>
+        </div>
+      </div>
       <div class="opt">
         <span>Исключить</span>
         <div class="pills" data-group="exclude">
@@ -74,15 +99,16 @@
         </div>
       </div>
     </div>
-
-    <button class="btn btn-primary btn-wide" id="btnApply">Подобрать сочетание</button>
+    <button class="btn btn-primary apply" id="btnApply">Собрать сочетание</button>
   </section>
 
   <section class="result" id="result">
-    <div class="shots" id="shots" style="--n:3"></div>
+    <div class="result__kicker" id="resultKicker"><i></i>Сочетание</div>
+    <div class="collage" id="collage" data-n="3"></div>
     <h2 id="comboTitle">Помидор · Базилик · Моцарелла</h2>
     <p class="desc" id="comboDesc"></p>
-    <div class="actions">
+    <div class="meta" id="comboMeta"></div>
+    <div class="result__actions">
       <button class="btn btn-primary" id="btnAgain">Ещё сочетание</button>
       <button class="btn btn-plain" id="btnCopy">Скопировать ссылку</button>
     </div>
@@ -101,6 +127,7 @@
 <script src="assets/data/ingredients.js"></script>
 <script src="assets/data/pairs.js"></script>
 <script src="assets/data/trios.js"></script>
+<script src="assets/data/purposes.js"></script>
 <script src="assets/app.js"></script>
 </body>
 </html>
