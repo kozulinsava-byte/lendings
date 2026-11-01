@@ -554,7 +554,7 @@
     "caper", "sauerkraut", "horseradish", "wasabi", "ginger", "kelp", "nori", "mushroom", "porcini",
     "truffle", "cucumber"]);
   const ACC_DAIRY_BLOCK = new Set(["milk", "buttermilk", "kefir"]);
-  const ACC_SAUCE_BLOCK = new Set(["ketchup", "bbq_sauce", "mayonnaise", "aioli"]);
+  const ACC_SAUCE_BLOCK = new Set(["ketchup", "bbq_sauce", "mayonnaise", "aioli", "coconut_milk"]);
 
   const ACC_SYN = {
     "томат": "tomato", "помидоры": "tomato", "картошка": "potato", "картофель": "potato",
@@ -602,7 +602,7 @@
     "worcestershire", "tomato_paste", "ketchup", "bbq_sauce", "mayonnaise", "aioli", "pesto",
     "sriracha", "tabasco", "hoisin", "chipotle", "ancho", "smoked_paprika", "nori", "kelp",
     "mushroom", "porcini", "truffle", "sauerkraut", "horseradish", "wasabi", "onion",
-    "red_onion", "shallot", "garlic", "chili", "olive", "caper", "dijon", "mustard"]);
+    "red_onion", "shallot", "garlic", "chili", "olive", "caper", "dijon", "mustard", "olive_oil"]);
   const SWEET_PURPOSES = new Set(["jam", "dessert", "bake", "drink"]);
 
   const ACC_DEFAULT_BASE = {
