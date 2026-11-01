@@ -56,6 +56,7 @@
         Удиви меня
       </button>
       <button class="btn btn-plain" id="btnSettings">настроить</button>
+      <a class="btn btn-plain accent-link" href="#accent">уже готово? → изюминка</a>
     </div>
   </section>
 
@@ -112,6 +113,47 @@
       <button class="btn btn-primary" id="btnAgain">Ещё сочетание</button>
       <button class="btn btn-plain" id="btnCopy">Скопировать ссылку</button>
     </div>
+  </section>
+
+  <section class="accent-block" id="accent">
+    <div class="accent-head">
+      <span class="kicker">Изюминка</span>
+      <h2>Что добавить в готовое</h2>
+      <p>Уже сварили джем, сделали соус или суп? Выберите основу — подскажем один ингредиент, который меняет вкус, и сколько его положить.</p>
+    </div>
+
+    <div class="accent-form">
+      <div class="opt">
+        <span>Что готовите</span>
+        <div class="pills" id="accPurposes"></div>
+      </div>
+
+      <div class="opt">
+        <span>Основа — главный продукт</span>
+        <div class="acc-base">
+          <input id="accBase" list="accList" placeholder="апельсин, клубника, томат…" autocomplete="off">
+          <datalist id="accList"></datalist>
+        </div>
+      </div>
+
+      <div class="opt">
+        <span>Что хотите получить</span>
+        <div class="pills" id="accEffects"></div>
+      </div>
+
+      <div class="opt">
+        <span>Бюджет</span>
+        <div class="pills" id="accBudget">
+          <button class="pill" data-acc-budget="eco" aria-pressed="false">Экономно</button>
+          <button class="pill" data-acc-budget="any" aria-pressed="true">Любой</button>
+          <button class="pill" data-acc-budget="premium" aria-pressed="false">Премиум</button>
+        </div>
+      </div>
+
+      <button class="btn btn-primary" id="btnAccent">Найти изюминку</button>
+    </div>
+
+    <div class="accents" id="accents"></div>
   </section>
 
 </main>

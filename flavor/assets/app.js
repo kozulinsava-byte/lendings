@@ -530,11 +530,248 @@
     }
   }
 
+
+  /* ---------- изюминка: что добавить в готовое ---------- */
+
+  const ACC_CATS = {
+    jam: ["spice", "herb", "drink", "nut", "fruit", "sweet"],
+    bake: ["spice", "nut", "fruit", "sweet", "drink"],
+    pasta: ["spice", "herb", "dairy", "sauce", "nut"],
+    salad: ["herb", "spice", "nut", "dairy", "sauce", "fruit"],
+    grill: ["spice", "herb", "sauce", "fruit"],
+    soup: ["herb", "spice", "dairy", "sauce", "nut"],
+    dessert: ["spice", "nut", "fruit", "sweet", "drink"],
+    drink: ["herb", "spice", "fruit", "sweet"],
+    breakfast: ["spice", "fruit", "nut", "sweet", "dairy"],
+    side: ["herb", "spice", "dairy", "nut", "sauce"],
+    snack: ["spice", "fruit", "dairy", "nut", "sauce"],
+    marinade: ["spice", "herb", "sauce", "fruit", "drink"]
+  };
+
+  const ACC_UNIT = {
+    spice: "щепотка", herb: "веточка", drink: "1 ст. л.", sauce: "1 ч. л.",
+    nut: "горсть", fruit: "цедра или пара долек", sweet: "1 ч. л.", dairy: "1 ст. л."
+  };
+
+  const ACC_SCALE = {
+    jam: "на банку 0,5 л", bake: "на противень", pasta: "на порцию", salad: "на салат",
+    grill: "на килограмм", soup: "на кастрюлю", dessert: "на порцию", drink: "на стакан",
+    breakfast: "на порцию", side: "на гарнир", snack: "на доску", marinade: "на килограмм продукта"
+  };
+
+  const EFFECTS = [
+    { id: "fresh", name: "Свежесть" },
+    { id: "warm", name: "Тепло" },
+    { id: "contrast", name: "Контраст" },
+    { id: "depth", name: "Глубина" },
+    { id: "bright", name: "Яркость" },
+    { id: "noble", name: "Благородство" }
+  ];
+
+  const EFFECT_TEXT = {
+    fresh: "свежий край и меньше приторности",
+    warm: "тёплая пряность и глубина",
+    contrast: "баланс: соль и жар против сладости",
+    depth: "второй этаж — умами и карамель",
+    bright: "отчётливая кислота и ясный вкус",
+    noble: "нота, за которую не жалко платить"
+  };
+
+  const CITRUS_IDS = new Set(["orange", "lemon", "lime", "grapefruit", "pomelo", "tangerine",
+    "kumquat", "bergamot", "yuzu"]);
+  const WARM_IDS = new Set(["cinnamon", "clove", "nutmeg", "cardamom", "star_anise", "allspice",
+    "mace", "ginger", "turmeric", "fenugreek", "grains_of_paradise", "baharat", "garam_masala",
+    "curry_powder", "cumin", "coriander_seed", "caraway", "fennel_seed", "celery_seed", "juniper",
+    "saffron"]);
+  const DEPTH_IDS = new Set(["miso", "soy_sauce", "fish_sauce", "oyster_sauce", "worcestershire",
+    "tomato_paste", "caramel", "coffee", "dark_chocolate", "cocoa", "smoked_paprika", "chipotle",
+    "ancho", "porcini", "truffle", "mushroom", "nori", "kelp"]);
+  const NOBLE_IDS = new Set(["vanilla", "saffron", "truffle", "brandy", "rum", "whiskey", "gin",
+    "vodka", "tequila", "champagne", "red_wine", "white_wine", "sake", "vermouth", "cider", "caviar"]);
+
+  const ACC_DEFAULT_BASE = {
+    jam: "orange", bake: "apple", pasta: "tomato", salad: "tomato", grill: "chicken",
+    soup: "mushroom", dessert: "strawberry", drink: "lemon", breakfast: "egg",
+    side: "potato", snack: "parmesan", marinade: "chicken"
+  };
+
+  function effectTags(id) {
+    const t = BY_ID[id].tastes;
+    const cat = BY_ID[id].cat;
+    const tags = new Set();
+    if (cat === "herb" || CITRUS_IDS.has(id) || id === "mint") tags.add("fresh");
+    if (WARM_IDS.has(id)) tags.add("warm");
+    if (t[5] >= 2 || t[3] >= 2) tags.add("contrast");
+    if (t[1] >= 2) tags.add("bright");
+    if (t[4] >= 2 || DEPTH_IDS.has(id)) tags.add("depth");
+    if (NOBLE_IDS.has(id)) tags.add("noble");
+    if (!tags.size) {
+      if (cat === "dairy" || cat === "nut") tags.add("depth");
+      else if (cat === "spice" || cat === "sweet") tags.add("warm");
+      else if (cat === "sauce") tags.add("bright");
+      else tags.add("fresh");
+    }
+    return tags;
+  }
+
+  function accentCandidates(baseId, purposeId, opts) {
+    const cats = ACC_CATS[purposeId] || ["spice", "herb", "sauce"];
+    const out = [];
+    FA.ING.forEach((r) => {
+      const id = r[0];
+      if (id === baseId) return;
+      const it = BY_ID[id];
+      if (!cats.includes(it.cat)) return;
+      const e = edge(baseId, id);
+      if (!e) return;
+      // из напитков акцентом бывают только вино и крепкое, не квас и не чай
+      if (it.cat === "drink" && !NOBLE_IDS.has(id)) return;
+      if (opts.budget === "eco" && it.price === 3) return;
+      const tags = effectTags(id);
+      if (opts.effect && !tags.has(opts.effect)) return;
+      const CAT_BONUS = { spice: 3, herb: 3, sauce: 2, nut: 2, fruit: 2, dairy: 1, sweet: 1 };
+      let score = e.w * 3 + Math.random() * 2.4 + (CAT_BONUS[it.cat] || 0);
+      if (it.price === 1) score += 2;
+      if (opts.budget === "premium" && it.price === 3) score += 3;
+      if (opts.effect) score += 4;
+      out.push({ id, score, tags, edge: e });
+    });
+    return out.sort((a, b) => b.score - a.score);
+  }
+
+  function renderAccents(baseId, purposeId, opts) {
+    const box = $("#accents");
+    if (!box) return;
+    let list = accentCandidates(baseId, purposeId, opts);
+    let fellBack = false;
+    if (!list.length && opts.effect) {
+      list = accentCandidates(baseId, purposeId, { ...opts, effect: "" });
+      fellBack = list.length > 0;
+    }
+    const chosen = [];
+    const cats = new Set();
+    for (const c of list) {
+      const cat = BY_ID[c.id].cat;
+      if (cats.has(cat)) continue;
+      cats.add(cat);
+      chosen.push(c);
+      if (chosen.length === 3) break;
+    }
+    if (!chosen.length) {
+      box.innerHTML = `<p class="empty">Для этой основы пока нет подходящих акцентов — попробуйте другой продукт или уберите фильтр эффекта.</p>`;
+      return;
+    }
+    const note = fellBack
+      ? `<p class="accent-note">Под выбранный эффект ничего не нашлось — показываю ближайшие акценты.</p>`
+      : "";
+    box.innerHTML = note + chosen.map((c) => {
+      const it = BY_ID[c.id];
+      const tag = [...c.tags][0];
+      const label = EFFECTS.find((x) => x.id === tag);
+      const detail = FA.WHY[[baseId, c.id].sort().join("|")];
+      const reason = FA.REASONS[c.edge.code];
+      const why = detail
+        ? cap(detail)
+        : reason ? cap(reason.text) : "Проверенная пара";
+      const effect = EFFECT_TEXT[tag] || "";
+      return `<article class="accent-card">
+        <div class="accent-card__pic">${img(c.id)}</div>
+        <div class="accent-card__body">
+          <span class="tag">${esc(label ? label.name : "")}</span>
+          <h3>${esc(it.name)}</h3>
+          <p class="why">${esc(why)}. ${esc(cap(effect))}.</p>
+          <p class="dose"><b>Сколько:</b> ${esc(ACC_UNIT[it.cat] || "немного")} ${esc(ACC_SCALE[purposeId] || "")}.</p>
+        </div>
+      </article>`;
+    }).join("");
+    fallbackImages(box);
+  }
+
+  function initAccent() {
+    const box = $("#accents");
+    if (!box || !FA.PURPOSES) return;
+
+    const state = { purpose: "jam", effect: "", budget: "any" };
+    const purposesBox = $("#accPurposes");
+    const effectsBox = $("#accEffects");
+    const input = $("#accBase");
+    const list = $("#accList");
+
+    purposesBox.innerHTML = FA.PURPOSES.map((p) =>
+      `<button class="pill" data-acc-purpose="${p.id}" aria-pressed="${p.id === state.purpose}">${esc(p.short)}</button>`).join("");
+    effectsBox.innerHTML = `<button class="pill" data-acc-effect="" aria-pressed="true">Любой</button>` +
+      EFFECTS.map((e) => `<button class="pill" data-acc-effect="${e.id}" aria-pressed="false">${esc(e.name)}</button>`).join("");
+
+    function basePool() {
+      const rule = FA.PURPOSE_RULES[state.purpose];
+      const cats = new Set(rule.cats);
+      return FA.ING.map((r) => r[0]).filter((id) => cats.has(BY_ID[id].cat))
+        .sort((a, b) => name(a).localeCompare(name(b), "ru"));
+    }
+
+    function fillList() {
+      list.innerHTML = basePool().map((id) => `<option value="${esc(name(id))}"></option>`).join("");
+    }
+
+    function setBase(id) {
+      input.value = name(id);
+      renderAccents(id, state.purpose, state);
+    }
+
+    function resolveBase() {
+      const q = (input.value || "").trim().toLowerCase();
+      if (!q) return null;
+      const pool = basePool();
+      const exact = pool.find((id) => name(id).toLowerCase() === q || id === q);
+      if (exact) return exact;
+      const starts = pool.find((id) => name(id).toLowerCase().startsWith(q));
+      if (starts) return starts;
+      const any = FA.ING.map((r) => r[0]).find((id) => name(id).toLowerCase() === q);
+      return any || null;
+    }
+
+    purposesBox.addEventListener("click", (e) => {
+      const b = e.target.closest("[data-acc-purpose]");
+      if (!b) return;
+      state.purpose = b.dataset.accPurpose;
+      $$("[data-acc-purpose]", purposesBox).forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+      fillList();
+      const def = ACC_DEFAULT_BASE[state.purpose];
+      setBase(def && BY_ID[def] ? def : basePool()[0]);
+    });
+
+    effectsBox.addEventListener("click", (e) => {
+      const b = e.target.closest("[data-acc-effect]");
+      if (!b) return;
+      state.effect = b.dataset.accEffect;
+      $$("[data-acc-effect]", effectsBox).forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+    });
+
+    $$("[data-acc-budget]").forEach((b) => b.addEventListener("click", () => {
+      state.budget = b.dataset.accBudget;
+      $$("[data-acc-budget]").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+    }));
+
+    $("#btnAccent").addEventListener("click", () => {
+      const id = resolveBase();
+      if (!id) {
+        box.innerHTML = `<p class="empty">Не нашёл такой продукт. Начните вводить название — подсказки появятся в списке.</p>`;
+        return;
+      }
+      input.value = name(id);
+      renderAccents(id, state.purpose, state);
+      box.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    });
+
+    fillList();
+    setBase(ACC_DEFAULT_BASE[state.purpose] || basePool()[0]);
+  }
+
   /* ---------- запуск ---------- */
 
   document.addEventListener("DOMContentLoaded", () => {
     const page = document.body.dataset.page;
-    if (page === "home") initHome();
+    if (page === "home") { initHome(); initAccent(); }
     if (page === "atlas") initAtlas();
     if (page === "combos") initCombos();
     if (page === "method") initCredits();
