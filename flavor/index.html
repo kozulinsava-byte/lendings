@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Вкусовой атлас — с чем это сочетается</title>
-<meta name="description" content="173 продукта и 3 801 проверенная пара. Выберите цель — джем, выпечка, паста, салат, гриль, суп, десерт или напиток — и получите сочетание с фотографиями и объяснением.">
+<meta name="description" content="351 продукт, 7 163 проверенные пары и 12 целей. Выберите джем, выпечку, пасту, салат, гриль, суп или десерт — и получите сочетание с фотографиями и объяснением.">
 <meta name="theme-color" content="#f8f2e7">
 <meta property="og:site_name" content="Вкусовой атлас">
 <meta property="og:locale" content="ru_RU">
@@ -119,7 +119,7 @@
     <div class="accent-head">
       <span class="kicker">Изюминка</span>
       <h2>Что добавить в готовое</h2>
-      <p>Уже сварили джем, сделали соус или суп? Выберите основу — подскажем один ингредиент, который меняет вкус, и сколько его положить.</p>
+      <p>Уже сварили джем, сделали соус или суп? Выберите основу — подскажем, что добавить, почему это работает и сколько положить.</p>
     </div>
 
     <div class="accent-form">
@@ -133,6 +133,7 @@
         <div class="acc-base">
           <input id="accBase" list="accList" placeholder="апельсин, клубника, томат…" autocomplete="off">
           <datalist id="accList"></datalist>
+          <small id="accHint">Любой из 351 продукта — начните вводить название</small>
         </div>
       </div>
 
@@ -154,6 +155,10 @@
     </div>
 
     <div class="accents" id="accents"></div>
+    <div class="acc-tools" id="accTools" hidden>
+      <span id="accCount"></span>
+      <button class="btn btn-ghost btn-sm" id="btnAccMore" type="button">Показать ещё</button>
+    </div>
   </section>
 
 </main>

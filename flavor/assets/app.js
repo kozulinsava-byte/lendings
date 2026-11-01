@@ -534,18 +534,36 @@
   /* ---------- изюминка: что добавить в готовое ---------- */
 
   const ACC_CATS = {
-    jam: ["spice", "herb", "drink", "nut", "fruit", "sweet"],
-    bake: ["spice", "nut", "fruit", "sweet", "drink"],
-    pasta: ["spice", "herb", "dairy", "sauce", "nut"],
-    salad: ["herb", "spice", "nut", "dairy", "sauce", "fruit"],
-    grill: ["spice", "herb", "sauce", "fruit"],
-    soup: ["herb", "spice", "dairy", "sauce", "nut"],
-    dessert: ["spice", "nut", "fruit", "sweet", "drink"],
-    drink: ["herb", "spice", "fruit", "sweet"],
-    breakfast: ["spice", "fruit", "nut", "sweet", "dairy"],
-    side: ["herb", "spice", "dairy", "nut", "sauce"],
-    snack: ["spice", "fruit", "dairy", "nut", "sauce"],
-    marinade: ["spice", "herb", "sauce", "fruit", "drink"]
+    jam: ["spice", "herb", "drink", "nut", "fruit", "sweet", "sauce", "veg"],
+    bake: ["spice", "nut", "fruit", "sweet", "drink", "dairy", "sauce", "veg", "grain", "herb"],
+    pasta: ["spice", "herb", "dairy", "sauce", "nut", "veg", "meat", "fish", "fruit", "grain"],
+    salad: ["herb", "spice", "nut", "dairy", "sauce", "fruit", "veg", "meat", "fish", "grain"],
+    grill: ["spice", "herb", "sauce", "fruit", "dairy", "veg", "nut", "drink", "meat"],
+    soup: ["herb", "spice", "dairy", "sauce", "nut", "veg", "meat", "fish", "grain", "fruit"],
+    dessert: ["spice", "nut", "fruit", "sweet", "drink", "dairy", "herb", "grain", "sauce", "veg"],
+    drink: ["herb", "spice", "fruit", "sweet", "drink", "dairy", "veg", "sauce"],
+    breakfast: ["spice", "fruit", "nut", "sweet", "dairy", "grain", "sauce", "veg", "meat", "fish"],
+    side: ["herb", "spice", "dairy", "nut", "sauce", "veg", "grain", "fruit", "meat", "fish"],
+    snack: ["spice", "fruit", "dairy", "nut", "sauce", "meat", "fish", "veg", "grain", "drink"],
+    marinade: ["spice", "herb", "sauce", "fruit", "drink", "veg", "dairy", "nut"]
+  };
+
+  const ACC_CURED = new Set(["bacon", "prosciutto", "ham", "salami", "chorizo", "anchovy", "sardine",
+    "herring", "caviar"]);
+  const ACC_VEG = new Set(["onion", "red_onion", "shallot", "garlic", "chili", "bell_pepper", "olive",
+    "caper", "sauerkraut", "horseradish", "wasabi", "ginger", "kelp", "nori", "mushroom", "porcini",
+    "truffle", "cucumber"]);
+  const ACC_DAIRY_BLOCK = new Set(["milk", "buttermilk", "kefir"]);
+  const ACC_SAUCE_BLOCK = new Set(["ketchup", "bbq_sauce", "mayonnaise", "aioli"]);
+
+  const ACC_SYN = {
+    "томат": "tomato", "помидоры": "tomato", "картошка": "potato", "картофель": "potato",
+    "курица": "chicken", "куриное": "chicken", "свинина": "pork", "говядина": "beef",
+    "баранина": "lamb", "креветка": "shrimp", "креветки": "shrimp", "лосось": "salmon",
+    "семга": "salmon", "сёмга": "salmon", "треска": "cod", "тунец": "tuna",
+    "творог": "cottage_cheese", "сметана": "sour_cream", "сливки": "cream", "яйца": "egg",
+    "яйцо": "egg", "свекла": "beet", "свёкла": "beet", "кабачок": "zucchini",
+    "баклажан": "eggplant", "морковь": "carrot", "шоколад": "dark_chocolate", "сыр": "parmesan"
   };
 
   const ACC_UNIT = {
@@ -568,15 +586,6 @@
     { id: "noble", name: "Благородство" }
   ];
 
-  const EFFECT_TEXT = {
-    fresh: "свежий край и меньше приторности",
-    warm: "тёплая пряность и глубина",
-    contrast: "баланс: соль и жар против сладости",
-    depth: "второй этаж — умами и карамель",
-    bright: "отчётливая кислота и ясный вкус",
-    noble: "нота, за которую не жалко платить"
-  };
-
   const CITRUS_IDS = new Set(["orange", "lemon", "lime", "grapefruit", "pomelo", "tangerine",
     "kumquat", "bergamot", "yuzu"]);
   const WARM_IDS = new Set(["cinnamon", "clove", "nutmeg", "cardamom", "star_anise", "allspice",
@@ -592,7 +601,8 @@
   const SAVORY_ACCENTS = new Set(["miso", "soy_sauce", "fish_sauce", "oyster_sauce",
     "worcestershire", "tomato_paste", "ketchup", "bbq_sauce", "mayonnaise", "aioli", "pesto",
     "sriracha", "tabasco", "hoisin", "chipotle", "ancho", "smoked_paprika", "nori", "kelp",
-    "mushroom", "porcini", "truffle"]);
+    "mushroom", "porcini", "truffle", "sauerkraut", "horseradish", "wasabi", "onion",
+    "red_onion", "shallot", "garlic", "chili", "olive", "caper", "dijon", "mustard"]);
   const SWEET_PURPOSES = new Set(["jam", "dessert", "bake", "drink"]);
 
   const ACC_DEFAULT_BASE = {
@@ -612,7 +622,8 @@
     if (t[4] >= 2 || DEPTH_IDS.has(id)) tags.add("depth");
     if (NOBLE_IDS.has(id)) tags.add("noble");
     if (!tags.size) {
-      if (cat === "dairy" || cat === "nut") tags.add("depth");
+      if (cat === "meat" || cat === "fish") tags.add("depth");
+      else if (cat === "dairy" || cat === "nut") tags.add("depth");
       else if (cat === "spice" || cat === "sweet") tags.add("warm");
       else if (cat === "sauce") tags.add("bright");
       else tags.add("fresh");
@@ -620,31 +631,136 @@
     return tags;
   }
 
+  function tasteFit(a, b) {
+    const ta = BY_ID[a].tastes, tb = BY_ID[b].tastes;
+    const ca = BY_ID[a].cat, cb = BY_ID[b].cat;
+    let s = 0;
+    if ((ta[1] >= 2 && tb[0] >= 2) || (tb[1] >= 2 && ta[0] >= 2)) s += 2;
+    if ((ta[3] >= 2 && tb[0] >= 2) || (tb[3] >= 2 && ta[0] >= 2)) s += 2;
+    if (ta[4] >= 2 && tb[4] >= 2) s += 1;
+    if ((ta[2] >= 2 && tb[0] >= 2) || (tb[2] >= 2 && ta[0] >= 2)) s += 1;
+    if ((ta[5] >= 2 && (tb[0] >= 2 || cb === "dairy")) || (tb[5] >= 2 && (ta[0] >= 2 || ca === "dairy"))) s += 1;
+    if ((ta[1] >= 2 && (cb === "dairy" || cb === "meat")) || (tb[1] >= 2 && (ca === "dairy" || ca === "meat"))) s += 1;
+    if (ta[6] >= 2 && tb[6] >= 2) s += 1;
+    if (["fruit", "veg"].includes(ca) && ["spice", "herb", "nut", "dairy", "sauce"].includes(cb)) s += 2;
+    if (["fruit", "veg"].includes(cb) && ["spice", "herb", "nut", "dairy", "sauce"].includes(ca)) s += 2;
+    if (["meat", "fish"].includes(ca) && ["herb", "spice", "sauce", "fruit"].includes(cb)) s += 2;
+    if (["meat", "fish"].includes(cb) && ["herb", "spice", "sauce", "fruit"].includes(ca)) s += 2;
+    if (ca === cb && ["spice", "herb"].includes(ca)) s += 1;
+    return s;
+  }
+
   function accentCandidates(baseId, purposeId, opts) {
-    const cats = ACC_CATS[purposeId] || ["spice", "herb", "sauce"];
+    const cats = ACC_CATS[purposeId] || [];
     const out = [];
     FA.ING.forEach((r) => {
       const id = r[0];
       if (id === baseId) return;
       const it = BY_ID[id];
       if (!cats.includes(it.cat)) return;
-      const e = edge(baseId, id);
-      if (!e) return;
-      // из напитков акцентом бывают только вино и крепкое, не квас и не чай
+      if (it.cat === "grain") return;
+      if (["meat", "fish"].includes(it.cat) && !ACC_CURED.has(id)) return;
+      if (it.cat === "veg" && !ACC_VEG.has(id)) return;
+      if (it.cat === "dairy" && ACC_DAIRY_BLOCK.has(id)) return;
+      if (it.cat === "sauce" && ACC_SAUCE_BLOCK.has(id)) return;
+      if (["meat", "fish"].includes(it.cat) && ["meat", "fish"].includes(BY_ID[baseId].cat)) return;
       if (it.cat === "drink" && !NOBLE_IDS.has(id)) return;
-      // в сладкое не кладём умами-соусы и копчёности
       if (SWEET_PURPOSES.has(purposeId) && SAVORY_ACCENTS.has(id)) return;
       if (opts.budget === "eco" && it.price === 3) return;
       const tags = effectTags(id);
       if (opts.effect && !tags.has(opts.effect)) return;
-      const CAT_BONUS = { spice: 3, herb: 3, sauce: 2, nut: 2, fruit: 2, dairy: 1, sweet: 1 };
-      let score = e.w * 3 + Math.random() * 2.4 + (CAT_BONUS[it.cat] || 0);
-      if (it.price === 1) score += 2;
-      if (opts.budget === "premium" && it.price === 3) score += 3;
-      if (opts.effect) score += 4;
-      out.push({ id, score, tags, edge: e });
+      const e = edge(baseId, id);
+      const model = e ? 0 : tasteFit(baseId, id);
+      if (!e && model < 3) return;
+      const CAT_BONUS = { spice: 3, herb: 3, sauce: 2, nut: 2, fruit: 2, dairy: 2, sweet: 1, veg: 1, meat: 1, fish: 1, grain: 1, drink: 1 };
+      let score = e ? e.w * 4 : model * 1.7;
+      score += CAT_BONUS[it.cat] || 0;
+      if (cats.indexOf(it.cat) < 4) score += 1;
+      if (it.price === 1) score += 1;
+      if (opts.budget === "premium" && it.price === 3) score += 2;
+      if (opts.effect) score += 3;
+      out.push({ id, score, tags, edge: e, modeled: !e });
     });
     return out.sort((a, b) => b.score - a.score);
+  }
+
+  function diversify(list) {
+    const buckets = new Map();
+    for (const c of list) {
+      const cat = BY_ID[c.id].cat;
+      if (!buckets.has(cat)) buckets.set(cat, []);
+      buckets.get(cat).push(c);
+    }
+    const out = [];
+    let added = true;
+    while (added) {
+      added = false;
+      for (const arr of buckets.values()) {
+        const x = arr.shift();
+        if (x) { out.push(x); added = true; }
+      }
+    }
+    return out;
+  }
+
+  const ACC_PAGE = { list: [], shown: 0, baseId: null, purpose: null, note: "" };
+
+  function accentWhy(base, id) {
+    const key = [base, id].sort().join("|");
+    if (FA.WHY[key]) return FA.WHY[key];
+    const t = BY_ID[id].tastes;
+    const bt = BY_ID[base].tastes;
+    const cat = BY_ID[id].cat;
+    if (cat === "herb") return "зелёная нота к основе";
+    if (cat === "spice") return "пряная нота к основе";
+    if (cat === "nut") return "хруст к текстуре";
+    if (cat === "dairy") return "сливочность смягчает";
+    if (t[5] >= 2) return "жгучесть добавляет контраст";
+    if (t[1] >= 2) return ["dairy", "meat", "fish"].includes(BY_ID[base].cat) ? "кислота снимает жирность" : "кислота освежает вкус";
+    if (t[3] >= 2) return bt[0] >= 2 ? "соль и сладость держат друг друга" : "соль подчёркивает вкус";
+    if (t[0] >= 2) return bt[1] >= 2 ? "сладость смягчает кислоту" : "сладость добавляет мягкости";
+    if (t[4] >= 2) return bt[4] >= 2 ? "умами усиливается" : "умами добавляет глубину";
+    if (t[2] >= 2) return "горечь добавляет взрослый тон";
+    if (cat === "fruit") return "фруктовая нота";
+    if (cat === "sauce") return "кислый акцент";
+    if (cat === "sweet") return "десертная нота";
+    if (cat === "drink") return "аромат напитка";
+    if (t[6] >= 2) return "ароматическая нота к основе";
+    return "новый акцент к основе";
+  }
+
+  function accentCard(c, baseId) {
+    const it = BY_ID[c.id];
+    const tag = [...c.tags][0];
+    const label = EFFECTS.find((x) => x.id === tag);
+    const why = cap(accentWhy(baseId, c.id));
+    return `<article class="accent-card" data-base="${esc(baseId)}">
+      <div class="accent-card__pic">${img(c.id)}</div>
+      <div class="accent-card__body">
+        <span class="tag">${esc(label ? label.name : "")}${c.modeled ? " · расчётное" : ""}</span>
+        <h3>${esc(it.name)}</h3>
+        <p class="why">${esc(why)}.</p>
+        <p class="dose"><b>Сколько:</b> ${esc(ACC_UNIT[it.cat] || "немного")} ${esc(ACC_SCALE[ACC_PAGE.purpose] || "")}.</p>
+      </div>
+    </article>`;
+  }
+
+  function accentWord(n) {
+    return n % 10 === 1 && n % 100 !== 11 ? "акцент"
+      : [2, 3, 4].includes(n % 10) && ![12, 13, 14].includes(n % 100) ? "акцента" : "акцентов";
+  }
+
+  function paintAccents(step) {
+    const box = $("#accents");
+    const p = ACC_PAGE;
+    const next = p.list.slice(p.shown, p.shown + step);
+    box.insertAdjacentHTML("beforeend", next.map((c) => accentCard(c, p.baseId)).join(""));
+    p.shown += next.length;
+    fallbackImages(box);
+    const n = p.list.length;
+    $("#accCount").textContent = `Показано ${p.shown} из ${n}`;
+    $("#accTools").hidden = false;
+    $("#btnAccMore").hidden = p.shown >= n;
   }
 
   function renderAccents(baseId, purposeId, opts) {
@@ -656,43 +772,22 @@
       list = accentCandidates(baseId, purposeId, { ...opts, effect: "" });
       fellBack = list.length > 0;
     }
-    const chosen = [];
-    const cats = new Set();
-    for (const c of list) {
-      const cat = BY_ID[c.id].cat;
-      if (cats.has(cat)) continue;
-      cats.add(cat);
-      chosen.push(c);
-      if (chosen.length === 3) break;
-    }
-    if (!chosen.length) {
-      box.innerHTML = `<p class="empty">Для этой основы пока нет подходящих акцентов — попробуйте другой продукт или уберите фильтр эффекта.</p>`;
-      return;
-    }
-    const note = fellBack
+    ACC_PAGE.list = diversify(list);
+    ACC_PAGE.shown = 0;
+    ACC_PAGE.baseId = baseId;
+    ACC_PAGE.purpose = purposeId;
+    ACC_PAGE.note = fellBack
       ? `<p class="accent-note">Под выбранный эффект ничего не нашлось — показываю ближайшие акценты.</p>`
       : "";
-    box.innerHTML = note + chosen.map((c) => {
-      const it = BY_ID[c.id];
-      const tag = [...c.tags][0];
-      const label = EFFECTS.find((x) => x.id === tag);
-      const detail = FA.WHY[[baseId, c.id].sort().join("|")];
-      const reason = FA.REASONS[c.edge.code];
-      const why = detail
-        ? cap(detail)
-        : reason ? cap(reason.text) : "Проверенная пара";
-      const effect = EFFECT_TEXT[tag] || "";
-      return `<article class="accent-card">
-        <div class="accent-card__pic">${img(c.id)}</div>
-        <div class="accent-card__body">
-          <span class="tag">${esc(label ? label.name : "")}</span>
-          <h3>${esc(it.name)}</h3>
-          <p class="why">${esc(why)}. ${esc(cap(effect))}.</p>
-          <p class="dose"><b>Сколько:</b> ${esc(ACC_UNIT[it.cat] || "немного")} ${esc(ACC_SCALE[purposeId] || "")}.</p>
-        </div>
-      </article>`;
-    }).join("");
-    fallbackImages(box);
+    const n = ACC_PAGE.list.length;
+    box.innerHTML = "";
+    if (!n) {
+      box.innerHTML = `<p class="empty">Для этой основы пока нет подходящих акцентов — попробуйте другой продукт или уберите фильтр эффекта.</p>`;
+      $("#accTools").hidden = true;
+      return;
+    }
+    box.innerHTML = `<p class="acc-sum">Найдено <b>${n}</b> ${accentWord(n)} — проверенные пары и расчётные сочетания.</p>` + ACC_PAGE.note;
+    paintAccents(6);
   }
 
   function initAccent() {
@@ -711,10 +806,7 @@
       EFFECTS.map((e) => `<button class="pill" data-acc-effect="${e.id}" aria-pressed="false">${esc(e.name)}</button>`).join("");
 
     function basePool() {
-      const rule = FA.PURPOSE_RULES[state.purpose];
-      const cats = new Set(rule.cats);
-      return FA.ING.map((r) => r[0]).filter((id) => cats.has(BY_ID[id].cat))
-        .sort((a, b) => name(a).localeCompare(name(b), "ru"));
+      return FA.ING.map((r) => r[0]).sort((a, b) => name(a).localeCompare(name(b), "ru"));
     }
 
     function fillList() {
@@ -727,15 +819,20 @@
     }
 
     function resolveBase() {
-      const q = (input.value || "").trim().toLowerCase();
-      if (!q) return null;
+      const raw = (input.value || "").trim().toLowerCase();
+      if (!raw) return null;
+      const q = raw.replace(/ё/g, "е");
       const pool = basePool();
-      const exact = pool.find((id) => name(id).toLowerCase() === q || id === q);
+      const exact = pool.find((id) => name(id).toLowerCase().replace(/ё/g, "е") === q || id === raw);
       if (exact) return exact;
-      const starts = pool.find((id) => name(id).toLowerCase().startsWith(q));
+      const syn = ACC_SYN[q];
+      if (syn && BY_ID[syn]) return syn;
+      const starts = pool.find((id) => name(id).toLowerCase().replace(/ё/g, "е").startsWith(q));
       if (starts) return starts;
-      const any = FA.ING.map((r) => r[0]).find((id) => name(id).toLowerCase() === q);
-      return any || null;
+      const contains = pool.find((id) =>
+        name(id).toLowerCase().replace(/ё/g, "е").includes(q) ||
+        (BY_ID[id].tags || "").toLowerCase().replace(/ё/g, "е").includes(q));
+      return contains || null;
     }
 
     purposesBox.addEventListener("click", (e) => {
@@ -764,12 +861,15 @@
       const id = resolveBase();
       if (!id) {
         box.innerHTML = `<p class="empty">Не нашёл такой продукт. Начните вводить название — подсказки появятся в списке.</p>`;
+        $("#accTools").hidden = true;
         return;
       }
       input.value = name(id);
       renderAccents(id, state.purpose, state);
       box.scrollIntoView({ behavior: "smooth", block: "nearest" });
     });
+
+    $("#btnAccMore") && $("#btnAccMore").addEventListener("click", () => paintAccents(12));
 
     fillList();
     setBase(ACC_DEFAULT_BASE[state.purpose] || basePool()[0]);
