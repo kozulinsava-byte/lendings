@@ -589,6 +589,12 @@
   const NOBLE_IDS = new Set(["vanilla", "saffron", "truffle", "brandy", "rum", "whiskey", "gin",
     "vodka", "tequila", "champagne", "red_wine", "white_wine", "sake", "vermouth", "cider", "caviar"]);
 
+  const SAVORY_ACCENTS = new Set(["miso", "soy_sauce", "fish_sauce", "oyster_sauce",
+    "worcestershire", "tomato_paste", "ketchup", "bbq_sauce", "mayonnaise", "aioli", "pesto",
+    "sriracha", "tabasco", "hoisin", "chipotle", "ancho", "smoked_paprika", "nori", "kelp",
+    "mushroom", "porcini", "truffle"]);
+  const SWEET_PURPOSES = new Set(["jam", "dessert", "bake", "drink"]);
+
   const ACC_DEFAULT_BASE = {
     jam: "orange", bake: "apple", pasta: "tomato", salad: "tomato", grill: "chicken",
     soup: "mushroom", dessert: "strawberry", drink: "lemon", breakfast: "egg",
@@ -626,6 +632,8 @@
       if (!e) return;
       // из напитков акцентом бывают только вино и крепкое, не квас и не чай
       if (it.cat === "drink" && !NOBLE_IDS.has(id)) return;
+      // в сладкое не кладём умами-соусы и копчёности
+      if (SWEET_PURPOSES.has(purposeId) && SAVORY_ACCENTS.has(id)) return;
       if (opts.budget === "eco" && it.price === 3) return;
       const tags = effectTags(id);
       if (opts.effect && !tags.has(opts.effect)) return;
